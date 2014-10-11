@@ -33,7 +33,7 @@ app.get('/endpoint', function(req, res) {
   // Code to initialize the model.
   // ...
 
-  res.render("home.html", model);
+  res.render("endpoint.html", model);
 });
 
 ```
