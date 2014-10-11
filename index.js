@@ -1,8 +1,11 @@
 var http = require("http");
 var path = require("path");
+var fs = require("fs");
 var express = require('express');
-var app = express();
 var exphbs  = require('express3-handlebars');
+
+// Global app.
+app = express();
 
 // General configuration.
 app.configure(function() {
@@ -18,8 +21,14 @@ app.configure(function() {
   app.use(app.router);
 });
 
-app.get('/', function(req, res){
-  res.render("index.html");
+// Loads all source files in the "app" directory.
+fs.readdir(path.join(__dirname, "app"), function (err, files) {
+  if (err) {
+    throw new Error("Cannot load app: " + err);
+  }
+  files.forEach(function (file) {
+    require(path.join(__dirname, "app", file));
+  });
 });
 
 app.listen(3000);
