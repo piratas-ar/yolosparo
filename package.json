@@ -16,8 +16,13 @@
     "express3-handlebars": "*",
     "handlebars": "*"
   },
- "author": "seykron",
+  "author": "seykron",
   "license": "GPLv2",
   "readmeFilename": "README.md",
-  "gitHead": "45626c25ed7bcc2745a0a0918af217199c4af8fa"
+  "gitHead": "45626c25ed7bcc2745a0a0918af217199c4af8fa",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0"
+  }
 }
+
