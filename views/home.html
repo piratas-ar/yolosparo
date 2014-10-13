@@ -4,5 +4,13 @@
   </head>
   <body>
     <h1>Yo los paro!</h1>
+    {{#each legislatives}}
+      <div>
+        <h2>
+          <img alt="{{fullName}}" src="{{pictureUrl}}">
+          {{fullName}}
+        </h2>
+      </div>
+    {{/each}}
   </body>
 </html>
