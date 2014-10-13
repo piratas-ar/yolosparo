@@ -3,14 +3,55 @@
     <title>Yo los paro</title>
   </head>
   <body>
-    <h1>Yo los paro!</h1>
     {{#each legislatives}}
-      <div>
-        <h2>
-          <img alt="{{fullName}}" src="{{pictureUrl}}">
-          {{fullName}}
-        </h2>
+      <div class="media">
+        <img class="pull-left media-object" alt="{{fullName}}" src="{{pictureUrl}}">
+        <div class="media-body">
+          <h4 class="media-heading">{{fullName}}</h4>
+
+          <a class="js-send-message social-channel"
+            data-id="{{id}}"
+            href="javascript:;">Enviar email</a>
+
+          <a href="https://twitter.com/intent/tweet?screen_name={{twitterName}}&text={{../config.tweet}}"
+            class="social-channel twitter-mention-button"
+            data-related="{{twitterName}}"
+            data-size="large"
+            data-dnt="true"
+            data-lang="es">Tweetear a {{twitterName}}</a>
+        </div>
       </div>
     {{/each}}
+
+    <div class="js-send-message-dialog send-message-dialog modal hide fade">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3>Enviar mensaje</h3>
+      </div>
+      <div class="modal-body">
+        <p>
+          Para: <span class="js-message-to"><!-- --></span>
+        </p>
+        <p>
+          De: <input name="message-from">
+        </p>
+        <textarea name="message">{{config.emailMessage}}</textarea>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn">Cancelar</a>
+        <a href="#" class="btn btn-primary">Enviar</a>
+      </div>
+    </div>
+
+    <script type="text/javascript"
+      src="https://platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript" src="/js/SendMessage.js"></script>
+    <script type="text/javascript">
+      jQuery(function () {
+        var sendMessage = new SendMessage(jQuery(document.body),
+          {{{json legislatives}}});
+        sendMessage.render();
+      });
+    </script>
   </body>
 </html>

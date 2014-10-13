@@ -13,7 +13,7 @@
   "dependencies": {
     "socket.io": "*",
     "express": "3.5",
-    "express3-handlebars": "*",
+    "express-handlebars": "*",
     "handlebars": "*",
     "mysql": "*"
   },

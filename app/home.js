@@ -10,7 +10,8 @@ app.get('/', function (req, res) {
       return;
     }
     res.render("home.html", {
-      legislatives: legislatives
+      legislatives: legislatives,
+      config: app.config
     });
   });
 });

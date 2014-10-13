@@ -2,15 +2,21 @@ var http = require("http");
 var path = require("path");
 var fs = require("fs");
 var express = require('express');
-var exphbs  = require('express3-handlebars');
+var exphbs = require('express-handlebars');
 var DataSource = require("./lib/DataSource");
 var CONNECTION_STRING = "mysql://yolosparo:yolosparo@localhost/yolosparo";
 
 // Global app.
 app = express();
 
+app.config = JSON.parse(fs.readFileSync(path
+  .join(__dirname, "config.json")).toString());
+
 // General configuration.
-app.engine('html', exphbs({ defaultLayout: 'main.html' }));
+app.engine('html', exphbs({
+  defaultLayout: 'main.html',
+  helpers: require("./lib/viewHelpers.js")
+}));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "handlebars");
 
@@ -33,7 +39,7 @@ fs.readdir(path.join(__dirname, "app"), function (err, files) {
   });
 });
 
-if (app.get("env") !== "prod") {
+if (app.get("env") !== "production") {
   app.dataSource = new DataSource(CONNECTION_STRING);
   app.dataSource.setupDatabase(function (err) {
     if (err) {

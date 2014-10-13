@@ -1,1 +1,20 @@
 /** Main CSS */
+body {
+  padding-top: 50px;
+}
+
+/** Main layout container. */
+.main-container {
+  padding: 40px 15px;
+}
+
+/** Social channel action (ie: fb, twitter, etc) */
+.social-channel {
+  display: block;
+}
+
+/** Textarea inside the message dialog. */
+.send-message-dialog textarea {
+  height: 200px;
+  width: 98%;
+}
