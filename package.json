@@ -15,7 +15,8 @@
     "express": "3.5",
     "express-handlebars": "*",
     "handlebars": "*",
-    "mysql": "*"
+    "mysql": "*",
+    "nodemailer": "*"
   },
   "author": "seykron",
   "license": "GPLv2",

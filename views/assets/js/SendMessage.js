@@ -13,6 +13,13 @@ SendMessage = function (container, legislatives) {
     show: false
   });
 
+  /** Id of the legislative to send message.
+   * @type {Number}
+   * @private
+   * @fieldOf SendMessage#
+   */
+  var currentLegislativeId;
+
   /** Searches for a legislative by its id.
    * @param {Number} id Legislative id. Cannot be null.
    * @return {Object} Returns the required legislative or null if it doesn't
@@ -42,7 +49,31 @@ SendMessage = function (container, legislatives) {
 
       dialog.find(".js-message-to").text(legislative.fullName +
         " <" + legislative.email + ">");
+      currentLegislativeId = legislative.id;
       dialog.modal("show");
+    });
+  };
+
+  /** Initializes dialog event listeners.
+   * @private
+   * @methodOf SendMessage#
+   */
+  var initEventListeners = function () {
+    dialog.find(".js-cancel").click(function () {
+      dialog.modal("hide");
+    });
+    dialog.find(".js-send").click(function () {
+      var message = dialog.find("textarea[name=message]").text();
+      var from = dialog.find("input[name=message-from]").val();
+
+      jQuery.post("/sendMessage", {
+        id: currentLegislativeId,
+        message: message,
+        from: from
+      }, function (response) {
+        // TODO(seykron): manage errors.
+        dialog.modal("hide");
+      });
     });
   };
 
@@ -50,6 +81,7 @@ SendMessage = function (container, legislatives) {
     /** Renders the view and initializes event listeners.
      */
     render: function () {
+      initEventListeners();
       container.find(".js-send-message").each(function (index, element) {
         addEventListeners(jQuery(element));
       });
