@@ -14,7 +14,8 @@
     "socket.io": "*",
     "express": "3.5",
     "express3-handlebars": "*",
-    "handlebars": "*"
+    "handlebars": "*",
+    "mysql": "*"
   },
   "author": "seykron",
   "license": "GPLv2",

@@ -3,23 +3,25 @@ var path = require("path");
 var fs = require("fs");
 var express = require('express');
 var exphbs  = require('express3-handlebars');
+var DataSource = require("./lib/DataSource");
+var CONNECTION_STRING = "mysql://yolosparo:yolosparo@localhost/yolosparo";
 
 // Global app.
 app = express();
 
 // General configuration.
-app.configure(function() {
-  app.engine('html', exphbs({ defaultLayout: 'main.html' }));
-  app.set("views", path.join(__dirname, "views"));
-  app.set("view engine", "handlebars");
+app.engine('html', exphbs({ defaultLayout: 'main.html' }));
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "handlebars");
 
-  app.use("/", express.static(__dirname + '/views/assets'));
+// Manages transactions.
+app.use(require("./lib/transactionMiddleware"));
 
-  app.use(express.methodOverride());
-  app.use(express.bodyParser());
-  app.use(express.cookieParser());
-  app.use(app.router);
-});
+app.use("/", express.static(__dirname + '/views/assets'));
+app.use(express.methodOverride());
+app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(app.router);
 
 // Loads all source files in the "app" directory.
 fs.readdir(path.join(__dirname, "app"), function (err, files) {
@@ -31,7 +33,17 @@ fs.readdir(path.join(__dirname, "app"), function (err, files) {
   });
 });
 
-app.listen(3000);
-
-console.log("App available at http://localhost:3000");
-
+if (app.get("env") !== "prod") {
+  app.dataSource = new DataSource(CONNECTION_STRING);
+  app.dataSource.setupDatabase(function (err) {
+    if (err) {
+      throw err;
+    }
+    app.listen(3000);
+    console.log("App available at http://localhost:3000");
+  });
+} else {
+  app.dataSource = new DataSource(CONNECTION_STRING + "_prod");
+  app.listen(3000);
+  console.log("App available at http://localhost:3000");
+}

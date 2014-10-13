@@ -12,8 +12,20 @@ $ node index.js
 App available at http://localhost:3000
 ```
 
-The application uses *express.js* as the web framework and *handlebars* as the
-template engine.
+The application uses *express.js 3.5* as the web framework and *handlebars* as
+the template engine.
+
+### Set up database
+
+Before running the app you need to set up the database. Open your mysql client
+and execute the following statements:
+
+```
+  create database yolosparo;
+  grant all privileges on yolosparo.*
+    to 'yolosparo'@'localhost'
+    identified by 'yolosparo';
+```
 
 ## Mapping new endpoints
 
@@ -45,7 +57,7 @@ http://expressjs.com/4x/api.html#application
 * Create the view file in the ```views/``` directory. It uses the default
 layout, which is ```views/layouts/main.html```.
 
-File **views/endpoint.html***
+File **views/endpoint.html**
 ```
 <html>
   <head>

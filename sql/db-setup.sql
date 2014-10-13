@@ -13,6 +13,10 @@ create table if not exists legislatives (
   end_date timestamp not null,
   party varchar(255) not null,
   block varchar(255) null,
+  phone varchar(50) null,
+  address varchar(255) null,
+  twitter_account varchar(255) null,
+  facebook_account varchar(255) null,
   unique(type, full_name)
 );
 
