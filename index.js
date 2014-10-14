@@ -20,13 +20,15 @@ app.engine('html', exphbs({
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "handlebars");
 
-// Manages transactions.
-app.use(require("./lib/transactionMiddleware"));
-
 app.use("/", express.static(__dirname + '/views/assets'));
 app.use(express.methodOverride());
 app.use(express.bodyParser());
 app.use(express.cookieParser());
+
+// Manages transactions.
+app.use(require("./lib/transactionMiddleware"));
+// Manages users
+app.use(require("./app/userMiddleware"));
 app.use(app.router);
 
 // Loads all source files in the "app" directory.

@@ -1,4 +1,6 @@
+drop table if exists activities;
 drop table if exists legislatives;
+drop table if exists users;
 
 -- People
 create table if not exists legislatives (
@@ -20,3 +22,21 @@ create table if not exists legislatives (
   unique(type, full_name)
 );
 
+-- Users
+create table if not exists users (
+  id bigint not null primary key auto_increment,
+  nick_name varchar(50) not null unique,
+  full_name varchar(255) null,
+  email varchar(255) null unique
+);
+
+-- Activity log
+create table if not exists activities (
+  id bigint not null primary key auto_increment,
+  creation_time timestamp not null,
+  user_id bigint not null,
+  legislative_id bigint not null,
+  action varchar(50) not null,
+  foreign key (legislative_id) references legislatives(id),
+  foreign key (user_id) references users(id)
+);
