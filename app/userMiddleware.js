@@ -39,7 +39,7 @@ var generateUniqueName = function (repo, callback) {
       return;
     }
     if (user) {
-      generateUniqueName(conn, callback);
+      generateUniqueName(repo, callback);
     } else {
       console.log("New user: " + nick);
       repo.save({
