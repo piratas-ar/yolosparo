@@ -9,11 +9,17 @@
         <div class="media-body">
           <h4 class="media-heading">{{fullName}}</h4>
 
-          <a class="js-send-message social-channel"
+          <a class="js-send-message"
             data-id="{{id}}"
             href="javascript:;">Enviar email</a>
 
-          <a href="https://twitter.com/intent/tweet?screen_name={{twitterName}}&text={{../config.tweet}}"
+          <a class="js-fb-feed btn btn-block btn-social btn-facebook"
+            data-to="{{facebookName}}"
+            href="javascript:;">
+            <i class="fa fa-facebook"><!-- Icon --></i>Escribirle en Facebook
+          </a>
+
+          <a href="https://twitter.com/intent/tweet?screen_name=matias_mi&text={{../config.tweet}}"
             class="social-channel twitter-mention-button"
             data-related="{{twitterName}}"
             data-size="large"
@@ -45,12 +51,21 @@
 
     <script type="text/javascript"
       src="https://platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript"
+      src="//connect.facebook.net/es_LA/all.js"></script>
     <script type="text/javascript" src="/js/SendMessage.js"></script>
+
     <script type="text/javascript">
       jQuery(function () {
         var sendMessage = new SendMessage(jQuery(document.body),
           {{{json legislatives}}});
         sendMessage.render();
+
+        FB.init({
+          appId: '{{config.facebookAppId}}',
+          xfbml: true,
+          version: 'v2.1'
+        });
       });
     </script>
   </body>

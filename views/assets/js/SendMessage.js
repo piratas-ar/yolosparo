@@ -75,6 +75,27 @@ SendMessage = function (container, legislatives) {
         dialog.modal("hide");
       });
     });
+
+    twttr.events.bind(
+      'tweet',
+      function (event) {
+        console.log(event);
+      }
+    );
+
+    container.find(".js-fb-feed").click(function (event) {
+      var link = jQuery(event.target);
+
+      FB.ui({
+        method: 'send',
+        link: 'http://yolosparo.org',
+        to: link.data("to")
+      }, function(response) {
+        if (response && response.success) {
+
+        }
+      });
+    });
   };
 
   return {

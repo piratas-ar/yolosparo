@@ -18,3 +18,9 @@ body {
   height: 200px;
   width: 98%;
 }
+
+/** Social buttons. */
+.btn-social {
+  background-image: none;
+  width: 196px;
+}
