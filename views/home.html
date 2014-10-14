@@ -1,8 +1,45 @@
-<html>
-  <head>
-    <title>Yo los paro</title>
-  </head>
-  <body>
+<div class="row">
+  <div class="span3">
+
+    <form>
+
+      <h2>¿Qué querés hacer?</h2>
+      <div class="form-group">
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="comenta" /> Comentar en redes sociales y webs
+          </label>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="escribe" /> Mandar mails
+          </label>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="va" /> Ir a demostraciones/eventos
+          </label>
+        </div>
+
+      </div>
+
+      <h2>̉¿Donde?</h2>
+
+      <div>
+        <select>
+          <option name="distrito" value="todos">Todos los distritos</option>
+        </select>
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="span6">
+
     {{#each legislatives}}
       <div class="media">
         <img class="pull-left media-object" alt="{{fullName}}" src="{{pictureUrl}}">
@@ -28,6 +65,14 @@
         </div>
       </div>
     {{/each}}
+
+  </div>
+
+  <div class="span3">
+    <h3>Actividad</h3>
+  </div>
+
+</div>
 
     <div class="js-send-message-dialog send-message-dialog modal hide fade">
       <div class="modal-header">
@@ -68,5 +113,4 @@
         });
       });
     </script>
-  </body>
-</html>
+
