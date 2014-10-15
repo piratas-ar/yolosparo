@@ -16,7 +16,10 @@
     "express-handlebars": "*",
     "handlebars": "*",
     "mysql": "*",
-    "nodemailer": "*"
+    "nodemailer": "*",
+    "async": "*",
+    "extend": "*",
+    "csv-parse": "*"
   },
   "author": "seykron",
   "license": "GPLv2",

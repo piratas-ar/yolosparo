@@ -17,6 +17,11 @@ create table if not exists legislatives (
   block varchar(255) null,
   phone varchar(50) null,
   address varchar(255) null,
+  personal_phone varchar(50) null,
+  personal_address varchar(255) null,
+  secretary_name varchar(255) null,
+  secretary_phone varchar(50) null,
+  site_url varchar(2000) null,
   twitter_account varchar(255) null,
   facebook_account varchar(255) null,
   unique(type, full_name)
