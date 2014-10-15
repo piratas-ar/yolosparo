@@ -9,7 +9,8 @@ app.get('/', function (req, res) {
       res.render("home.html", {
         legislatives: legislatives,
         config: app.config,
-        url_district:"http://" + req.headers.host + "/?district="
+        url_district:"http://" + req.headers.host + "/?district=",
+        url_all:"http://" + req.headers.host
       });
   };
   
