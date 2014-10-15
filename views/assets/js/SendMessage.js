@@ -96,6 +96,12 @@ SendMessage = function (container, legislatives) {
         }
       });
     });
+    container.find(".js-show-info").click(function (event) {
+      var action = jQuery(event.target);
+      var infoEl = action.next();
+      action.hide();
+      infoEl.show();
+    });
   };
 
   return {

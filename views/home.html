@@ -46,22 +46,63 @@
         <div class="media-body">
           <h4 class="media-heading">{{fullName}}</h4>
 
-          <a class="js-send-message"
-            data-id="{{id}}"
-            href="javascript:;">Enviar email</a>
+          <div class="info">
+            <strong>Partido</strong>: {{party}}<br>
+            <span><strong>Distrito</strong>: {{district}}<br>
+            {{#if siteUrl}}
+              <strong>Sitio web</strong>: <a href="{{siteUrl}}">{{siteUrl}}</a><br>
+            {{/if}}
+            <a class="js-show-info" href="javascript:;">Mostrar más información</a>
+            <p>
+              {{#if address}}
+                <strong>Dirección en el Congreso</strong>: {{address}}<br>
+              {{/if}}
+              {{#if phone}}
+                <strong>Teléfono del Congreso</strong>: {{phone}}<br>
+              {{/if}}
+              {{#if personalAddress}}
+                <strong>Dirección en su distrito</strong>: {{personalAddress}}<br>
+              {{/if}}
+              {{#if personalPhone}}
+                <strong>Teléfono de su distrito</strong>: {{personalPhone}}<br>
+              {{/if}}
+              {{#if secretary}}
+                <strong>Secretari@</strong>: {{secretary}}<br>
+              {{/if}}
+              {{#if secretaryPhone}}
+                <strong>Teléfono de la/el secretari@</strong>: {{secretaryPhone}}<br>
+              {{/if}}
+            </p>
+          </div>
+          <div class="social-channels">
+            <a class="js-send-message"
+              data-id="{{id}}"
+              href="javascript:;">Enviar email</a>
 
-          <a class="js-fb-feed btn btn-block btn-social btn-facebook"
-            data-to="{{facebookName}}"
-            href="javascript:;">
-            <i class="fa fa-facebook"><!-- Icon --></i>Escribirle en Facebook
-          </a>
-
-          <a href="https://twitter.com/intent/tweet?screen_name={{twitterName}}&text={{../config.tweet}}"
-            class="social-channel twitter-mention-button"
-            data-related="{{twitterName}}"
-            data-size="large"
-            data-dnt="true"
-            data-lang="es">Tweetear a {{twitterName}}</a>
+            {{#if facebookName}}
+              <a class="js-fb-feed btn btn-block btn-social btn-facebook"
+                data-to="{{facebookName}}"
+                href="javascript:;">
+                <i class="fa fa-facebook"><!-- Icon --></i>Escribirle en Facebook
+              </a>
+            {{else}}
+              <p>
+              No tiene Facebook
+              </p>
+            {{/if}}
+            {{#if twitterName}}
+              <a href="https://twitter.com/intent/tweet?screen_name={{twitterName}}&text={{../config.tweet}}"
+                class="social-channel twitter-mention-button"
+                data-related="{{twitterName}}"
+                data-size="large"
+                data-dnt="true"
+                data-lang="es">Tweetear a {{twitterName}}</a>
+              {{else}}
+                <p>
+                No tiene Twitter
+                </p>
+              {{/if}}
+            </div>
         </div>
       </div>
     {{/each}}

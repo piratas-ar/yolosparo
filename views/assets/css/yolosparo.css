@@ -24,3 +24,7 @@ body {
   background-image: none;
   width: 196px;
 }
+
+.info p {
+  display: none;
+}

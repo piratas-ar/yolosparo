@@ -9,7 +9,7 @@ var SECRETARY_NAME = 9;
 var SECRETARY_PHONE = 10;
 var PERSONAL_ADDRESS = 11;
 var PERSONAL_PHONE = 12;
-var FACEBOOK_ACCOUNT = 13;
+var FACEBOOK_ACCOUNT = 14;
 
 var CONNECTION_STRING = "mysql://yolosparo:yolosparo@localhost/yolosparo";
 var FIND_BY_USER = "select * from legislatives where user_name = ?";
@@ -62,7 +62,6 @@ var createInsert = function (conn, legislative) {
     nullIfEmpty(conn, legislative.twitter_account),
     nullIfEmpty(conn, legislative.facebook_account)
   ];
-
   return "(" + statement.join(",\n") + ")";
 };
 
