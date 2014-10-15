@@ -8,7 +8,8 @@ app.get('/', function (req, res) {
   render_home = function (legislatives){
       res.render("home.html", {
         legislatives: legislatives,
-        config: app.config
+        config: app.config,
+        url_district:"http://" + req.headers.host + "/?district="
       });
   };
   
