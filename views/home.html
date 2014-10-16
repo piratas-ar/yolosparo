@@ -1,6 +1,5 @@
 <div class="row">
   <div class="span8">
-
 		<div id="mainslider">
 			<ul class="bjqs">
 				<li><img src="/images/fracking_pozos.jpg" alt="Para el fracking se realizan cientos de pozos." /></li>
@@ -9,66 +8,60 @@
 			</ul>
 		</div>
 
-    <script type="text/javascript">
-		jQuery(document).ready(function($) {
-    	$('#mainslider').bjqs({
-        'width' : 590,
-        'height' : 400,
-				'animtype' : 'fade',
-				'animduration' : 450,
-				'animspeed' : 3000,
-				'automatic' : true,
-        'responsive' : true,
-				'showcontrols' : false,
-				'showmarkers' : false,
-				'hoverpause' : false,
-				'randomstart' : false
-    	});
-		});
-		</script>
+    <h3>¡Activá Ya!</h3>
 
-<h3>¡Activá Ya!</h3>
+    <p>El Proyecto de Ley de Hidrocarburos ya recibio media sanción en el Senado
+    y de ser aprobado por el Congreso significaría la <strong>total entrega de nuestros
+    recursos naturales y la condena de nuestra soberanía energética y salud por
+    las próximas tres generaciones</strong>.</p>
 
-<p>El Proyecto de Ley de Hidrocarburos ya recibio media sanción en el Senado 
-y de ser aprobado por el Congreso significaría la <strong>total entrega de nuestros 
-recursos naturales y la condena de nuestra soberanía energética y salud por
-las próximas tres generaciones</strong>.</p>
+    <p>El proyecto entreguista <strong>establece un tope a las regalías del 12%, el mas bajo
+    de latinoamérica</strong> y uno de los mas bajos del mundo, a la vez que pone un tope
+    del 3% a los impuestos provinciales a las petroleras. </p>
 
-<p>El proyecto entreguista <strong>establece un tope a las regalías del 12%, el mas bajo 
-de latinoamérica</strong> y uno de los mas bajos del mundo, a la vez que pone un tope 
-del 3% a los impuestos provinciales a las petroleras. </p>
+    <p><strong>Permite a las petroleras aumentar el precio interno hasta precios internacionales</strong>
+    y sacar del país el 20% de la producción (60% para la producción marina). </p>
 
-<p><strong>Permite a las petroleras aumentar el precio interno hasta precios internacionales</strong>
-y sacar del país el 20% de la producción (60% para la producción marina). </p>
+    <p><strong>Afianza el fracking en el país</strong>, un método sumamente contaminante y dependiente
+    de patentes extranjeras, aumentando los tiempos de concesión a 35 años y
+    permitiéndoles usar y contaminar el agua subterranea.</p>
 
-<p><strong>Afianza el fracking en el país</strong>, un método sumamente contaminante y dependiente 
-de patentes extranjeras, aumentando los tiempos de concesión a 35 años y
-permitiéndoles usar y contaminar el agua subterranea.</p>
+    <p>Finalmente, no controla la explotación, sino que confía en que las petroleras
+    digan la verdad sobre la cantidad extraida, renueva las concesiones sin licitación
+    ni canon alguno y <strong>no plantea una reconversión energética a tecnologías renovables</strong>.</p>
 
-<p>Finalmente, no controla la explotación, sino que confía en que las petroleras
-digan la verdad sobre la cantidad extraida, renueva las concesiones sin licitación 
-ni canon alguno y <strong>no plantea una reconversión energética a tecnologías renovables</strong>.</p>
+    <p>Para frenar esto necesitamos la ayuda de todas las personas, necesitamos
+    convencer a nuestros representantes políticos de que le digan <strong>NO a este
+    proyecto</strong>, por eso:</p>
 
-<p>Para frenar esto necesitamos la ayuda de todas las personas, necesitamos 
-convencer a nuestros representantes políticos de que le digan <strong>NO a este 
-proyecto</strong>, por eso:</p>
-
-<li><strong>Difundí los problemas de este proyecto de ley.</strong></p>
-<li><strong>Contactá a un/a diputado/a y explicale por que tiene que votar en contra de este proyecto.</strong></p>
-<li><strong>Sumá a tus familiares, amigos y conocidos a esta campaña.</strong></p>
+    <ul>
+      <li>
+        <strong>Difundí los problemas de este proyecto de ley.</strong>
+      </li>
+      <li>
+        <strong>Contactá a un/a diputado/a y explicale por que tiene que votar en contra de este proyecto.</strong>
+      </li>
+      <li>
+        <strong>Sumá a tus familiares, amigos y conocidos a esta campaña.</strong>
+      </li>
+    </ul>
 
 		<hr />
 
 		<h3>Filtrar por distrito</h3>
+  </div>
 
+  <div class="span8">
     {{#each legislatives}}
       <div class="media">
         <img class="pull-left media-object" alt="{{fullName}}" src="{{pictureUrl}}">
         <div class="media-body">
           <h4 class="media-heading">{{fullName}}</h4>
 
-          <div class="info">
-            <span><strong>{{district}}</strong><br>
+          <div class="info pull-left">
+            <strong>Partido</strong>: {{party}}<br>
+            <strong>Distrito</strong>: {{district}}<br>
+
             {{#if siteUrl}}
               <a href="{{siteUrl}}">{{siteUrl}}</a><br>
             {{/if}}
@@ -94,10 +87,9 @@ proyecto</strong>, por eso:</p>
               {{/if}}
             </p>
           </div>
-          <div class="social-channels">
-            <a class="js-send-message"
-              data-id="{{id}}"
-              href="javascript:;">Enviar email</a>
+          <div class="social-channels pull-right">
+            <button class="js-send-message social-channel btn btn-default"
+              data-id="{{id}}">Enviar email</button>
 
             {{#if facebookName}}
               <a class="js-fb-feed btn btn-block btn-social btn-facebook"
@@ -112,11 +104,12 @@ proyecto</strong>, por eso:</p>
             {{/if}}
             {{#if twitterName}}
               <a href="https://twitter.com/intent/tweet?screen_name={{twitterName}}&text={{../config.tweet}}"
-                class="social-channel twitter-mention-button"
+                class="js-tweet social-channel twitter-mention-button"
                 data-related="{{twitterName}}"
                 data-size="large"
                 data-dnt="true"
-                data-lang="es">Tweetear a {{twitterName}}</a>
+                data-lang="es"
+                data-lid="{{id}}">Tweetear a {{twitterName}}</a>
               {{else}}
                 <p>
                 No tiene Twitter
@@ -129,49 +122,71 @@ proyecto</strong>, por eso:</p>
 
   </div>
 
-  <div class="span4">
+  <div class="js-activities span3 activities">
     <h3>Actividad</h3>
+    {{#each activities}}
+      {{#if status}}
+        <p>
+          <span>{{user.nick}}</span> {{status}}
+          <span>{{legislative.fullName}}</span>
+        </p>
+      {{/if}}
+    {{/each}}
   </div>
-
 </div>
 
-    <div class="js-send-message-dialog send-message-dialog modal hide fade">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h3>Enviar mensaje</h3>
-      </div>
-      <div class="modal-body">
-        <p>
-          Para: <span class="js-message-to"><!-- --></span>
-        </p>
-        <p>
-          De: <input name="message-from">
-        </p>
-        <textarea name="message">{{config.emailMessage}}</textarea>
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="js-cancel btn">Cancelar</a>
-        <a href="#" class="js-send btn btn-primary">Enviar</a>
-      </div>
-    </div>
+<div class="js-send-message-dialog send-message-dialog modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h3>Enviar mensaje</h3>
+  </div>
+  <div class="modal-body">
+    <p>
+      Para: <span class="js-message-to"><!-- --></span>
+    </p>
+    <p>
+      De: <input name="message-from">
+    </p>
+    <textarea name="message">{{config.emailMessage}}</textarea>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="js-cancel btn">Cancelar</a>
+    <a href="#" class="js-send btn btn-primary">Enviar</a>
+  </div>
+</div>
 
-    <script type="text/javascript"
-      src="https://platform.twitter.com/widgets.js"></script>
-    <script type="text/javascript"
-      src="//connect.facebook.net/es_LA/all.js"></script>
-    <script type="text/javascript" src="/js/SendMessage.js"></script>
+<script type="text/javascript"
+  src="https://platform.twitter.com/widgets.js"></script>
+<script type="text/javascript"
+  src="//connect.facebook.net/es_LA/all.js"></script>
+<script type="text/javascript" src="/js/SendMessage.js"></script>
 
-    <script type="text/javascript">
-      jQuery(function () {
-        var sendMessage = new SendMessage(jQuery(document.body),
-          {{{json legislatives}}});
-        sendMessage.render();
-
-        FB.init({
-          appId: '{{config.facebookAppId}}',
-          xfbml: true,
-          version: 'v2.1'
-        });
+<script type="text/javascript">
+  jQuery(function () {
+    var sendMessage = new SendMessage(jQuery(document.body),
+      {{{json legislatives}}}, {
+        uid: {{user.id}}
       });
-    </script>
+    sendMessage.render();
 
+    jQuery('#mainslider').bjqs({
+      'width' : 590,
+      'height' : 400,
+      'animtype' : 'fade',
+      'animduration' : 450,
+      'animspeed' : 3000,
+      'automatic' : true,
+      'responsive' : true,
+      'showcontrols' : false,
+      'showmarkers' : false,
+      'hoverpause' : false,
+      'randomstart' : false
+    });
+
+    FB.init({
+      appId: '{{config.facebookAppId}}',
+      xfbml: true,
+      version: 'v2.1'
+    });
+  });
+</script>

@@ -2,7 +2,7 @@
  * @param {Element} container Legislatives list container. Cannot be null.
  * @param {Object[]} legislatives List of legislatives. Cannot be null.
  */
-SendMessage = function (container, legislatives) {
+SendMessage = function (container, legislatives, options) {
 
   /** Dialog to send messages.
    * @type {Element}
@@ -54,6 +54,18 @@ SendMessage = function (container, legislatives) {
     });
   };
 
+  /** Adds a new activity to the list.
+   * @param {Object} activity Activity to add. Cannot be null.
+   */
+  var addActivity = function (activity) {
+    var userName = "<span>" + activity.user.nick + "</span>";
+    var legislativeName = "<span>" + activity.legislative.fullName + "</span>";
+
+    container.find(".js-activities").prepend(
+      "<p>" + userName + " " + activity.status + " " + legislativeName + "</p>"
+    );
+  };
+
   /** Initializes dialog event listeners.
    * @private
    * @methodOf SendMessage#
@@ -71,17 +83,30 @@ SendMessage = function (container, legislatives) {
         message: message,
         from: from
       }, function (response) {
-        // TODO(seykron): manage errors.
         dialog.modal("hide");
+        jQuery.post("/registerActivity", {
+          uid: options.uid,
+          lid: currentLegislativeId,
+          action: "email"
+        }, function (activity) {
+          addActivity(activity);
+        });
       });
     });
 
-    twttr.events.bind(
-      'tweet',
-      function (event) {
-        console.log(event);
+    container.find(".js-tweet").click(function (event) {
+      currentLegislativeId = jQuery(event.target).data("lid");
+    });
+
+    twttr.events.bind('tweet', function (event) {
+      if (event) {
+        jQuery.post("/registerActivity", {
+          uid: options.uid,
+          lid: currentLegislativeId,
+          action: "tweet"
+        });
       }
-    );
+    });
 
     container.find(".js-fb-feed").click(function (event) {
       var link = jQuery(event.target);

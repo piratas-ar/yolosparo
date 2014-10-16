@@ -43,5 +43,6 @@ create table if not exists activities (
   legislative_id bigint not null,
   action varchar(50) not null,
   foreign key (legislative_id) references legislatives(id),
-  foreign key (user_id) references users(id)
+  foreign key (user_id) references users(id),
+  unique(user_id, legislative_id, action)
 );

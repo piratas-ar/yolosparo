@@ -1,17 +1,26 @@
 var LegislativesRepository = require("../lib/LegislativesRepository");
+var ActivitiesRepository = require("../lib/ActivitiesRepository");
 
 // Renders the home page.
 app.get('/', function (req, res) {
-  var repo = new LegislativesRepository(req.db);
+  var legislativesRepo = new LegislativesRepository(req.db);
+  var activitiesRepo = new ActivitiesRepository(req.db);
 
-  repo.list(function (err, legislatives) {
+  legislativesRepo.list(function (err, legislatives) {
     if (err) {
-      req.db.rollback();
+      res.send(500, err);
       return;
     }
-    res.render("home.html", {
-      legislatives: legislatives,
-      config: app.config
+    activitiesRepo.list(function (err, activities) {
+      if (err) {
+        res.send(500, err);
+        return;
+      }
+      res.render("home.html", {
+        legislatives: legislatives,
+        activities: activities,
+        config: app.config
+      });
     });
   });
 });

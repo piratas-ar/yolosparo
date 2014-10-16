@@ -6,11 +6,13 @@ body {
 /** Main layout container. */
 .main-container {
   padding: 40px 15px;
+  width: 100%;
 }
 
 /** Social channel action (ie: fb, twitter, etc) */
 .social-channel {
   display: block;
+  margin: 5px 0;
 }
 
 /** Textarea inside the message dialog. */
@@ -25,6 +27,20 @@ body {
   width: 196px;
 }
 
+.info {
+  max-width: 350px;
+  word-break: break-word;
+}
+
 .info p {
   display: none;
+}
+
+.activities span {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.social-channels {
+  text-align: right;
 }
