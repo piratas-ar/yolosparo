@@ -5,8 +5,11 @@ var ActivitiesRepository = require("../lib/ActivitiesRepository");
 app.get('/', function (req, res) {
   var legislativesRepo = new LegislativesRepository(req.db);
   var activitiesRepo = new ActivitiesRepository(req.db);
+  var district = req.param("district");
 
-  legislativesRepo.list(function (err, legislatives) {
+  legislativesRepo.list({
+    district: district
+  }, function (err, legislatives) {
     if (err) {
       res.send(500, err);
       return;
@@ -24,4 +27,3 @@ app.get('/', function (req, res) {
     });
   });
 });
-

@@ -49,6 +49,35 @@
 		<hr />
 
 		<h3>Filtrar por distrito</h3>
+
+    <div>
+      <p><a href="/">Todos</a></p>
+      <p><a href="/?district=CIUDAD de BUENOS AIRES">Ciudad de Buenos Aires</a></p>
+      <p><a href="/?district=BUENOS AIRES">Buenos Aires</a></p>
+      <p><a href="/?district=CATAMARCA">Catamarca</a></p>
+      <p><a href="/?district=CHACO">Chaco</a></p>
+      <p><a href="/?district=CHUBUT">Chubut</a></p>
+      <p><a href="/?district=CORDOBA">Córdoba</a></p>
+      <p><a href="/?district=CORRIENTES">Corrientes</a></p>
+      <p><a href="/?district=ENTRE RIOS">Entre Ríos</a></p>
+      <p><a href="/?district=FORMOSA">Formosa</a></p>
+      <p><a href="/?district=JUJUY">Jujuy</a></p>
+      <p><a href="/?district=LA PAMPA">La Pampa</a></p>
+      <p><a href="/?district=LA RIOJA">La Rioja</a></p>
+      <p><a href="/?district=MENDOZA">Mendoza</a></p>
+      <p><a href="/?district=MISIONES">Misiones</a></p>
+      <p><a href="/?district=NEUQUEN">Neuquén</a></p>
+      <p><a href="/?district=RIO NEGRO">Río Negro</a></p>
+      <p><a href="/?district=SALTA">Salta</a></p>
+      <p><a href="/?district=SAN JUAN">San Juan</a></p>
+      <p><a href="/?district=SAN LUIS">San Luis</a></p>
+      <p><a href="/?district=SANTA CRUZ">Santa Cruz</a></p>
+      <p><a href="/?district=SANTA FE">Santa Fe</a></p>
+      <p><a href="/?district=SANTIAGO DEL ESTERO">Santiago del Estero</a></p>
+      <p><a href="/?district=TIERRA DEL FUEGO">
+        Tierra del Fuego, Antártida e Islas del Atlántico Sur</a></p>
+      <p><a href="/?district=TUCUMAN">Tucumán</a></p>
+    </div>
   </div>
 
   <div class="span8">
@@ -56,9 +85,9 @@
       <div class="media">
         <img class="pull-left media-object" alt="{{fullName}}" src="{{pictureUrl}}">
         <div class="media-body">
-          <h4 class="media-heading">{{fullName}}</h4>
-
           <div class="info pull-left">
+            <h4 class="media-heading">{{fullName}}</h4>
+
             <strong>Partido</strong>: {{party}}<br>
             <strong>Distrito</strong>: {{district}}<br>
 
@@ -110,12 +139,12 @@
                 data-dnt="true"
                 data-lang="es"
                 data-lid="{{id}}">Tweetear a {{twitterName}}</a>
-              {{else}}
-                <p>
-                No tiene Twitter
-                </p>
-              {{/if}}
-            </div>
+            {{else}}
+              <p>
+              No tiene Twitter
+              </p>
+            {{/if}}
+          </div>
         </div>
       </div>
     {{/each}}
