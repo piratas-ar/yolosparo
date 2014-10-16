@@ -28,7 +28,7 @@ body {
 }
 
 .info {
-  max-width: 350px;
+  max-width: 300px;
   word-break: break-word;
 }
 
@@ -39,8 +39,4 @@ body {
 .activities span {
   font-style: italic;
   font-weight: bold;
-}
-
-.social-channels {
-  text-align: right;
 }

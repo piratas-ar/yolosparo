@@ -7,7 +7,8 @@
 				<li><img src="/images/argentina_libre_de_fracking.jpg" alt="Argentina libre de fracking" /></li>
 			</ul>
 		</div>
-
+  </div>
+  <div class="span8">
     <h3>¡Activá Ya!</h3>
 
     <p>El Proyecto de Ley de Hidrocarburos ya recibio media sanción en el Senado
@@ -45,45 +46,60 @@
         <strong>Sumá a tus familiares, amigos y conocidos a esta campaña.</strong>
       </li>
     </ul>
-
-		<hr />
-
-		<h3>Filtrar por distrito</h3>
+  </div>
+</div>
+<a name="legislatives" href="javascript:;"><!-- Marker--></a>
+<hr />
+<div class="row">
+  <div class="span3">
+    <h3>Filtrar por distrito</h3>
 
     <div>
-      <p><a href="/">Todos</a></p>
-      <p><a href="/?district=CIUDAD de BUENOS AIRES">Ciudad de Buenos Aires</a></p>
-      <p><a href="/?district=BUENOS AIRES">Buenos Aires</a></p>
-      <p><a href="/?district=CATAMARCA">Catamarca</a></p>
-      <p><a href="/?district=CHACO">Chaco</a></p>
-      <p><a href="/?district=CHUBUT">Chubut</a></p>
-      <p><a href="/?district=CORDOBA">Córdoba</a></p>
-      <p><a href="/?district=CORRIENTES">Corrientes</a></p>
-      <p><a href="/?district=ENTRE RIOS">Entre Ríos</a></p>
-      <p><a href="/?district=FORMOSA">Formosa</a></p>
-      <p><a href="/?district=JUJUY">Jujuy</a></p>
-      <p><a href="/?district=LA PAMPA">La Pampa</a></p>
-      <p><a href="/?district=LA RIOJA">La Rioja</a></p>
-      <p><a href="/?district=MENDOZA">Mendoza</a></p>
-      <p><a href="/?district=MISIONES">Misiones</a></p>
-      <p><a href="/?district=NEUQUEN">Neuquén</a></p>
-      <p><a href="/?district=RIO NEGRO">Río Negro</a></p>
-      <p><a href="/?district=SALTA">Salta</a></p>
-      <p><a href="/?district=SAN JUAN">San Juan</a></p>
-      <p><a href="/?district=SAN LUIS">San Luis</a></p>
-      <p><a href="/?district=SANTA CRUZ">Santa Cruz</a></p>
-      <p><a href="/?district=SANTA FE">Santa Fe</a></p>
-      <p><a href="/?district=SANTIAGO DEL ESTERO">Santiago del Estero</a></p>
-      <p><a href="/?district=TIERRA DEL FUEGO">
+      <p><a href="/#legislatives">Todos</a></p>
+      <p><a href="/?district=CIUDAD de BUENOS AIRES#legislatives">Ciudad de Buenos Aires</a></p>
+      <p><a href="/?district=BUENOS AIRES#legislatives">Buenos Aires</a></p>
+      <p><a href="/?district=CATAMARCA#legislatives">Catamarca</a></p>
+      <p><a href="/?district=CHACO#legislatives">Chaco</a></p>
+      <p><a href="/?district=CHUBUT#legislatives">Chubut</a></p>
+      <p><a href="/?district=CORDOBA#legislatives">Córdoba</a></p>
+      <p><a href="/?district=CORRIENTES#legislatives">Corrientes</a></p>
+      <p><a href="/?district=ENTRE RIOS#legislatives">Entre Ríos</a></p>
+      <p><a href="/?district=FORMOSA#legislatives">Formosa</a></p>
+      <p><a href="/?district=JUJUY#legislatives">Jujuy</a></p>
+      <p><a href="/?district=LA PAMPA#legislatives">La Pampa</a></p>
+      <p><a href="/?district=LA RIOJA#legislatives">La Rioja</a></p>
+      <p><a href="/?district=MENDOZA#legislatives">Mendoza</a></p>
+      <p><a href="/?district=MISIONES#legislatives">Misiones</a></p>
+      <p><a href="/?district=NEUQUEN#legislatives">Neuquén</a></p>
+      <p><a href="/?district=RIO NEGRO#legislatives">Río Negro</a></p>
+      <p><a href="/?district=SALTA#legislatives">Salta</a></p>
+      <p><a href="/?district=SAN JUAN#legislatives">San Juan</a></p>
+      <p><a href="/?district=SAN LUIS#legislatives">San Luis</a></p>
+      <p><a href="/?district=SANTA CRUZ#legislatives">Santa Cruz</a></p>
+      <p><a href="/?district=SANTA FE#legislatives">Santa Fe</a></p>
+      <p><a href="/?district=SANTIAGO DEL ESTERO#legislatives">Santiago del Estero</a></p>
+      <p><a href="/?district=TIERRA DEL FUEGO#legislatives">
         Tierra del Fuego, Antártida e Islas del Atlántico Sur</a></p>
-      <p><a href="/?district=TUCUMAN">Tucumán</a></p>
+      <p><a href="/?district=TUCUMAN#legislatives">Tucumán</a></p>
     </div>
   </div>
-
   <div class="span8">
+    <h3>Legisladores</h3>
+
+    {{#unless legislatives.length}}
+      No hay legisladores en este distrito.
+    {{/unless}}
+
     {{#each legislatives}}
       <div class="media">
-        <img class="pull-left media-object" alt="{{fullName}}" src="{{pictureUrl}}">
+        {{#if facebookUrl}}
+          <a class="media-object pull-left" href="{{facebookUrl}}" target="_blank">
+            <img alt="{{fullName}}" src="{{pictureUrl}}">
+          </a>
+        {{else}}
+          <img class="pull-left media-object" alt="{{fullName}}"
+            src="{{pictureUrl}}">
+        {{/if}}
         <div class="media-body">
           <div class="info pull-left">
             <h4 class="media-heading">{{fullName}}</h4>
@@ -121,7 +137,8 @@
               data-id="{{id}}">Enviar email</button>
 
             {{#if facebookName}}
-              <a class="js-fb-feed btn btn-block btn-social btn-facebook"
+              <a id="fb-{{id}}"
+                class="js-fb-feed btn btn-block btn-social btn-facebook"
                 data-to="{{facebookName}}"
                 href="javascript:;">
                 <i class="fa fa-facebook"><!-- Icon --></i>Escribirle en Facebook
@@ -133,7 +150,8 @@
             {{/if}}
             {{#if twitterName}}
               <a href="https://twitter.com/intent/tweet?screen_name={{twitterName}}&text={{../config.tweet}}"
-                class="js-tweet social-channel twitter-mention-button"
+                id="tweet-{{id}}"
+                class="social-channel twitter-mention-button"
                 data-related="{{twitterName}}"
                 data-size="large"
                 data-dnt="true"
@@ -147,20 +165,23 @@
           </div>
         </div>
       </div>
+      <hr />
     {{/each}}
 
   </div>
 
-  <div class="js-activities span3 activities">
+  <div class="span3 activities">
     <h3>Actividad</h3>
-    {{#each activities}}
-      {{#if status}}
-        <p>
-          <span>{{user.nick}}</span> {{status}}
-          <span>{{legislative.fullName}}</span>
-        </p>
-      {{/if}}
-    {{/each}}
+    <div class="js-activities">
+      {{#each activities}}
+        {{#if status}}
+          <p>
+            <span>{{user.nick}}</span> {{status}}
+            <span>{{legislative.fullName}}</span>
+          </p>
+        {{/if}}
+      {{/each}}
+    </div>
   </div>
 </div>
 
@@ -179,8 +200,8 @@
     <textarea name="message">{{config.emailMessage}}</textarea>
   </div>
   <div class="modal-footer">
-    <a href="#" class="js-cancel btn">Cancelar</a>
-    <a href="#" class="js-send btn btn-primary">Enviar</a>
+    <a href="javascript:;" class="js-cancel btn">Cancelar</a>
+    <a href="javascript:;" class="js-send btn btn-primary">Enviar</a>
   </div>
 </div>
 

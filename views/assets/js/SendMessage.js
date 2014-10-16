@@ -56,6 +56,8 @@ SendMessage = function (container, legislatives, options) {
 
   /** Adds a new activity to the list.
    * @param {Object} activity Activity to add. Cannot be null.
+   * @private
+   * @methodOf SendMessage#
    */
   var addActivity = function (activity) {
     var userName = "<span>" + activity.user.nick + "</span>";
@@ -64,6 +66,22 @@ SendMessage = function (container, legislatives, options) {
     container.find(".js-activities").prepend(
       "<p>" + userName + " " + activity.status + " " + legislativeName + "</p>"
     );
+  };
+
+  /** Creates a new activity.
+   * @param {String} action Action related to the activity. Cannot be null or
+   *    empty.
+   * @private
+   * @methodOf SendMessage#
+   */
+  var registerActivity = function (action) {
+    jQuery.post("/registerActivity", {
+      uid: options.uid,
+      lid: currentLegislativeId,
+      action: action
+    }, function (activity) {
+      addActivity(activity);
+    });
   };
 
   /** Initializes dialog event listeners.
@@ -84,32 +102,29 @@ SendMessage = function (container, legislatives, options) {
         from: from
       }, function (response) {
         dialog.modal("hide");
-        jQuery.post("/registerActivity", {
-          uid: options.uid,
-          lid: currentLegislativeId,
-          action: "email"
-        }, function (activity) {
-          addActivity(activity);
-        });
+        registerActivity("email");
       });
     });
 
-    container.find(".js-tweet").click(function (event) {
-      currentLegislativeId = jQuery(event.target).data("lid");
+    twttr.events.bind('click', function (event) {
+      var id;
+      if (event) {
+        id = jQuery(event.target).attr("id");
+        currentLegislativeId = parseInt(id.substr(id.indexOf("-") + 1), 10);
+      }
     });
 
     twttr.events.bind('tweet', function (event) {
       if (event) {
-        jQuery.post("/registerActivity", {
-          uid: options.uid,
-          lid: currentLegislativeId,
-          action: "tweet"
-        });
+        registerActivity("tweet");
       }
     });
 
     container.find(".js-fb-feed").click(function (event) {
       var link = jQuery(event.target);
+      var id = jQuery(event.target).attr("id");
+
+      currentLegislativeId = parseInt(id.substr(id.indexOf("-") + 1), 10);
 
       FB.ui({
         method: 'send',
@@ -117,7 +132,7 @@ SendMessage = function (container, legislatives, options) {
         to: link.data("to")
       }, function(response) {
         if (response && response.success) {
-
+          registerActivity("fb");
         }
       });
     });
