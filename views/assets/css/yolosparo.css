@@ -40,3 +40,8 @@ body {
   font-style: italic;
   font-weight: bold;
 }
+
+.brand img {
+  height: 24px;
+  width: 24px;
+}
