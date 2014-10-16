@@ -1,44 +1,65 @@
 <div class="row">
-  <div class="span3">
+  <div class="span8">
 
-    <form>
+		<div id="mainslider">
+			<ul class="bjqs">
+				<li><img src="/images/fracking_pozos.jpg" alt="Para el fracking se realizan cientos de pozos." /></li>
+				<li><img src="/images/fracking_agua.jpeg" alt="El fracking contamina el agua." /></li>
+				<li><img src="/images/argentina_libre_de_fracking.jpg" alt="Argentina libre de fracking" /></li>
+			</ul>
+		</div>
 
-      <h2>¿Qué querés hacer?</h2>
-      <div class="form-group">
+    <script type="text/javascript">
+		jQuery(document).ready(function($) {
+    	$('#mainslider').bjqs({
+        'width' : 590,
+        'height' : 400,
+				'animtype' : 'fade',
+				'animduration' : 450,
+				'animspeed' : 3000,
+				'automatic' : true,
+        'responsive' : true,
+				'showcontrols' : false,
+				'showmarkers' : false,
+				'hoverpause' : false,
+				'randomstart' : false
+    	});
+		});
+		</script>
 
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="comenta" /> Comentar en redes sociales y webs
-          </label>
-        </div>
+<h3>¡Activá Ya!</h3>
 
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="escribe" /> Mandar mails
-          </label>
-        </div>
+<p>El Proyecto de Ley de Hidrocarburos ya recibio media sanción en el Senado 
+y de ser aprobado por el Congreso significaría la <strong>total entrega de nuestros 
+recursos naturales y la condena de nuestra soberanía energética y salud por
+las próximas tres generaciones</strong>.</p>
 
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="va" /> Ir a demostraciones/eventos
-          </label>
-        </div>
+<p>El proyecto entreguista <strong>establece un tope a las regalías del 12%, el mas bajo 
+de latinoamérica</strong> y uno de los mas bajos del mundo, a la vez que pone un tope 
+del 3% a los impuestos provinciales a las petroleras. </p>
 
-      </div>
+<p><strong>Permite a las petroleras aumentar el precio interno hasta precios internacionales</strong>
+y sacar del país el 20% de la producción (60% para la producción marina). </p>
 
-      <h2>̉¿Donde?</h2>
+<p><strong>Afianza el fracking en el país</strong>, un método sumamente contaminante y dependiente 
+de patentes extranjeras, aumentando los tiempos de concesión a 35 años y
+permitiéndoles usar y contaminar el agua subterranea.</p>
 
-      <div>
-        <select>
-          <option name="distrito" value="todos">Todos los distritos</option>
-        </select>
-      </div>
+<p>Finalmente, no controla la explotación, sino que confía en que las petroleras
+digan la verdad sobre la cantidad extraida, renueva las concesiones sin licitación 
+ni canon alguno y <strong>no plantea una reconversión energética a tecnologías renovables</strong>.</p>
 
-    </form>
+<p>Para frenar esto necesitamos la ayuda de todas las personas, necesitamos 
+convencer a nuestros representantes políticos de que le digan <strong>NO a este 
+proyecto</strong>, por eso:</p>
 
-  </div>
+<li><strong>Difundí los problemas de este proyecto de ley.</strong></p>
+<li><strong>Contactá a un/a diputado/a y explicale por que tiene que votar en contra de este proyecto.</strong></p>
+<li><strong>Sumá a tus familiares, amigos y conocidos a esta campaña.</strong></p>
 
-  <div class="span6">
+		<hr />
+
+		<h3>Filtrar por distrito</h3>
 
     {{#each legislatives}}
       <div class="media">
@@ -47,12 +68,11 @@
           <h4 class="media-heading">{{fullName}}</h4>
 
           <div class="info">
-            <strong>Partido</strong>: {{party}}<br>
-            <span><strong>Distrito</strong>: {{district}}<br>
+            <span><strong>{{district}}</strong><br>
             {{#if siteUrl}}
-              <strong>Sitio web</strong>: <a href="{{siteUrl}}">{{siteUrl}}</a><br>
+              <a href="{{siteUrl}}">{{siteUrl}}</a><br>
             {{/if}}
-            <a class="js-show-info" href="javascript:;">Mostrar más información</a>
+            <small><a class="js-show-info" href="javascript:;">Mostrar más información</a></small>
             <p>
               {{#if address}}
                 <strong>Dirección en el Congreso</strong>: {{address}}<br>
@@ -109,7 +129,7 @@
 
   </div>
 
-  <div class="span3">
+  <div class="span4">
     <h3>Actividad</h3>
   </div>
 
