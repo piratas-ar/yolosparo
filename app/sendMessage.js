@@ -21,6 +21,7 @@ app.post("/sendMessage", function (req, res) {
       message: message
     }, function (err) {
       if (err) {
+        console.log("ERROR SENDING EMAIL: ", err);
         res.send(500, err);
       } else {
         res.send(200, "OK");

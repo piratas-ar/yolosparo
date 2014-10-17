@@ -109,7 +109,7 @@ SendMessage = function (container, legislatives, options) {
       dialog.modal("hide");
     });
     dialog.find(".js-send").click(function () {
-      var message = dialog.find("textarea[name=message]").text();
+      var message = dialog.find("textarea[name=message]").val();
       var from = dialog.find("input[name=message-from]").val();
 
       var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
