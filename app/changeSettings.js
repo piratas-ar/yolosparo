@@ -3,14 +3,15 @@
  */
 var UsersRepository = require("../lib/UsersRepository");
 
-// Changes the user's nick.
-app.post('/changeNick', function (req, res) {
+// Changes the user's nick and email.
+app.post('/changeSettings', function (req, res) {
   var repo = new UsersRepository(req.db);
   var userId = req.param("uid");
   var secret = req.cookies.ukey;
   var nick = req.param("nick");
+  var email = req.param("email");
 
-  repo.changeNick(userId, secret, nick, function (err) {
+  repo.changeSettings(userId, secret, nick, email, function (err) {
     var errorMessage = "No se pudo cambiar el nick";
 
     if (err) {

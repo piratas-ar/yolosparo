@@ -73,6 +73,7 @@ body {
   margin-top: 8px;
 }
 
-.user-form input[type="text"] {
-  width: 150px;
+.user-form label span:first-child {
+  display: inline-block;
+  width: 40px;
 }

@@ -13,14 +13,15 @@ UserForm = function (container, userSettingsAction) {
    */
   var busy = false;
 
-  /** Displays a general error message in the form.
-   * @param {String} errorMessage Error to display. Cannot be null or empty.
+  /** Displays a global message in the form.
+   * @param {String} message Error to display. Cannot be null or empty.
+   * @param {String} type Message type. Cannot be null or empty.
    * @private
    * @methodOf UserForm#
    */
-  var displayError = function (errorMessage) {
+  var displayMessage = function (message, type) {
     var errorContainer = jQuery("<div />", {
-      "class": "alert alert-danger alert-dismissible"
+      "class": "alert alert-dismissible " + type
     });
     var closeButton = jQuery("<button />", {
       "class": "close",
@@ -28,7 +29,7 @@ UserForm = function (container, userSettingsAction) {
       "data-dismiss": "alert"
     }).html("&times;");
     container.prepend(errorContainer);
-    errorContainer.text(errorMessage);
+    errorContainer.text(message);
     errorContainer.prepend(closeButton);
     errorContainer.alert();
     closeButton.click(function (event) {
@@ -44,21 +45,25 @@ UserForm = function (container, userSettingsAction) {
     container.find(".js-change-settings").click(function (event) {
       var currentNick = container.find("input[name=currentNick]").val();
       var nick = container.find("input[name=nick]").val();
+      var email = container.find("input[name=email]").val();
       var uid = container.find("input[name=uid]").val();
 
-      if (!busy && nick !== currentNick) {
+      if (!busy) {
         busy = true;
 
-        jQuery.post("/changeNick", {
+        jQuery.post("/changeSettings", {
           uid: uid,
-          nick: nick
+          nick: nick,
+          email: email
         }, function (response) {
           userSettingsAction.find(".js-user-name").text(nick);
           container.find("input[name=currentNick]").val(nick);
           busy = false;
+          displayMessage("Los cambios se guardaron correctamente.",
+            "alert-success");
         }).error(function (response) {
           // Displays the error.
-          displayError(response.responseJSON.error);
+          displayMessage(response.responseJSON.error, "alert-danger");
           busy = false;
         });
       }

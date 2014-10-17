@@ -56,7 +56,6 @@ SendMessage = function (container, legislatives, options) {
       var id = jQuery(event.target).data("id");
       var legislative = findLegislative(id);
 
-      dialog.find("input[name=message-from]").val("");
       error_message.hide();
 
       dialog.find(".js-message-to").text(legislative.fullName +

@@ -157,7 +157,7 @@
             </p>
           </div>
           <div class="social-channels pull-right">
-            <button class="js-send-message social-channel btn btn-block"
+            <button class="js-send-message social-channel btn btn-block btn-default"
               data-id="{{id}}">Enviar email</button>
 
             {{#if facebookName}}
@@ -223,7 +223,7 @@
           Para: <span class="js-message-to"><!-- --></span>
         </p>
         <p>
-          De: <input name="message-from">
+          De: <input name="message-from" value="{{user.email}}">
           <span id="error-message" class="alert-danger">{{config.emailErrorMessage}}</span>
         </p>
         <textarea name="message">{{config.emailMessage}}</textarea>

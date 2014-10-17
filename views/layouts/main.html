@@ -50,7 +50,7 @@
 						<button type="button"
               id="userSettings"
               class="btn btn-default btn-primary glyphicon glyphicon-user"
-              title="Para cuidar tu privacidad, no te pedimos que te registres. Este es tu apodo y podés cambiarlo en cualquier momento."
+              title="Para cuidar tu privacidad no te pedimos que te registres. Vamos a usar tu apodo y el email para contarte cuál fue la votación final de los diputados."
 							data-container="body"
 							data-toggle="popover"
 							data-placement="bottom"
@@ -68,12 +68,20 @@
     <form class="user-form form-inline" id="userForm">
 
       <div class="form-group form-group-sm">
-        <input class="form-control" type="text" name="nick" value="{{user.nick}}"
-          maxlength="50">
+        <label>
+          <span>Nick:</span> <input class="form-control"
+          type="text" name="nick" value="{{user.nick}}" maxlength="50">
+        </label>
         <input type="hidden" name="currentNick" value="{{user.nick}}">
         <input type="hidden" name="uid" value="{{user.id}}">
       </div>
       <div class="form-group form-group-sm">
+        <label>
+          <span>Email:</span> <input class="form-control"
+          type="text" name="email" value="{{user.email}}" maxlength="255">
+        </label>
+      </div>
+      <div class="form-group form-group-sm pull-right">
         <button class="js-change-settings btn btn-primary">Cambiar</button>
       </div>
     </form>
