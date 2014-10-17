@@ -25,6 +25,10 @@ body {
   width: 196px;
 }
 
+.btn-social-icon {
+  background-image: none;
+}
+
 .info {
   max-width: 300px;
   word-break: break-word;

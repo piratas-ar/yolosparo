@@ -12,7 +12,17 @@
 	</div>
 	<div class="col-md-6">
 
-    <h3><a href="#legislatives">¡Activá Ya!</a></h3>
+    <h3>
+      <a href="#legislatives">¡Activá Ya!</a>
+      <a href="https://twitter.com/intent/tweet?related=hoylosparo&url=http%3A%2F%2Fwww.yolosparo.org&text=Hoy%20todos%20juntos%20le%20decimos%20NO%20al%20fracking%20y%20se%20lo%20pedimos%20a%20nuestros%20diputados"
+        class="btn btn-social-icon btn-twitter">
+        <i class="fa fa-twitter"><!-- Twitter icon --></i>
+      </a>
+      <a href="https://www.facebook.com/dialog/feed?app_id={{config.facebookAppId}}&caption=Yo los paro!&link=http%3A%2F%2Fyolosparo.org&redirect_uri=http%3A%2F%2Fyolosparo.org"
+      class="btn btn-social-icon btn-facebook">
+        <i class="fa fa-facebook"><!-- Twitter icon --></i>
+      </a>
+    </h3>
 
     <p>El Proyecto de Ley de Hidrocarburos ya recibio media sanción en el Senado
     y de ser aprobado por el Congreso significaría la <strong>total entrega de nuestros
@@ -114,20 +124,17 @@
           <div class="info pull-left">
             <h4 class="media-heading">{{fullName}}</h4>
 
-            {{district}}<br>
-
             {{#if siteUrl}}
-              <a href="{{siteUrl}}">{{siteUrl}}</a><br>
+              <strong>Sitio:</strong> <a href="{{siteUrl}}">{{siteUrl}}</a><br>
+            {{/if}}
+            {{#if address}}
+              <strong>Dirección en el Congreso</strong>: {{address}}<br>
+            {{/if}}
+            {{#if phone}}
+              <strong>Teléfono del Congreso</strong>: {{phone}}<br>
             {{/if}}
             <small><a class="js-show-info" href="javascript:;">Mostrar más información</a></small>
             <p>
-            	<strong>Partido</strong>: {{party}}<br>
-              {{#if address}}
-                <strong>Dirección en el Congreso</strong>: {{address}}<br>
-              {{/if}}
-              {{#if phone}}
-                <strong>Teléfono del Congreso</strong>: {{phone}}<br>
-              {{/if}}
               {{#if personalAddress}}
                 <strong>Dirección en su distrito</strong>: {{personalAddress}}<br>
               {{/if}}
@@ -143,7 +150,7 @@
             </p>
           </div>
           <div class="social-channels pull-right">
-            <button class="js-send-message social-channel btn btn-default"
+            <button class="js-send-message social-channel btn btn-block"
               data-id="{{id}}">Enviar email</button>
 
             {{#if facebookName}}
@@ -161,12 +168,14 @@
             {{#if twitterName}}
               <a href="https://twitter.com/intent/tweet?screen_name={{twitterName}}&text={{../config.tweet}}"
                 id="tweet-{{id}}"
-                class="social-channel twitter-mention-button"
-                data-related="{{twitterName}}"
+                class="social-channel btn btn-block btn-social btn-twitter"
+                data-related="hoylosparo"
                 data-size="large"
                 data-dnt="true"
                 data-lang="es"
-                data-lid="{{id}}">Tweetear a {{twitterName}}</a>
+                data-lid="{{id}}">
+                <i class="fa fa-twitter"><!-- Icon --></i>Twittear a {{twitterName}}
+              </a>
             {{else}}
               <p>
               No tiene Twitter
