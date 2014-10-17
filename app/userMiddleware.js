@@ -11,6 +11,10 @@ var fs = require("fs");
  */
 var path = require("path");
 
+/** Node's crypto API.
+ */
+var crypto = require("crypto");
+
 /** List of available names to generate anonymous user names.
  */
 var names = fs.readFileSync(path.join(__dirname, "..", "names.txt")).toString()
@@ -22,6 +26,17 @@ var names = fs.readFileSync(path.join(__dirname, "..", "names.txt")).toString()
  */
 var randomIndex = function () {
   return Math.floor((Math.random() * Date.now()) % names.length);
+};
+
+/** Generates a unique key for the specified user.
+ * @param {Object} user User to generate secret. Cannot be null.
+ * @return {String} A SHA-1 hash, never null or empty.
+ */
+var generateSecret = function (nick) {
+  var sha = crypto.createHash('sha1');
+  sha.update(nick);
+  sha.update(String(Date.now()));
+  return sha.digest("hex");
 };
 
 /** Generates a unique user name using two random names from the list.
@@ -44,7 +59,8 @@ var generateUniqueName = function (repo, callback) {
     } else {
       console.log("New user: " + nick);
       repo.save({
-        nick: nick
+        nick: nick,
+        secret: generateSecret(nick)
       }, callback);
     }
   });
@@ -60,6 +76,8 @@ var generateUniqueName = function (repo, callback) {
  */
 module.exports = function userMiddleware(req, res, next) {
   var repo;
+  var uid = req.cookies.uid;
+  var secret = req.cookies.ukey;
   var doGenerate = function () {
     generateUniqueName(repo, function (err, user) {
       if (err) {
@@ -68,6 +86,18 @@ module.exports = function userMiddleware(req, res, next) {
       }
       res.locals.user = user;
       res.cookie("uid", user.nick);
+      res.cookie("ukey", user.secret);
+      next();
+    });
+  };
+  var updateSecret = function (user) {
+    var secret = generateSecret(user.nick);
+
+    res.cookie("ukey", secret);
+    repo.updateSecret(user.id, secret, function (err) {
+      if (!err) {
+        user.secret = secret;
+      }
       next();
     });
   };
@@ -76,8 +106,8 @@ module.exports = function userMiddleware(req, res, next) {
     // Checks the user only in requests within a transaction.
     repo = new UsersRepository(req.db);
 
-    if (req.cookies.uid) {
-      repo.findByNickname(req.cookies.uid, function (err, user) {
+    if (uid) {
+      repo.findByNicknameAndSecret(uid, secret, function (err, user) {
         // Error retrieving existing user.
         if (err) {
           next(new Error(err));
@@ -85,7 +115,12 @@ module.exports = function userMiddleware(req, res, next) {
         if (user) {
           // User exists.
           res.locals.user = user;
-          next();
+
+          if (req.method === "GET") {
+            updateSecret(user);
+          } else {
+            next();
+          }
         } else {
           // User cookies is set, but the user doesn't exist in the database.
           // Generates a new one.

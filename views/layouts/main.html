@@ -48,14 +48,14 @@
 					</ul>
 					<div class="pull-right">
 						<button type="button"
+              id="userSettings"
               class="btn btn-default btn-primary glyphicon glyphicon-user"
               title="Para cuidar tu privacidad, no te pedimos que te registres. Este es tu apodo y podés cambiarlo en cualquier momento."
 							data-container="body"
 							data-toggle="popover"
 							data-placement="bottom"
-							data-html="true"
-							data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-							Hola {{user.nick}}!
+							data-html="true">
+							Hola <span class="js-user-name">{{user.nick}}</span>!
 						</button>
 					</div>
 				</div>
@@ -65,9 +65,29 @@
       {{{body}}}
     </div>
 
+    <form class="user-form form-inline" id="userForm">
+
+      <div class="form-group form-group-sm">
+        <input class="form-control" type="text" name="nick" value="{{user.nick}}"
+          maxlength="50">
+        <input type="hidden" name="currentNick" value="{{user.nick}}">
+        <input type="hidden" name="uid" value="{{user.id}}">
+      </div>
+      <div class="form-group form-group-sm">
+        <button class="js-change-settings btn btn-primary">Cambiar</button>
+      </div>
+    </form>
+
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/UserForm.js"></script>
 		<script type="text/javascript">
 			jQuery(function () {
+        var userFormElement = jQuery("#userForm");
+        var userSettingsAction = jQuery("#userSettings");
+        var userForm = new UserForm(userFormElement, userSettingsAction);
+
+        userForm.render();
+
 				jQuery('#mainslider').bjqs({
 					'width' : 590,
 					'height' : 400,
@@ -81,8 +101,11 @@
 					'hoverpause' : false,
 					'randomstart' : false
 				});
+        userSettingsAction.popover({
+          content: userFormElement
+        });
 
-				$("img.unveil").unveil(200);
+				jQuery("img.unveil").unveil(200);
 			});
 		</script>
   </body>

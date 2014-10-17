@@ -65,12 +65,17 @@ SendMessage = function (container, legislatives, options) {
    * @methodOf SendMessage#
    */
   var addActivity = function (activity) {
-    var userName = "<span>" + activity.user.nick + "</span>";
-    var legislativeName = "<span>" + activity.legislative.fullName + "</span>";
+    var userNameEl = jQuery("<span />");
+    var activityEl = jQuery("<p/>");
+    var legislativeNameEl = jQuery("<span />");
 
-    container.find(".js-activities").prepend(
-      "<p>" + userName + " " + activity.status + " " + legislativeName + "</p>"
-    );
+    legislativeNameEl.text(activity.legislative.fullName);
+    userNameEl.text(activity.user.nick);
+
+    activityEl.append(userNameEl);
+    activityEl.append(" " + activity.status + " ");
+    activityEl.append(legislativeNameEl);
+    container.find(".js-activities").prepend(activityEl);
   };
 
   /** Creates a new activity.

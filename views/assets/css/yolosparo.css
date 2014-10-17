@@ -68,3 +68,11 @@ body {
 .message li {
   list-style: none;
 }
+
+#userSettings {
+  margin-top: 8px;
+}
+
+.user-form input[type="text"] {
+  width: 150px;
+}
