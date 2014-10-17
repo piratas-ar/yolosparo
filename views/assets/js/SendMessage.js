@@ -4,6 +4,7 @@
  */
 SendMessage = function (container, legislatives, options) {
 
+
   /** Dialog to send messages.
    * @type {Element}
    * @private
@@ -13,6 +14,7 @@ SendMessage = function (container, legislatives, options) {
     show: false
   });
 
+  var error_message = dialog.find("#error-message");
   /** Id of the legislative to send message.
    * @type {Number}
    * @private
@@ -46,6 +48,9 @@ SendMessage = function (container, legislatives, options) {
     action.click(function (event) {
       var id = jQuery(event.target).data("id");
       var legislative = findLegislative(id);
+
+      dialog.find("input[name=message-from]").val("");
+      error_message.hide();
 
       dialog.find(".js-message-to").text(legislative.fullName +
         " <" + legislative.email + ">");
@@ -96,14 +101,21 @@ SendMessage = function (container, legislatives, options) {
       var message = dialog.find("textarea[name=message]").text();
       var from = dialog.find("input[name=message-from]").val();
 
-      jQuery.post("/sendMessage", {
-        id: currentLegislativeId,
-        message: message,
-        from: from
-      }, function (response) {
-        dialog.modal("hide");
-        registerActivity("email");
-      });
+      var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      var is_an_email = regex.test(from);
+
+      if(is_an_email){
+        jQuery.post("/sendMessage", {
+          id: currentLegislativeId,
+          message: message,
+          from: from
+        }, function (response) {
+          dialog.modal("hide");
+          registerActivity("email");
+        });        
+      }else{
+        error_message.show();
+      }
     });
 
     twttr.events.bind('click', function (event) {
