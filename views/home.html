@@ -89,12 +89,12 @@
     {{#each legislatives}}
       <div class="media">
         {{#if facebookUrl}}
-          <a class="media-object pull-left unveil" href="{{facebookUrl}}" target="_blank">
-            <img alt="{{fullName}}" src="{{pictureUrl}}" width="107" height="80">
+          <a class="media-object pull-left" href="{{facebookUrl}}" target="_blank">
+            <img alt="{{fullName}}" class="unveil" data-src="{{pictureUrl}}" width="107" height="80">
           </a>
         {{else}}
           <img class="pull-left media-object unveil" alt="{{fullName}}"
-            src="{{pictureUrl}}" width="107" height="80">
+            data-src="{{pictureUrl}}" width="107" height="80">
         {{/if}}
         <div class="media-body">
           <div class="info pull-left">
