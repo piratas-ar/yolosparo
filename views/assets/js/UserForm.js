@@ -6,6 +6,13 @@
  */
 UserForm = function (container, userSettingsAction) {
 
+  /** Indicates whether there're pending requests or not.
+   * @type {Boolean}
+   * @private
+   * @fieldOf UserForm#
+   */
+  var busy = false;
+
   /** Displays a general error message in the form.
    * @param {String} errorMessage Error to display. Cannot be null or empty.
    * @private
@@ -39,16 +46,20 @@ UserForm = function (container, userSettingsAction) {
       var nick = container.find("input[name=nick]").val();
       var uid = container.find("input[name=uid]").val();
 
-      if (nick !== currentNick) {
+      if (!busy && nick !== currentNick) {
+        busy = true;
+
         jQuery.post("/changeNick", {
           uid: uid,
           nick: nick
         }, function (response) {
           userSettingsAction.find(".js-user-name").text(nick);
           container.find("input[name=currentNick]").val(nick);
+          busy = false;
         }).error(function (response) {
           // Displays the error.
           displayError(response.responseJSON.error);
+          busy = false;
         });
       }
 

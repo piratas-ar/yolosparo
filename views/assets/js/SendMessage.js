@@ -4,6 +4,12 @@
  */
 SendMessage = function (container, legislatives, options) {
 
+  /** Indicates whether there're pending requests or not.
+   * @type {Boolean}
+   * @private
+   * @fieldOf UserForm#
+   */
+  var busy = false;
 
   /** Dialog to send messages.
    * @type {Element}
@@ -15,6 +21,7 @@ SendMessage = function (container, legislatives, options) {
   });
 
   var error_message = dialog.find("#error-message");
+
   /** Id of the legislative to send message.
    * @type {Number}
    * @private
@@ -109,7 +116,9 @@ SendMessage = function (container, legislatives, options) {
       var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       var is_an_email = regex.test(from);
 
-      if(is_an_email){
+      if(is_an_email && !busy){
+        busy = true;
+
         jQuery.post("/sendMessage", {
           id: currentLegislativeId,
           message: message,
@@ -117,7 +126,10 @@ SendMessage = function (container, legislatives, options) {
         }, function (response) {
           dialog.modal("hide");
           registerActivity("email");
-        });        
+          busy = false;
+        }).error(function () {
+          busy = false;
+        });
       }else{
         error_message.show();
       }
