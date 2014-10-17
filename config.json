@@ -8,6 +8,7 @@
     "subject": "¿Por qué vas a votar a favor del fracking?",
     "host": "",
     "user": "",
-    "passwd": ""
+    "passwd": "",
+    "testRecipient": "test@yolosparo.org"
   }
 }
