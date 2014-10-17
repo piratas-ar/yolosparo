@@ -23,6 +23,7 @@ app.get('/', function (req, res) {
       res.render("home.html", {
         legislatives: legislatives,
         activities: activities,
+        homeView: true,
         config: extend({}, app.config, {
           tweet: encodeURIComponent(app.config.tweet)
         })

@@ -43,8 +43,9 @@
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="/">Inicio</a></li>
-						<li><a href="#legislatives">Legisladores</a></li>
+						<li {{#if homeView}}class="active"{{/if}}><a href="/">Inicio</a></li>
+						<li><a href="/#legislatives">Legisladores</a></li>
+            <li {{#if contactView}}class="active"{{/if}}><a href="/contact">Contacto</a></li>
 					</ul>
 					<div class="pull-right">
 						<button type="button"
@@ -65,7 +66,7 @@
       {{{body}}}
     </div>
 
-    <form class="user-form form-inline" id="userForm">
+    <form class="user-form form-inline hidden" id="userForm">
 
       <div class="form-group form-group-sm">
         <label>
@@ -111,6 +112,9 @@
 				});
         userSettingsAction.popover({
           content: userFormElement
+        });
+        userSettingsAction.click(function () {
+          userFormElement.removeClass("hidden");
         });
 
 				jQuery("img.unveil").unveil(200);

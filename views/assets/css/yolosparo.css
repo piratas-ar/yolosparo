@@ -77,3 +77,8 @@ body {
   display: inline-block;
   width: 40px;
 }
+
+.contact {
+  margin: 30px auto;
+  width: 1000px;
+}
