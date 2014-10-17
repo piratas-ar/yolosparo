@@ -7,6 +7,11 @@ body {
 .main-container {
 }
 
+
+.navbar-brand {
+	padding: 7px;
+}
+
 /** Social channel action (ie: fb, twitter, etc) */
 .social-channel {
   display: block;
