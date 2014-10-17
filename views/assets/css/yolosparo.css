@@ -5,8 +5,6 @@ body {
 
 /** Main layout container. */
 .main-container {
-  padding: 40px 15px;
-  width: 100%;
 }
 
 /** Social channel action (ie: fb, twitter, etc) */

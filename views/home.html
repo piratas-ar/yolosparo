@@ -7,9 +7,8 @@
 				<li><img src="/images/argentina_libre_de_fracking.jpg" alt="Argentina libre de fracking" /></li>
 			</ul>
 		</div>
-  </div>
-  <div class="span8">
-    <h3>¡Activá Ya!</h3>
+
+    <h3><a href="#legislatives">¡Activá Ya!</a></h3>
 
     <p>El Proyecto de Ley de Hidrocarburos ya recibio media sanción en el Senado
     y de ser aprobado por el Congreso significaría la <strong>total entrega de nuestros
@@ -28,7 +27,7 @@
     permitiéndoles usar y contaminar el agua subterranea.</p>
 
     <p>Finalmente, no controla la explotación, sino que confía en que las petroleras
-    digan la verdad sobre la cantidad extraida, renueva las concesiones sin licitación
+    digan la verdad sobre la cantidad extraída, renueva las concesiones sin licitación
     ni canon alguno y <strong>no plantea una reconversión energética a tecnologías renovables</strong>.</p>
 
     <p>Para frenar esto necesitamos la ayuda de todas las personas, necesitamos
@@ -46,44 +45,41 @@
         <strong>Sumá a tus familiares, amigos y conocidos a esta campaña.</strong>
       </li>
     </ul>
-  </div>
-</div>
+
 <a name="legislatives" href="javascript:;"><!-- Marker--></a>
 <hr />
-<div class="row">
-  <div class="span3">
-    <h3>Filtrar por distrito</h3>
 
     <div>
-      <p><a href="/#legislatives">Todos</a></p>
-      <p><a href="/?district=CIUDAD de BUENOS AIRES#legislatives">Ciudad de Buenos Aires</a></p>
-      <p><a href="/?district=BUENOS AIRES#legislatives">Buenos Aires</a></p>
-      <p><a href="/?district=CATAMARCA#legislatives">Catamarca</a></p>
-      <p><a href="/?district=CHACO#legislatives">Chaco</a></p>
-      <p><a href="/?district=CHUBUT#legislatives">Chubut</a></p>
-      <p><a href="/?district=CORDOBA#legislatives">Córdoba</a></p>
-      <p><a href="/?district=CORRIENTES#legislatives">Corrientes</a></p>
-      <p><a href="/?district=ENTRE RIOS#legislatives">Entre Ríos</a></p>
-      <p><a href="/?district=FORMOSA#legislatives">Formosa</a></p>
-      <p><a href="/?district=JUJUY#legislatives">Jujuy</a></p>
-      <p><a href="/?district=LA PAMPA#legislatives">La Pampa</a></p>
-      <p><a href="/?district=LA RIOJA#legislatives">La Rioja</a></p>
-      <p><a href="/?district=MENDOZA#legislatives">Mendoza</a></p>
-      <p><a href="/?district=MISIONES#legislatives">Misiones</a></p>
-      <p><a href="/?district=NEUQUEN#legislatives">Neuquén</a></p>
-      <p><a href="/?district=RIO NEGRO#legislatives">Río Negro</a></p>
-      <p><a href="/?district=SALTA#legislatives">Salta</a></p>
-      <p><a href="/?district=SAN JUAN#legislatives">San Juan</a></p>
-      <p><a href="/?district=SAN LUIS#legislatives">San Luis</a></p>
-      <p><a href="/?district=SANTA CRUZ#legislatives">Santa Cruz</a></p>
-      <p><a href="/?district=SANTA FE#legislatives">Santa Fe</a></p>
-      <p><a href="/?district=SANTIAGO DEL ESTERO#legislatives">Santiago del Estero</a></p>
-      <p><a href="/?district=TIERRA DEL FUEGO#legislatives">
-        Tierra del Fuego, Antártida e Islas del Atlántico Sur</a></p>
-      <p><a href="/?district=TUCUMAN#legislatives">Tucumán</a></p>
+			<select class="form-control" data-style="btn-primary" id="select-distrito">
+				<option value="/#legislatives">Todos los Distritos</option>
+				<option value="/?district=CIUDAD de BUENOS AIRES#legislatives">Ciudad de Buenos Aires</option>
+				<option value="/?district=BUENOS AIRES#legislatives">Buenos Aires</option>
+				<option value="/?district=CATAMARCA#legislatives">Catamarca</option>
+				<option value="/?district=CHACO#legislatives">Chaco</option>
+				<option value="/?district=CHUBUT#legislatives">Chubut</option>
+				<option value="/?district=CORDOBA#legislatives">Córdoba</option>
+				<option value="/?district=CORRIENTES#legislatives">Corrientes</option>
+				<option value="/?district=ENTRE RIOS#legislatives">Entre Ríos</option>
+				<option value="/?district=FORMOSA#legislatives">Formosa</option>
+				<option value="/?district=JUJUY#legislatives">Jujuy</option>
+				<option value="/?district=LA PAMPA#legislatives">La Pampa</option>
+				<option value="/?district=LA RIOJA#legislatives">La Rioja</option>
+				<option value="/?district=MENDOZA#legislatives">Mendoza</option>
+				<option value="/?district=MISIONES#legislatives">Misiones</option>
+				<option value="/?district=NEUQUEN#legislatives">Neuquén</option>
+				<option value="/?district=RIO NEGRO#legislatives">Río Negro</option>
+				<option value="/?district=SALTA#legislatives">Salta</option>
+				<option value="/?district=SAN JUAN#legislatives">San Juan</option>
+				<option value="/?district=SAN LUIS#legislatives">San Luis</option>
+				<option value="/?district=SANTA CRUZ#legislatives">Santa Cruz</option>
+				<option value="/?district=SANTA FE#legislatives">Santa Fe</option>
+				<option value="/?district=SANTIAGO DEL ESTERO#legislatives">Santiago del Estero</option>
+				<option value="/?district=TIERRA DEL FUEGO#legislatives">
+					Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+				<option value="/?district=TUCUMAN#legislatives">Tucumán</option>
+			</select>
     </div>
-  </div>
-  <div class="span8">
+
     <h3>Legisladores</h3>
 
     {{#unless legislatives.length}}
@@ -93,25 +89,25 @@
     {{#each legislatives}}
       <div class="media">
         {{#if facebookUrl}}
-          <a class="media-object pull-left" href="{{facebookUrl}}" target="_blank">
-            <img alt="{{fullName}}" src="{{pictureUrl}}">
+          <a class="media-object pull-left unveil" href="{{facebookUrl}}" target="_blank">
+            <img alt="{{fullName}}" src="{{pictureUrl}}" width="107" height="80">
           </a>
         {{else}}
-          <img class="pull-left media-object" alt="{{fullName}}"
-            src="{{pictureUrl}}">
+          <img class="pull-left media-object unveil" alt="{{fullName}}"
+            src="{{pictureUrl}}" width="107" height="80">
         {{/if}}
         <div class="media-body">
           <div class="info pull-left">
             <h4 class="media-heading">{{fullName}}</h4>
 
-            <strong>Partido</strong>: {{party}}<br>
-            <strong>Distrito</strong>: {{district}}<br>
+            {{district}}<br>
 
             {{#if siteUrl}}
               <a href="{{siteUrl}}">{{siteUrl}}</a><br>
             {{/if}}
             <small><a class="js-show-info" href="javascript:;">Mostrar más información</a></small>
             <p>
+            	<strong>Partido</strong>: {{party}}<br>
               {{#if address}}
                 <strong>Dirección en el Congreso</strong>: {{address}}<br>
               {{/if}}
@@ -218,20 +214,6 @@
         uid: {{user.id}}
       });
     sendMessage.render();
-
-    jQuery('#mainslider').bjqs({
-      'width' : 590,
-      'height' : 400,
-      'animtype' : 'fade',
-      'animduration' : 450,
-      'animspeed' : 3000,
-      'automatic' : true,
-      'responsive' : true,
-      'showcontrols' : false,
-      'showmarkers' : false,
-      'hoverpause' : false,
-      'randomstart' : false
-    });
 
     FB.init({
       appId: '{{config.facebookAppId}}',

@@ -23,6 +23,7 @@
     <script type="text/javascript" src="/js/es5-shim.min.js"></script>
     <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="/js/bjqs-1.3.min.js"></script>
+		<script type="text/javascript" src="/js/jquery.unveil.js"></script>
 
   </head>
   <body>
@@ -30,7 +31,7 @@
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="#">
-            <img alt="Y" src="/images/logo-solo.png">
+            <img alt="Yo los Paro!" src="/images/logo-solo.png">
             Yo los paro!
           </a>
           <div class="nav-collapse collapse">
@@ -57,5 +58,28 @@
     </div>
 
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			jQuery(function () {
+				jQuery('#mainslider').bjqs({
+					'width' : 590,
+					'height' : 400,
+					'animtype' : 'fade',
+					'animduration' : 450,
+					'animspeed' : 3000,
+					'automatic' : true,
+					'responsive' : true,
+					'showcontrols' : false,
+					'showmarkers' : false,
+					'hoverpause' : false,
+					'randomstart' : false
+				});
+
+				$('#select-distrito').change(function(e){
+					window.location.href = $(e.target).val();
+				});
+
+				$("img.unveil").unveil(200); 
+			});
+		</script>
   </body>
 </html>
