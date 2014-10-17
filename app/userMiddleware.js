@@ -31,7 +31,8 @@ var randomIndex = function () {
  *    Cannot be null.
  */
 var generateUniqueName = function (repo, callback) {
-  var nick = names[randomIndex()] + " " + names[randomIndex()];
+  var number = String(Date.now());
+  var nick = names[randomIndex()] + number.substr(-4, 4);
 
   repo.findByNickname(nick, function (err, user) {
     if (err) {

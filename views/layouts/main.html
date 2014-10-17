@@ -36,7 +36,7 @@
         		<span class="icon-bar"></span>
         		<span class="icon-bar"></span>
    				</button>
-    			<a class="navbar-brand" href="#">
+    			<a class="navbar-brand" href="/">
             <img alt="Yo los Paro!" src="/images/logo-solo.png" width="40" height="40">
             Yo los paro!
     			</a>
@@ -47,13 +47,15 @@
 						<li><a href="#legislatives">Legisladores</a></li>
 					</ul>
 					<div class="pull-right">
-						<button type="button" class="btn btn-default glyphicon glyphicon-cog"
+						<button type="button"
+              class="btn btn-default btn-primary glyphicon glyphicon-user"
+              title="Para cuidar tu privacidad, no te pedimos que te registres. Este es tu apodo y podés cambiarlo en cualquier momento."
 							data-container="body"
 							data-toggle="popover"
 							data-placement="bottom"
 							data-html="true"
 							data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-							Bienvenid@, {{user.nick}}!
+							Hola {{user.nick}}!
 						</button>
 					</div>
 				</div>
@@ -80,11 +82,7 @@
 					'randomstart' : false
 				});
 
-				$('#select-distrito').change(function(e){
-					window.location.href = $(e.target).val();
-				});
-
-				$("img.unveil").unveil(200); 
+				$("img.unveil").unveil(200);
 			});
 		</script>
   </body>

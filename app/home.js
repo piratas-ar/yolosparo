@@ -1,5 +1,6 @@
 var LegislativesRepository = require("../lib/LegislativesRepository");
 var ActivitiesRepository = require("../lib/ActivitiesRepository");
+var extend = require("extend");
 
 // Renders the home page.
 app.get('/', function (req, res) {
@@ -22,7 +23,9 @@ app.get('/', function (req, res) {
       res.render("home.html", {
         legislatives: legislatives,
         activities: activities,
-        config: app.config
+        config: extend({}, app.config, {
+          tweet: encodeURIComponent(app.config.tweet)
+        })
       });
     });
   });

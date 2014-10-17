@@ -10,7 +10,7 @@
 		</div>
 
 	</div>
-	<div class="col-md-6">
+	<div class="message col-md-6">
 
     <h3>
       <a href="#legislatives">¡Activá Ya!</a>
@@ -50,12 +50,15 @@
 
     <ul>
       <li>
+        <span class="glyphicon glyphicon-volume-up"><!-- Icon --></span>
         <strong>Difundí los problemas de este proyecto de ley.</strong>
       </li>
       <li>
-        <strong>Contactá a un/a diputado/a y explicale por que tiene que votar en contra de este proyecto.</strong>
+        <span class="glyphicon glyphicon-earphone"><!-- Icon --></span>
+        <strong>Contactá a un/a diputado/a y explicale por qué tiene que votar en contra del proyecto.</strong>
       </li>
       <li>
+        <span class="glyphicon glyphicon-heart"><!-- Icon --></span>
         <strong>Sumá a tus familiares, amigos y conocidos a esta campaña.</strong>
       </li>
     </ul>
@@ -67,35 +70,35 @@
 <hr />
 
 <div class="row">
-  <div class="col-md-12 pull-right">
+  <div class="col-md-12">
     <h3>Filtrar por distrito</h3>
 
     <div>
-      <p><strong><a href="/#legislatives">Todos</a></strong> | 
-        <a href="/?district=CIUDAD de BUENOS AIRES#legislatives">Ciudad de Buenos Aires</a> | 
-        <a href="/?district=BUENOS AIRES#legislatives">Buenos Aires</a> | 
-        <a href="/?district=CATAMARCA#legislatives">Catamarca</a> | 
-        <a href="/?district=CHACO#legislatives">Chaco</a> | 
-        <a href="/?district=CHUBUT#legislatives">Chubut</a> | 
-        <a href="/?district=CORDOBA#legislatives">Córdoba</a> | 
-        <a href="/?district=CORRIENTES#legislatives">Corrientes</a> | 
-        <a href="/?district=ENTRE RIOS#legislatives">Entre Ríos</a> | 
-        <a href="/?district=FORMOSA#legislatives">Formosa</a> | 
-        <a href="/?district=JUJUY#legislatives">Jujuy</a> | 
-        <a href="/?district=LA PAMPA#legislatives">La Pampa</a> | 
-        <a href="/?district=LA RIOJA#legislatives">La Rioja</a> | 
-        <a href="/?district=MENDOZA#legislatives">Mendoza</a> | 
-        <a href="/?district=MISIONES#legislatives">Misiones</a> | 
-        <a href="/?district=NEUQUEN#legislatives">Neuquén</a> | 
-        <a href="/?district=RIO NEGRO#legislatives">Río Negro</a> | 
-        <a href="/?district=SALTA#legislatives">Salta</a> | 
-        <a href="/?district=SAN JUAN#legislatives">San Juan</a> | 
-        <a href="/?district=SAN LUIS#legislatives">San Luis</a> | 
-        <a href="/?district=SANTA CRUZ#legislatives">Santa Cruz</a> | 
-        <a href="/?district=SANTA FE#legislatives">Santa Fe</a> | 
-        <a href="/?district=SANTIAGO DEL ESTERO#legislatives">Santiago del Estero</a> | 
+      <p><a href="/#legislatives">Todos</a> |
+        <a href="/?district=CIUDAD de BUENOS AIRES#legislatives">Ciudad de Buenos Aires</a> |
+        <a href="/?district=BUENOS AIRES#legislatives">Buenos Aires</a> |
+        <a href="/?district=CATAMARCA#legislatives">Catamarca</a> |
+        <a href="/?district=CHACO#legislatives">Chaco</a> |
+        <a href="/?district=CHUBUT#legislatives">Chubut</a> |
+        <a href="/?district=CORDOBA#legislatives">Córdoba</a> |
+        <a href="/?district=CORRIENTES#legislatives">Corrientes</a> |
+        <a href="/?district=ENTRE RIOS#legislatives">Entre Ríos</a> |
+        <a href="/?district=FORMOSA#legislatives">Formosa</a> |
+        <a href="/?district=JUJUY#legislatives">Jujuy</a> |
+        <a href="/?district=LA PAMPA#legislatives">La Pampa</a> |
+        <a href="/?district=LA RIOJA#legislatives">La Rioja</a> |
+        <a href="/?district=MENDOZA#legislatives">Mendoza</a> |
+        <a href="/?district=MISIONES#legislatives">Misiones</a> |
+        <a href="/?district=NEUQUEN#legislatives">Neuquén</a> |
+        <a href="/?district=RIO NEGRO#legislatives">Río Negro</a> |
+        <a href="/?district=SALTA#legislatives">Salta</a> |
+        <a href="/?district=SAN JUAN#legislatives">San Juan</a> |
+        <a href="/?district=SAN LUIS#legislatives">San Luis</a> |
+        <a href="/?district=SANTA CRUZ#legislatives">Santa Cruz</a> |
+        <a href="/?district=SANTA FE#legislatives">Santa Fe</a> |
+        <a href="/?district=SANTIAGO DEL ESTERO#legislatives">Santiago del Estero</a> |
         <a href="/?district=TIERRA DEL FUEGO#legislatives">
-          Tierra del Fuego, Antártida e Islas del Atlántico Sur</a> | 
+          Tierra del Fuego, Antártida e Islas del Atlántico Sur</a> |
         <a href="/?district=TUCUMAN#legislatives">Tucumán</a>
       </p>
     </div>
@@ -166,7 +169,7 @@
               </p>
             {{/if}}
             {{#if twitterName}}
-              <a href="https://twitter.com/intent/tweet?screen_name={{twitterName}}&text={{../config.tweet}}"
+              <a href="https://twitter.com/intent/tweet?screen_name={{twitterName}}&text={{../../config.tweet}}"
                 id="tweet-{{id}}"
                 class="social-channel btn btn-block btn-social btn-twitter"
                 data-related="hoylosparo"
@@ -204,23 +207,27 @@
   </div>
 </div>
 
-<div class="js-send-message-dialog send-message-dialog modal hide fade">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h3>Enviar mensaje</h3>
-  </div>
-  <div class="modal-body">
-    <p>
-      Para: <span class="js-message-to"><!-- --></span>
-    </p>
-    <p>
-      De: <input name="message-from">
-    </p>
-    <textarea name="message">{{config.emailMessage}}</textarea>
-  </div>
-  <div class="modal-footer">
-    <a href="javascript:;" class="js-cancel btn">Cancelar</a>
-    <a href="javascript:;" class="js-send btn btn-primary">Enviar</a>
+<div class="js-send-message-dialog send-message-dialog modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Enviar mensaje</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          Para: <span class="js-message-to"><!-- --></span>
+        </p>
+        <p>
+          De: <input name="message-from">
+        </p>
+        <textarea name="message">{{config.emailMessage}}</textarea>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:;" class="js-cancel btn">Cancelar</a>
+        <a href="javascript:;" class="js-send btn btn-primary">Enviar</a>
+      </div>
+    </div>
   </div>
 </div>
 

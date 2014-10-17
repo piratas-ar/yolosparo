@@ -35,8 +35,11 @@ body {
 }
 
 .info {
-  max-width: 300px;
   word-break: break-word;
+}
+
+.social-channels {
+  text-align: center;
 }
 
 .info p {
@@ -51,4 +54,17 @@ body {
 .brand img {
   height: 24px;
   width: 24px;
+}
+
+.message p,
+.message li {
+  font-size: 16px;
+}
+
+.message ul {
+  padding: 0;
+}
+
+.message li {
+  list-style: none;
 }
