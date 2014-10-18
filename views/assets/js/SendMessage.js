@@ -57,6 +57,7 @@ SendMessage = function (container, legislatives, options) {
       var legislative = findLegislative(id);
 
       error_message.hide();
+      dialog.find("input[name=message-from]").val("");
 
       dialog.find(".js-message-to").text(legislative.fullName +
         " <" + legislative.email + ">");
