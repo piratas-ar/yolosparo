@@ -131,6 +131,21 @@
           <div class="info pull-left">
             <h4 class="media-heading">{{fullName}}</h4>
 
+            <div class="social-channel">
+              {{#if twitterUrl}}
+                <a href="{{twitterUrl}}"
+                  class="btn btn-social-icon btn-xs btn-twitter" target="_blank">
+                  <i class="fa fa-twitter"><!-- Twitter icon --></i>
+                </a>
+              {{/if}}
+              {{#if facebookUrl}}
+                <a href="{{facebookUrl}}"
+                class="btn btn-social-icon btn-xs btn-facebook" target="_blank">
+                  <i class="fa fa-facebook"><!-- Twitter icon --></i>
+                </a>
+              {{/if}}
+            </div>
+
             {{#if siteUrl}}
               <strong>Sitio:</strong> <a href="{{siteUrl}}">{{siteUrl}}</a><br>
             {{/if}}
