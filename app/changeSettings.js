@@ -22,7 +22,7 @@ app.post('/changeSettings', function (req, res) {
       }
       res.send(500, { error: errorMessage });
     } else {
-      res.cookie("uid", nick);
+      res.cookie("uid", nick, { maxAge: 157680000000 });
       res.send(200, "OK");
     }
   });
