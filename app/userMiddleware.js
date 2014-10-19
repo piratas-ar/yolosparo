@@ -85,15 +85,15 @@ module.exports = function userMiddleware(req, res, next) {
         return;
       }
       res.locals.user = user;
-      res.cookie("uid", user.nick);
-      res.cookie("ukey", user.secret);
+      res.cookie("uid", user.nick, { maxAge: 157680000000 });
+      res.cookie("ukey", user.secret, { maxAge: 157680000000 });
       next();
     });
   };
   var updateSecret = function (user) {
     var secret = generateSecret(user.nick);
 
-    res.cookie("ukey", secret);
+    res.cookie("ukey", secret, { maxAge: 157680000000 });
     repo.updateSecret(user.id, secret, function (err) {
       if (!err) {
         user.secret = secret;
