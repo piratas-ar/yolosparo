@@ -20,13 +20,21 @@ app.get('/', function (req, res) {
         res.send(500, err);
         return;
       }
-      res.render("home.html", {
-        legislatives: legislatives,
-        activities: activities,
-        homeView: true,
-        config: extend({}, app.config, {
-          tweet: encodeURIComponent(app.config.tweet)
-        })
+      activitiesRepo.stats(function (err, stats) {
+        if (err) {
+          res.send(500, err);
+          return;
+        }
+
+        res.render("home.html", {
+          legislatives: legislatives,
+          activities: activities,
+          homeView: true,
+          stats: stats,
+          config: extend({}, app.config, {
+            tweet: encodeURIComponent(app.config.tweet)
+          })
+        });
       });
     });
   });

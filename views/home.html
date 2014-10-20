@@ -229,9 +229,14 @@
 
   </div>
 
-  <div class="col-md-4 activities">
+  <div class="col-md-4">
     <h3>Actividad</h3>
-    <div class="js-activities">
+    <p>
+      <span class="fa fa-twitter"><!-- Icon --></span> {{stats.tweets}} tweets |
+      <span class="fa fa-facebook"><!-- Icon --></span> {{stats.facebookMessages}} mensajes |
+      <span class="glyphicon glyphicon-envelope"><!-- Icon --></span> {{stats.emails}} emails
+    </p>
+    <div class="js-activities activities">
       {{#each activities}}
         {{#if status}}
           <p>

@@ -33,7 +33,7 @@ create table if not exists users (
   nick_name varchar(50) not null unique,
   secret varchar(255) not null unique,
   full_name varchar(255) null,
-  email varchar(255) null unique
+  email varchar(255) null
 );
 
 -- Activity log
