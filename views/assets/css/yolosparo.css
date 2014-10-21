@@ -37,6 +37,7 @@ body {
 }
 
 .info {
+  max-width: 530px;
   word-break: break-word;
 }
 
