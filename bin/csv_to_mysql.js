@@ -88,31 +88,30 @@ parse(csv, function(err, items) {
       }
 
       conn.query(query, [param], function (err, results) {
-        var legislative;
+        var legislative = {
+          full_name: data[LAST_NAME].trim() + ", " + data[FIRST_NAME].trim(),
+          phone: data[PHONE] && data[PHONE].trim(),
+          address: data[ADDRESS] && data[ADDRESS].trim(),
+          personal_phone: data[PERSONAL_PHONE] && data[PERSONAL_PHONE].trim(),
+          personal_address: data[PERSONAL_ADDRESS] && data[PERSONAL_ADDRESS]
+            .trim(),
+          secretary_name: data[SECRETARY_NAME] && data[SECRETARY_NAME].trim(),
+          secretary_phone: data[SECRETARY_PHONE] && data[SECRETARY_PHONE]
+            .trim(),
+          site_url: data[SITE_URL] && data[SITE_URL].trim(),
+          twitter_account: data[TWITTER_ACCOUNT] && data[TWITTER_ACCOUNT]
+            .trim(),
+          facebook_account: data[FACEBOOK_ACCOUNT] && data[FACEBOOK_ACCOUNT]
+            .trim()
+        };
 
         if (err) {
           return next(err);
         }
         if (results.length) {
-          legislative = extend(results.shift(), {
-            full_name: data[LAST_NAME].trim() + ", " + data[FIRST_NAME].trim(),
-            phone: data[PHONE] && data[PHONE].trim(),
-            address: data[ADDRESS] && data[ADDRESS].trim(),
-            personal_phone: data[PERSONAL_PHONE] && data[PERSONAL_PHONE].trim(),
-            personal_address: data[PERSONAL_ADDRESS] && data[PERSONAL_ADDRESS]
-              .trim(),
-            secretary_name: data[SECRETARY_NAME] && data[SECRETARY_NAME].trim(),
-            secretary_phone: data[SECRETARY_PHONE] && data[SECRETARY_PHONE]
-              .trim(),
-            site_url: data[SITE_URL] && data[SITE_URL].trim(),
-            twitter_account: data[TWITTER_ACCOUNT] && data[TWITTER_ACCOUNT]
-              .trim(),
-            facebook_account: data[FACEBOOK_ACCOUNT] && data[FACEBOOK_ACCOUNT]
-              .trim()
-          });
-          statements.push(createInsert(conn, legislative));
-        } else {
+          legislative = extend(results.shift(), legislative);
         }
+        statements.push(createInsert(conn, legislative));
         conn.release();
         next();
       });
