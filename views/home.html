@@ -3,11 +3,15 @@
 		<br />
 		<div style="height: 42px" class="hidden-sm"> &nbsp; </div>
 		<div id="mainslider">
+			<a href="javascript:void()" id="play">
 			<ul class="bjqs">
 				<li><img src="/images/fracking_pozos.jpg" alt="Para el fracking se realizan cientos de pozos." /></li>
 				<li><img src="/images/fracking_agua.jpeg" alt="El fracking contamina el agua." /></li>
 				<li><img src="/images/argentina_libre_de_fracking.jpg" alt="Argentina libre de fracking" /></li>
 			</ul>
+			</a>
+		</div>
+		<div style="display: none" id="video">
 		</div>
 
 	</div>
@@ -293,5 +297,13 @@
       xfbml: true,
       version: 'v2.1'
     });
+
+
+		jQuery('#play').on('click',function(e){
+			e.preventDefault();
+			jQuery('#mainslider').hide();
+			jQuery('#video').html('<iframe width="100%" height="300" src="//www.youtube.com/embed/i9MOISFiAP4?autoplay=!" frameborder="0" allowfullscreen></iframe>').show();
+		});
+
   });
 </script>

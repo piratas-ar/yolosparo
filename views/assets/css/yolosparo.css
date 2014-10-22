@@ -13,6 +13,7 @@ body {
 }
 
 #mainslider { text-align: center; margin: 0 auto; }
+#video { text-align: center; margin: 0 auto; }
 
 /** Social channel action (ie: fb, twitter, etc) */
 .social-channel {
