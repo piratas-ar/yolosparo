@@ -14,8 +14,8 @@
       content="Le pedimos a nuestros legisladores que cambien su posición y voten NO al fracking, NO a la nueva ley de hidrocarburos." />
     <meta property="og:image" content="http://yolosparo.org/images/argentina_libre_de_fracking-opengraph.jpg" />
 
-		<link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
-		<link rel="icon" href="/favicon.ico?v=2" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon">
 
     <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
@@ -25,52 +25,53 @@
 
     <script type="text/javascript" src="/js/es5-shim.min.js"></script>
     <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
-		<script type="text/javascript" src="/js/bjqs-1.3.min.js"></script>
-		<script type="text/javascript" src="/js/jquery.unveil.js"></script>
+    <script type="text/javascript" src="/js/bjqs-1.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.unveil.js"></script>
 
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
-				<div class="navbar-header">
-    			<button class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-        		<span class="sr-only">Mostrar menú</span>
-        		<span class="icon-bar"></span>
-        		<span class="icon-bar"></span>
-        		<span class="icon-bar"></span>
-   				</button>
-    			<a class="navbar-brand" href="/">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Mostrar menú</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+           </button>
+          <a class="navbar-brand" href="/">
             <img alt="Yo los Paro!" src="/images/logo-solo.png" width="40" height="40">
             Yo los paro!
-    			</a>
-				</div>
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						<li {{#if homeView}}class="active"{{/if}}><a href="/">Inicio</a></li>
-						<li><a href="/#legislatives">Legisladores</a></li>
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li {{#if homeView}}class="active"{{/if}}><a href="/">Inicio</a></li>
+            <li><a href="/#legislatives">Legisladores</a></li>
+            <li {{#if billInfoView}}class="active"{{/if}}><a href="/billInfo">Mentiras</a></li>
             <li {{#if contactView}}class="active"{{/if}}><a href="/contact">Contacto</a></li>
-					</ul>
-					<div class="pull-right">
-						<button type="button"
+          </ul>
+          <div class="pull-right">
+            <button type="button"
               id="userSettings"
               class="btn btn-default btn-primary glyphicon glyphicon-user"
               title="Para cuidar tu privacidad no te pedimos que te registres. Vamos a usar tu apodo y el email para contarte cuál fue la votación final de los diputados."
-							data-container="body"
-							data-toggle="popover"
-							data-placement="bottom"
-							data-html="true">
-							Hola <span class="js-user-name">{{user.nick}}</span>!
-						</button>
-					</div>
-				</div>
+              data-container="body"
+              data-toggle="popover"
+              data-placement="bottom"
+              data-html="true">
+              Hola <span class="js-user-name">{{user.nick}}</span>!
+            </button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="container-fluid main-container">
       {{{body}}}
     </div>
 
-		<footer>
-		</footer>
+    <footer>
+    </footer>
 
     <form class="user-form form-inline hidden" id="userForm">
 
@@ -95,27 +96,27 @@
 
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/UserForm.js"></script>
-		<script type="text/javascript">
-			jQuery(function () {
+    <script type="text/javascript">
+      jQuery(function () {
         var userFormElement = jQuery("#userForm");
         var userSettingsAction = jQuery("#userSettings");
         var userForm = new UserForm(userFormElement, userSettingsAction);
 
         userForm.render();
 
-				jQuery('#mainslider').bjqs({
-					'width' : 590,
-					'height' : 400,
-					'animtype' : 'fade',
-					'animduration' : 450,
-					'animspeed' : 3000,
-					'automatic' : true,
-					'responsive' : true,
-					'showcontrols' : false,
-					'showmarkers' : false,
-					'hoverpause' : false,
-					'randomstart' : false
-				});
+        jQuery('#mainslider').bjqs({
+          'width' : 590,
+          'height' : 400,
+          'animtype' : 'fade',
+          'animduration' : 450,
+          'animspeed' : 3000,
+          'automatic' : true,
+          'responsive' : true,
+          'showcontrols' : false,
+          'showmarkers' : false,
+          'hoverpause' : false,
+          'randomstart' : false
+        });
         userSettingsAction.popover({
           content: userFormElement
         });
@@ -123,8 +124,8 @@
           userFormElement.removeClass("hidden");
         });
 
-				jQuery("img.unveil").unveil(200);
-			});
-		</script>
+        jQuery("img.unveil").unveil(200);
+      });
+    </script>
   </body>
 </html>
