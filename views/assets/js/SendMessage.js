@@ -170,7 +170,7 @@ SendMessage = function (container, legislatives, options) {
 
       FB.ui({
         method: 'send',
-        link: 'http://yolosparo.org',
+        link: encodeURIComponent('http://yolosparo.org'),
         to: link.data("to")
       }, function(response) {
         if (response && response.success) {
