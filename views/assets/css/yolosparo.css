@@ -86,3 +86,23 @@ body {
   margin: 30px auto;
   width: 1000px;
 }
+
+.featured {
+  border-radius: 8px;
+  margin: 0 5px 5px 0;
+  padding: 5px;
+  width: 210px;
+}
+
+.featured img {
+  border-radius: 8px 8px 0 0;
+}
+
+.featured .media-heading {
+  text-align: center;
+}
+
+.legislatives {
+  clear: both;
+  padding-top: 20px;
+}

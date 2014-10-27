@@ -1,3 +1,4 @@
+drop table if exists featured_legislatives;
 drop table if exists activities;
 drop table if exists legislatives;
 drop table if exists users;
@@ -46,4 +47,14 @@ create table if not exists activities (
   foreign key (legislative_id) references legislatives(id),
   foreign key (user_id) references users(id),
   unique(user_id, legislative_id, action)
+);
+
+-- Featured legislatives.
+create table if not exists featured_legislatives (
+  id bigint(20) not null primary key auto_increment,
+  legislative_id bigint not null unique,
+  tweet_text varchar(250) not null,
+  email_text varchar(1000) not null,
+  friendly_name varchar(250) not null,
+  foreign key (legislative_id) references legislatives(id)
 );

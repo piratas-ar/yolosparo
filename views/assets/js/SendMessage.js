@@ -37,10 +37,18 @@ SendMessage = function (container, legislatives, options) {
    * @methodOf SendMessage#
    */
   var findLegislative = function (id) {
+    var legislative;
     var i;
     for (i = 0; i < legislatives.length; i++) {
       if (legislatives[i].id === id) {
         return legislatives[i];
+      }
+    }
+    for (i = 0; i < options.featured.length; i++) {
+      legislative = options.featured[i];
+      if (legislative.id === id) {
+        legislative.featured = true;
+        return legislative;
       }
     }
     return null;
@@ -61,6 +69,12 @@ SendMessage = function (container, legislatives, options) {
       dialog.find(".js-message-to").text(legislative.fullName +
         " <" + legislative.email + ">");
       currentLegislativeId = legislative.id;
+
+      if (legislative.featured) {
+        container.find("textarea[name=message]").text(legislative.emailText);
+      } else {
+        container.find("textarea[name=message]").text(options.emailMessage);
+      }
       dialog.modal("show");
     });
   };
