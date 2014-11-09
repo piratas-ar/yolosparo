@@ -2,6 +2,14 @@ drop table if exists featured_legislatives;
 drop table if exists activities;
 drop table if exists legislatives;
 drop table if exists users;
+drop table if exists campaign;
+
+-- Campaign to scope legislatives and actions.
+create table if not exists campaign(
+  id bigint not null primary key auto_increment,
+  name varchar(255) not null unique,
+  domain varchar(255) not null unique
+);
 
 -- People
 create table if not exists legislatives (

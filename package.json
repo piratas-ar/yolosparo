@@ -19,7 +19,8 @@
     "nodemailer": "*",
     "async": "*",
     "extend": "*",
-    "csv-parse": "*"
+    "csv-parse": "*",
+    "express-domain-middleware": "*"
   },
   "author": "seykron",
   "license": "GPLv2",

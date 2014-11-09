@@ -46,10 +46,9 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li {{#if homeView}}class="active"{{/if}}><a href="/">Inicio</a></li>
-            <li><a href="/#legislatives">Legisladores</a></li>
-            <li {{#if billInfoView}}class="active"{{/if}}><a href="/billInfo">Mentiras</a></li>
-            <li {{#if contactView}}class="active"{{/if}}><a href="/contact">Contacto</a></li>
+            {{#each menuItems}}
+              <li><a href="{{../mountpath}}{{url}}">{{text}}</a></li>
+            {{/each}}
           </ul>
           <div class="pull-right">
             <button type="button"
@@ -69,9 +68,6 @@
     <div class="container-fluid main-container">
       {{{body}}}
     </div>
-
-    <footer>
-    </footer>
 
     <form class="user-form form-inline hidden" id="userForm">
 
