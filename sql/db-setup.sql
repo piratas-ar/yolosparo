@@ -1,14 +1,14 @@
 drop table if exists featured_legislatives;
+drop table if exists campaign_legislatives;
 drop table if exists activities;
 drop table if exists legislatives;
 drop table if exists users;
 drop table if exists campaign;
 
 -- Campaign to scope legislatives and actions.
-create table if not exists campaign(
+create table if not exists campaigns(
   id bigint not null primary key auto_increment,
-  name varchar(255) not null unique,
-  domain varchar(255) not null unique
+  name varchar(255) not null unique
 );
 
 -- People
@@ -36,33 +36,48 @@ create table if not exists legislatives (
   unique(type, full_name)
 );
 
+-- Active legislatives in a campaign.
+create table campaign_legislatives(
+  campaign_id bigint not null,
+  legislative_id bigint not null,
+  foreign key (campaign_id) references campaigns(id),
+  foreign key (legislative_id) references legislatives(id)
+);
+
 -- Users
 create table if not exists users (
   id bigint not null primary key auto_increment,
+  campaign_id bigint not null,
   nick_name varchar(50) not null unique,
   secret varchar(255) not null unique,
   full_name varchar(255) null,
-  email varchar(255) null
+  email varchar(255) null,
+  foreign key (campaign_id) references campaigns(id)
 );
 
 -- Activity log
 create table if not exists activities (
   id bigint not null primary key auto_increment,
   creation_time timestamp not null,
+  campaign_id bigint not null,
   user_id bigint not null,
   legislative_id bigint not null,
   action varchar(50) not null,
+  foreign key (campaign_id) references campaigns(id),
   foreign key (legislative_id) references legislatives(id),
   foreign key (user_id) references users(id),
-  unique(user_id, legislative_id, action)
+  unique(campaign_id, user_id, legislative_id, action)
 );
 
 -- Featured legislatives.
 create table if not exists featured_legislatives (
   id bigint(20) not null primary key auto_increment,
-  legislative_id bigint not null unique,
+  campaign_id bigint not null,
+  legislative_id bigint not null,
   tweet_text varchar(250) not null,
   email_text varchar(1000) not null,
   friendly_name varchar(250) not null,
-  foreign key (legislative_id) references legislatives(id)
+  foreign key (campaign_id) references campaigns(id),
+  foreign key (legislative_id) references legislatives(id),
+  unique(campaign_id, legislative_id)
 );

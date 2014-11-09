@@ -41,7 +41,7 @@ fs.readdir(path.join(__dirname, "app"), function (err, files) {
 });
 
 if (app.get("env") !== "production") {
-  dataSource = new DataSource(CONNECTION_STRING);
+  dataSource = new DataSource(app.config.dataSource);
   app.set("dataSource", dataSource);
   console.log("Initializing database.");
 
@@ -51,12 +51,12 @@ if (app.get("env") !== "production") {
     }
     console.log("Database re-created.");
 
-    app.listen(3000);
-    console.log("App available at http://localhost:3000");
+    app.listen(app.config.port);
+    console.log("App available at http://localhost:" + app.config.port);
   });
 } else {
-  dataSource = new DataSource(CONNECTION_STRING + "_prod");
+  dataSource = new DataSource(app.config.production.dataSource);
   app.set("dataSource", dataSource);
-  app.listen(3000);
-  console.log("App available at http://localhost:3000");
+  app.listen(app.config.port);
+  console.log("App available at http://localhost:" + app.config.port);
 }

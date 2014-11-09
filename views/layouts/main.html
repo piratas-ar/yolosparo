@@ -39,7 +39,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
            </button>
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand" href="/{{campaign}}">
             <img alt="Yo los Paro!" src="/images/logo-solo.png" width="40" height="40">
             Yo los paro!
           </a>
@@ -96,7 +96,9 @@
       jQuery(function () {
         var userFormElement = jQuery("#userForm");
         var userSettingsAction = jQuery("#userSettings");
-        var userForm = new UserForm(userFormElement, userSettingsAction);
+        var userForm = new UserForm(userFormElement, userSettingsAction, {
+          campaign: "{{campaign}}"
+        });
 
         userForm.render();
 

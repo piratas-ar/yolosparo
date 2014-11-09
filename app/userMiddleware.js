@@ -13,6 +13,12 @@ module.exports = function(app) {
    */
   var UsersRepository = require("../lib/UsersRepository");
 
+  /** Name of the campaign related to this middleware.
+   * @type {String}
+   * @private
+   */
+  var campaign = app.get("name");
+
   /** Node's file system API.
    */
   var fs = require("fs");
@@ -59,7 +65,7 @@ module.exports = function(app) {
     var number = String(Date.now());
     var nick = names[randomIndex()] + number.substr(-4, 4);
 
-    repo.findByNickname(nick, function (err, user) {
+    repo.findByNickname(campaign, nick, function (err, user) {
       if (err) {
         callback(err);
         return;
@@ -68,7 +74,7 @@ module.exports = function(app) {
         generateUniqueName(repo, callback);
       } else {
         console.log("New user: " + nick);
-        repo.save({
+        repo.save(campaign, {
           nick: nick,
           secret: generateSecret(nick)
         }, callback);
@@ -80,6 +86,16 @@ module.exports = function(app) {
     var repo;
     var uid = req.cookies.uid;
     var secret = req.cookies.ukey;
+    var currentCampaign = req.param("campaign") || campaign;
+    var setCookie = function (name, value) {
+      var options = {
+        path: app.get("mountpath")
+      };
+      if (!app.locals.config.debugMode) {
+        options.maxAge = 157680000000;
+      }
+      res.cookie(name, value, options);
+    };
     var doGenerate = function () {
       generateUniqueName(repo, function (err, user) {
         if (err) {
@@ -87,48 +103,52 @@ module.exports = function(app) {
           return;
         }
         res.locals.user = user;
-        res.cookie("uid", user.nick, { maxAge: 157680000000 });
-        res.cookie("ukey", user.secret, { maxAge: 157680000000 });
+        res.locals.campaign = campaign;
+
+        setCookie("uid", user.nick);
+        setCookie("ukey", user.secret);
         next();
       });
     };
     var updateSecret = function (user) {
       var secret = generateSecret(user.nick);
 
-      res.cookie("ukey", secret, { maxAge: 157680000000 });
       repo.updateSecret(user.id, secret, function (err) {
         if (!err) {
           user.secret = secret;
+          setCookie("ukey", secret);
         }
         next();
       });
     };
 
-    if (req.db) {
+    // Excludes the main app.
+    if (req.originalUrl !== "/" && req.db) {
       // Checks the user only in requests within a transaction.
       repo = new UsersRepository(req.db);
 
       if (uid) {
-        repo.findByNicknameAndSecret(uid, secret, function (err, user) {
-          // Error retrieving existing user.
-          if (err) {
-            next(new Error(err));
-          }
-          if (user) {
-            // User exists.
-            res.locals.user = user;
-
-            if (req.method === "GET") {
-              updateSecret(user);
-            } else {
-              next();
+        repo.findByNicknameAndSecret(currentCampaign, uid, secret,
+          function (err, user) {
+            // Error retrieving existing user.
+            if (err) {
+              next(new Error(err));
             }
-          } else {
-            // User cookies is set, but the user doesn't exist in the database.
-            // Generates a new one.
-            doGenerate();
-          }
-        });
+            if (user) {
+              // User exists.
+              res.locals.user = user;
+
+              if (req.method === "GET") {
+                updateSecret(user);
+              } else {
+                next();
+              }
+            } else {
+              // User cookies is set, but the user doesn't exist in the database.
+              // Generates a new one.
+              doGenerate();
+            }
+          });
       } else {
         // User does not exist, generates a new one.
         doGenerate();

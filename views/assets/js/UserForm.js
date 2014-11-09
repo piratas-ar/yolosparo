@@ -2,9 +2,11 @@
  * @param {Element} container Form element. Cannot be null.
  * @param {Element} userSettingsAction Element to display user settings form.
  *    Cannot be null.
+ * @param {String} options.campaign Current campaign name. Cannot be null or
+ *    empty.
  * @constructor
  */
-UserForm = function (container, userSettingsAction) {
+UserForm = function (container, userSettingsAction, options) {
 
   /** Indicates whether there're pending requests or not.
    * @type {Boolean}
@@ -54,7 +56,8 @@ UserForm = function (container, userSettingsAction) {
         jQuery.post("/changeSettings", {
           uid: uid,
           nick: nick,
-          email: email
+          email: email,
+          campaign: options.campaign
         }, function (response) {
           userSettingsAction.find(".js-user-name").text(nick);
           container.find("input[name=currentNick]").val(nick);

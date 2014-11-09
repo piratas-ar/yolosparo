@@ -14,30 +14,31 @@ module.exports = function (domain, app) {
       }
     };
 
-    usersRepo.findByNicknameAndSecret(nick, secret, function (err, user) {
-      if (err) {
-        res.send(500, { error: err });
-        return;
-      }
-      if (!user) {
-        res.send(500, { error: "User not found." });
-        return;
-      }
-      activity.user = user;
-      activitiesRepo.save(activity, function (err, result) {
+    usersRepo.findByNicknameAndSecret(campaign, nick, secret,
+      function (err, user) {
         if (err) {
-          req.db.rollback();
           res.send(500, { error: err });
-        } else {
-          activitiesRepo.get(result.id, function (err, newActivity) {
-            if (err) {
-              res.send(500, { error: err });
-            } else {
-              res.send(200, newActivity);
-            }
-          });
+          return;
         }
+        if (!user) {
+          res.send(500, { error: "User not found." });
+          return;
+        }
+        activity.user = user;
+        activitiesRepo.save(activity, function (err, result) {
+          if (err) {
+            req.db.rollback();
+            res.send(500, { error: err });
+          } else {
+            activitiesRepo.get(result.id, function (err, newActivity) {
+              if (err) {
+                res.send(500, { error: err });
+              } else {
+                res.send(200, newActivity);
+              }
+            });
+          }
+        });
       });
     });
-  });
 };
