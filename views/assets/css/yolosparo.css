@@ -107,3 +107,12 @@ body {
   clear: both;
   padding-top: 20px;
 }
+
+.argentina-digital .key-points {
+  font-size: 2em;
+  line-height: 35px;
+}
+
+.argentina-digital .key-points li {
+  list-style: none;
+}
