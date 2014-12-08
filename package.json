@@ -20,7 +20,9 @@
     "async": "*",
     "extend": "*",
     "csv-parse": "*",
-    "express-domain-middleware": "*"
+    "express-domain-middleware": "*",
+    "ogov-importer": "*",
+    "winston": "*"
   },
   "author": "seykron",
   "license": "GPLv2",
