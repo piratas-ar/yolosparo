@@ -5,7 +5,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
       files: [
-        "app/*.js",
+        "app/**/*.js",
+        "lib/**/*.js",
         "assets/js/**/*.js",
         "!lib/es5-shim.min.js"
       ],
@@ -25,7 +26,11 @@ module.exports = function(grunt) {
           exports: true,
           module: false,
           window: true,
-          app: true
+          app: true,
+          jQuery: true,
+          FB: true,
+          twttr: true,
+          SendMessage: true
         }
       }
     }

@@ -195,5 +195,5 @@ SendMessage = function (container, legislatives, options) {
         addEventListeners(jQuery(element));
       });
     }
-  }
+  };
 };
