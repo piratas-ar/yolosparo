@@ -45,7 +45,6 @@ UserForm = function (container, userSettingsAction, options) {
    */
   var initEventListeners = function () {
     container.find(".js-change-settings").click(function (event) {
-      var currentNick = container.find("input[name=currentNick]").val();
       var nick = container.find("input[name=nick]").val();
       var email = container.find("input[name=email]").val();
       var uid = container.find("input[name=uid]").val();
@@ -54,13 +53,16 @@ UserForm = function (container, userSettingsAction, options) {
         busy = true;
 
         jQuery.post("/changeSettings", {
-          uid: uid,
+          uid: jQuery.cookie("uid"),
+          ukey: jQuery.cookie("ukey"),
+          campaign: options.campaign,
           nick: nick,
-          email: email,
-          campaign: options.campaign
+          email: email
         }, function (response) {
           userSettingsAction.find(".js-user-name").text(nick);
-          container.find("input[name=currentNick]").val(nick);
+          jQuery.cookie("uid", nick, {
+            expires: 157680000000
+          });
           busy = false;
           displayMessage("Los cambios se guardaron correctamente.",
             "alert-success");

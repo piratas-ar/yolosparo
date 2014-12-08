@@ -27,7 +27,7 @@
     <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/js/bjqs-1.3.min.js"></script>
     <script type="text/javascript" src="/js/jquery.unveil.js"></script>
-
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -76,8 +76,6 @@
           <span>Nick:</span> <input class="form-control"
           type="text" name="nick" value="{{user.nick}}" maxlength="50">
         </label>
-        <input type="hidden" name="currentNick" value="{{user.nick}}">
-        <input type="hidden" name="uid" value="{{user.id}}">
       </div>
       <div class="form-group form-group-sm">
         <label>

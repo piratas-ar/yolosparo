@@ -84,8 +84,8 @@ module.exports = function(app) {
 
   return function userMiddleware(req, res, next) {
     var repo;
-    var uid = req.cookies.uid;
-    var secret = req.cookies.ukey;
+    var uid = req.param("uid") || req.cookies.uid;
+    var secret = req.param("ukey") || req.cookies.ukey;
     var currentCampaign = req.param("campaign") || campaign;
     var setCookie = function (name, value) {
       var options = {
@@ -102,22 +102,12 @@ module.exports = function(app) {
           next(new Error(err));
           return;
         }
+        req.user = user;
         res.locals.user = user;
         res.locals.campaign = campaign;
 
         setCookie("uid", user.nick);
         setCookie("ukey", user.secret);
-        next();
-      });
-    };
-    var updateSecret = function (user) {
-      var secret = generateSecret(user.nick);
-
-      repo.updateSecret(user.id, secret, function (err) {
-        if (!err) {
-          user.secret = secret;
-          setCookie("ukey", secret);
-        }
         next();
       });
     };
@@ -127,22 +117,21 @@ module.exports = function(app) {
       // Checks the user only in requests within a transaction.
       repo = new UsersRepository(req.db);
 
-      if (uid) {
+      if (uid && secret) {
         repo.findByNicknameAndSecret(currentCampaign, uid, secret,
           function (err, user) {
             // Error retrieving existing user.
             if (err) {
               next(new Error(err));
             }
+
             if (user) {
               // User exists.
+              req.user = user;
               res.locals.user = user;
+              res.locals.campaign = campaign;
 
-              if (req.method === "GET") {
-                updateSecret(user);
-              } else {
-                next();
-              }
+              next();
             } else {
               // User cookies is set, but the user doesn't exist in the database.
               // Generates a new one.

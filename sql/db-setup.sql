@@ -48,11 +48,12 @@ create table campaign_legislatives(
 create table if not exists users (
   id bigint not null primary key auto_increment,
   campaign_id bigint not null,
-  nick_name varchar(50) not null unique,
+  nick_name varchar(50) not null,
   secret varchar(255) not null unique,
   full_name varchar(255) null,
   email varchar(255) null,
-  foreign key (campaign_id) references campaigns(id)
+  foreign key (campaign_id) references campaigns(id),
+  unique (campaign_id, nick_name)
 );
 
 -- Activity log
