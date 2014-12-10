@@ -27,7 +27,7 @@
     <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/js/bjqs-1.3.min.js"></script>
     <script type="text/javascript" src="/js/jquery.unveil.js"></script>
-
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -39,17 +39,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
            </button>
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand" href="/{{campaign}}">
             <img alt="Yo los Paro!" src="/images/logo-solo.png" width="40" height="40">
             Yo los paro!
           </a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li {{#if homeView}}class="active"{{/if}}><a href="/">Inicio</a></li>
-            <li><a href="/#legislatives">Legisladores</a></li>
-            <li {{#if billInfoView}}class="active"{{/if}}><a href="/billInfo">Mentiras</a></li>
-            <li {{#if contactView}}class="active"{{/if}}><a href="/contact">Contacto</a></li>
+            {{#each menuItems}}
+              <li><a href="{{../mountpath}}{{url}}">{{text}}</a></li>
+            {{/each}}
           </ul>
           <div class="pull-right">
             <button type="button"
@@ -70,9 +69,6 @@
       {{{body}}}
     </div>
 
-    <footer>
-    </footer>
-
     <form class="user-form form-inline hidden" id="userForm">
 
       <div class="form-group form-group-sm">
@@ -80,8 +76,6 @@
           <span>Nick:</span> <input class="form-control"
           type="text" name="nick" value="{{user.nick}}" maxlength="50">
         </label>
-        <input type="hidden" name="currentNick" value="{{user.nick}}">
-        <input type="hidden" name="uid" value="{{user.id}}">
       </div>
       <div class="form-group form-group-sm">
         <label>
@@ -100,7 +94,9 @@
       jQuery(function () {
         var userFormElement = jQuery("#userForm");
         var userSettingsAction = jQuery("#userSettings");
-        var userForm = new UserForm(userFormElement, userSettingsAction);
+        var userForm = new UserForm(userFormElement, userSettingsAction, {
+          campaign: "{{campaign}}"
+        });
 
         userForm.render();
 

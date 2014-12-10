@@ -4,11 +4,26 @@
   "tweet": "Quería pedirte que votes en contra de la ley de hidrocarburos que entrega la soberanía energética por décadas, ",
   "debugMode": true,
   "facebookAppId": "602412299869906",
+  "port": 3000,
   "mail": {
     "subject": "¿Por qué vas a votar a favor del fracking?",
     "host": "",
     "user": "",
     "passwd": "",
     "testRecipient": "test@yolosparo.org"
+  },
+  "dataSource": {
+    "server": "localhost",
+    "user": "yolosparo",
+    "password": "yolosparo",
+    "database": "yolosparo"
+  },
+  "production": {
+    "dataSource": {
+      "server": "localhost",
+      "user": "yolosparo",
+      "password": "yolosparo",
+      "database": "yolosparo_prod"
+    }
   }
 }

@@ -105,7 +105,7 @@ SendMessage = function (container, legislatives, options) {
    * @methodOf SendMessage#
    */
   var registerActivity = function (action) {
-    jQuery.post("/registerActivity", {
+    jQuery.post("registerActivity", {
       uid: options.uid,
       lid: currentLegislativeId,
       action: action
@@ -132,7 +132,7 @@ SendMessage = function (container, legislatives, options) {
       if(is_an_email && !busy){
         busy = true;
 
-        jQuery.post("/sendMessage", {
+        jQuery.post("sendMessage", {
           id: currentLegislativeId,
           message: message,
           from: from
@@ -195,5 +195,5 @@ SendMessage = function (container, legislatives, options) {
         addEventListeners(jQuery(element));
       });
     }
-  }
+  };
 };

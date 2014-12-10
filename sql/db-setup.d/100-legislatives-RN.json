@@ -1,0 +1,280 @@
+{
+  "table": "legislatives",
+  "data": [{
+    "user_name":"dagostino",
+    "full_name":"AGOSTINO, Daniela Beatriz",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"dagostino@legisrn.gov.ar"
+  }, {
+    "user_name":"lballester",
+    "full_name":"BALLESTER, Leonardo Alberto",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"lballester@legisrn.gov.ar"
+  }, {
+    "user_name":"ibanega",
+    "full_name":"BANEGA, Irma",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"ibanega@legisrn.gov.ar"
+  }, {
+    "user_name":"jbarragan",
+    "full_name":"BARRAGAN, Jorge Raúl",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"jbarragan@legisrn.gov.ar"
+  }, {
+    "user_name":"lbartorelli",
+    "full_name":"BARTORELLI, Luis Mario",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"lbartorelli@legisrn.gov.ar"
+  }, {
+    "user_name":"dberardi",
+    "full_name":"BERARDI, Darío César",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"dberardi@legisrn.gov.ar"
+  }, {
+    "user_name":"abetelu",
+    "full_name":"BETELU, Alejandro",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"abetelu@legisrn.gov.ar"
+  }, {
+    "user_name":"acarreras",
+    "full_name":"CARRERAS, Arabela Marisa",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"acarreras@legisrn.gov.ar"
+  }, {
+    "user_name":"acasadei",
+    "full_name":"CASADEI, Adrián Jorge",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"acasadei@legisrn.gov.ar"
+  }, {
+    "user_name":"mcatalan",
+    "full_name":"CATALAN, Marcos Osvaldo",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"mcatalan@legisrn.gov.ar"
+  }, {
+    "user_name":"bcontreras",
+    "full_name":"CONTRERAS, Beatriz del Carmen",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"bcontreras@legisrn.gov.ar"
+  }, {
+    "user_name":"ndellapitima",
+    "full_name":"DELLAPITIMA, Norma Susana",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"ndellapitima@legisrn.gov.ar"
+  }, {
+    "user_name":"sdieguez",
+    "full_name":"DIEGUEZ, Susana Isabel",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"sdieguez@legisrn.gov.ar"
+  }, {
+    "user_name":"cdonate",
+    "full_name":"DOÑATE, Claudio Martín",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"cdonate@legisrn.gov.ar"
+  }, {
+    "user_name":"lesquivel",
+    "full_name":"ESQUIVEL, Luis María",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"lesquivel@legisrn.gov.ar"
+  }, {
+    "user_name":"rfernandez",
+    "full_name":"FERNANDEZ, Roxana Celia",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA- Presidente -",
+    "email":"rfernandez@legisrn.gov.ar"
+  }, {
+    "user_name":"hfunes",
+    "full_name":"FUNES, Héctor Hugo",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"hfunes@legisrn.gov.ar"
+  }, {
+    "user_name":"jgarrone",
+    "full_name":"GARRONE, Juan Domingo",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"jgarrone@legisrn.gov.ar"
+  }, {
+    "user_name":"mgemignani",
+    "full_name":"GEMIGNANI, María Liliana",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"mgemignani@legisrn.gov.ar"
+  }, {
+    "user_name":"mgomez",
+    "full_name":"GOMEZ RICCA, Matías Alberto",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"mgomez@legisrn.gov.ar"
+  }, {
+    "user_name":"fgonzalez",
+    "full_name":"GONZALEZ, Francisco Javier",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"fgonzalez@legisrn.gov.ar"
+  }, {
+    "user_name":"shorne",
+    "full_name":"HORNE, Silvia Reneé",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"shorne@legisrn.gov.ar"
+  }, {
+    "user_name":"tanialastra",
+    "full_name":"LASTRA, Tania Tamara",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"tanialastra@legisrn.gov.ar"
+  }, {
+    "user_name":"rledo",
+    "full_name":"LEDO, Ricardo",
+    "region":"RN",
+    "block":"BLOQUE UNIDOS POR RIO NEGRO- Presidente -",
+    "email":"rledo@legisrn.gov.ar"
+  }, {
+    "user_name":"flopez",
+    "full_name":"LOPEZ, Facundo Manuel",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"flopez@legisrn.gov.ar"
+  }, {
+    "user_name":"hlopez",
+    "full_name":"LOPEZ, Héctor Rubén",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"hlopez@legisrn.gov.ar"
+  }, {
+    "user_name":"clueiro",
+    "full_name":"LUEIRO, Claudio Juan Javier",
+    "region":"RN",
+    "block":"BLOQUE PARTIDO PROVINCIAL RIONEGRINO- Presidente -",
+    "email":"clueiro@legisrn.gov.ar"
+  }, {
+    "user_name":"hmarinao",
+    "full_name":"MARINAO, Humberto Alejandro",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"hmarinao@legisrn.gov.ar"
+  }, {
+    "user_name":"bmendioroz",
+    "full_name":"MENDIOROZ, Bautista José",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO- Presidente -",
+    "email":"bmendioroz@legisrn.gov.ar"
+  }, {
+    "user_name":"cmiguel",
+    "full_name":"MIGUEL, César",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"cmiguel@legisrn.gov.ar"
+  }, {
+    "user_name":"mmilesi",
+    "full_name":"MILESI, Marta Silvia",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"mmilesi@legisrn.gov.ar"
+  }, {
+    "user_name":"jocampos",
+    "full_name":"OCAMPOS, Jorge Armando",
+    "region":"RN",
+    "block":"BLOQUE PARTIDO COALICION CIVICA-ARI- Presidente -",
+    "email":"jocampos@legisrn.gov.ar"
+  }, {
+    "user_name":"spaz",
+    "full_name":"PAZ, Silvia Alicia",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"spaz@legisrn.gov.ar"
+  }, {
+    "user_name":"apega",
+    "full_name":"PEGA, Alfredo",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"apega@legisrn.gov.ar"
+  }, {
+    "user_name":"rpereira",
+    "full_name":"PEREIRA, Rosa Viviana",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"rpereira@legisrn.gov.ar"
+  }, {
+    "user_name":"apiccinini",
+    "full_name":"PICCININI, Ana Ida",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"apiccinini@legisrn.gov.ar"
+  }, {
+    "user_name":"srecalt",
+    "full_name":"RECALT, Sandra Isabel",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"srecalt@legisrn.gov.ar"
+  }, {
+    "user_name":"srivero",
+    "full_name":"RIVERO, Sergio Ariel",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"srivero@legisrn.gov.ar"
+  }, {
+    "user_name":"lsgrablich",
+    "full_name":"SGRABLICH, Lidia Graciela",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"lsgrablich@legisrn.gov.ar"
+  }, {
+    "user_name":"rtorres",
+    "full_name":"TORRES, Rubén Alfredo",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"rtorres@legisrn.gov.ar"
+  }, {
+    "user_name":"ltozzi",
+    "full_name":"TOZZI, Leandro Miguel",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"ltozzi@legisrn.gov.ar"
+  }, {
+    "user_name":"curia",
+    "full_name":"URIA, Cristina Liliana",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA CONCERTACION PARA EL DESARROLLO",
+    "email":"curia@legisrn.gov.ar"
+  }, {
+    "user_name":"rvargas",
+    "full_name":"VARGAS, Roberto Jorge",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"rvargas@legisrn.gov.ar"
+  }, {
+    "user_name":"cvazzana",
+    "full_name":"VAZZANA, Carlos Antonio",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"cvazzana@legisrn.gov.ar"
+  }, {
+    "user_name":"avicidomini",
+    "full_name":"VICIDOMINI, Angela Ana",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"avicidomini@legisrn.gov.ar"
+  }, {
+    "user_name":"mvidal",
+    "full_name":"VIDAL, Miguel Angel",
+    "region":"RN",
+    "block":"BLOQUE ALIANZA FRENTE PARA LA VICTORIA",
+    "email":"mvidal@legisrn.gov.ar"
+  }
+]}
