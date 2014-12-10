@@ -1,4 +1,6 @@
-[{
+{
+"table": "legislatives",
+"data":[{
   "type":"legislative",
   "full_name":"Heller, Carlos Salomon",
   "user_name":"cheller",
@@ -17,7 +19,8 @@
   "secretary_phone":"(011) 154-416-1908",
   "site_url":"http://www.carlosheller.com.ar/",
   "twitter_account":"CarlosHeller",
-  "facebook_account":"173305550505"
+  "facebook_account":"173305550505",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Abraham, Alejandro",
@@ -37,7 +40,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"AleAbraham2013",
-  "facebook_account":"792805756"
+  "facebook_account":"792805756",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Alonso, Maria Luz",
@@ -57,7 +61,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"luchi_alonso",
-  "facebook_account":"600640476"
+  "facebook_account":"600640476",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Arregui, Andres Roberto",
@@ -77,7 +82,8 @@
   "secretary_phone":"(011) 155-646-2054",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Avoscan, Herman Horacio",
@@ -97,7 +103,8 @@
   "secretary_phone":"(011) 155-929-9557",
   "site_url":"www.hermanavoscan.com.ar",
   "twitter_account":"HermanAvoscan",
-  "facebook_account":"100003265841441"
+  "facebook_account":"100003265841441",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Junio, Juan Carlos Isaac",
@@ -117,7 +124,8 @@
   "secretary_phone":"(011) 156-896-7836",
   "site_url":"http://www.juancarlosjunio.com.ar/",
   "twitter_account":"juniojuancarlos",
-  "facebook_account":"100002973087717"
+  "facebook_account":"100002973087717",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Raimundi, Carlos",
@@ -137,7 +145,8 @@
   "secretary_phone":null,
   "site_url":"www.raimundi.com.ar",
   "twitter_account":"carlosraimundi",
-  "facebook_account":"1566711732"
+  "facebook_account":"1566711732",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Caselles, Graciela Maria",
@@ -157,7 +166,8 @@
   "secretary_phone":"(011) 156-663-0801",
   "site_url":null,
   "twitter_account":"gcaselles",
-  "facebook_account":"504047439684465"
+  "facebook_account":"504047439684465",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Balcedo, Maria Ester",
@@ -177,7 +187,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"MARIAEBALCEDO",
-  "facebook_account":"100000046975987"
+  "facebook_account":"100000046975987",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Bardeggia, Luis Maria",
@@ -197,7 +208,8 @@
   "secretary_phone":"(0299)154591483",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"100002535112631"
+  "facebook_account":"100002535112631",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Basterra, Luis Eugenio",
@@ -217,7 +229,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"100002535112631"
+  "facebook_account":"100002535112631",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Bianchi, Maria del Carmen",
@@ -237,7 +250,8 @@
   "secretary_phone":null,
   "site_url":"http://www.mariacbianchi.com.ar/",
   "twitter_account":"mamebianchi",
-  "facebook_account":"210042582371653"
+  "facebook_account":"210042582371653",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Brawer, Mara",
@@ -257,7 +271,8 @@
   "secretary_phone":"(011) 155-053-1056",
   "site_url":"http://marabrawer.com.ar/",
   "twitter_account":"MaraBrawer",
-  "facebook_account":"1435392279"
+  "facebook_account":"1435392279",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Bedano, Nora Esther",
@@ -277,7 +292,8 @@
   "secretary_phone":"(011) 156-824-3900",
   "site_url":"www.norabedano.com.ar",
   "twitter_account":"NEbedano",
-  "facebook_account":"100004919593569"
+  "facebook_account":"100004919593569",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Bromberg, Isaac Benjamin",
@@ -297,7 +313,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"119809291540557"
+  "facebook_account":"119809291540557",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Cabandie, Juan",
@@ -317,7 +334,8 @@
   "secretary_phone":null,
   "site_url":"www.juancabandie.blogspot.com.ar",
   "twitter_account":"juancabandie",
-  "facebook_account":"75190731358"
+  "facebook_account":"75190731358",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Calcagno y Maillmann, Eric",
@@ -337,7 +355,8 @@
   "secretary_phone":"(011) 155-840-8282/(011) 153-127-5150",
   "site_url":"www.e-calcagno.com.ar",
   "twitter_account":"EricCalcagno",
-  "facebook_account":"173077847303"
+  "facebook_account":"173077847303",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Canela, Susana Mercedes",
@@ -357,7 +376,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Carrizo, Nilda Mabel",
@@ -377,7 +397,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"571978382847709"
+  "facebook_account":"571978382847709",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Carlotto, Remo Gerardo",
@@ -397,7 +418,8 @@
   "secretary_phone":"(011) 153-475-4038",
   "site_url":null,
   "twitter_account":"RemoCarlotto",
-  "facebook_account":"595937203770871"
+  "facebook_account":"595937203770871",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Castro, Sandra Daniela",
@@ -417,7 +439,8 @@
   "secretary_phone":"(0264) 155-057190",
   "site_url":"http://www.danicastro.com.ar/",
   "twitter_account":"d_castrooficial",
-  "facebook_account":"235562809979334"
+  "facebook_account":"235562809979334",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Cejas, Jorge Alberto",
@@ -437,7 +460,8 @@
   "secretary_phone":null,
   "site_url":"www.jorgecejas.blogspot.com.ar",
   "twitter_account":"JorgeCejas",
-  "facebook_account":"100000990519054"
+  "facebook_account":"100000990519054",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Ciampini, Jose Alberto",
@@ -457,7 +481,8 @@
   "secretary_phone":null,
   "site_url":"http://albertociampini.com.ar/",
   "twitter_account":null,
-  "facebook_account":"100002559056703"
+  "facebook_account":"100002559056703",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Cleri, Marcos",
@@ -477,7 +502,8 @@
   "secretary_phone":"(011) 156-251-8863",
   "site_url":null,
   "twitter_account":"marcoscleri",
-  "facebook_account":"1418780111682690"
+  "facebook_account":"1418780111682690",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Conti, Diana Beatriz",
@@ -497,7 +523,8 @@
   "secretary_phone":"(011) 155-410-2904",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"100000147620846"
+  "facebook_account":"100000147620846",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Dato, Alfredo Carlos",
@@ -517,7 +544,8 @@
   "secretary_phone":"(011) 154-419-0279",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"De Pedro, Eduardo Enrique",
@@ -537,7 +565,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"wadodecorrido",
-  "facebook_account":"296936523665424"
+  "facebook_account":"296936523665424",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Depetri, Edgardo Fernando",
@@ -557,7 +586,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"EdgardoDepetri",
-  "facebook_account":"100000884337588"
+  "facebook_account":"100000884337588",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Contrera, Monica Graciela",
@@ -577,7 +607,8 @@
   "secretary_phone":"1558481386/(0280) 15483218/1561253143",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"649576565127564"
+  "facebook_account":"649576565127564",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Di Tulio, Juliana",
@@ -597,7 +628,8 @@
   "secretary_phone":"156-170-2979/153-623-195/155-055-4553",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"1840667115"
+  "facebook_account":"1840667115",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Diaz Bancalari, Jose Maria",
@@ -617,7 +649,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Diaz Roig, Juan Carlos",
@@ -637,7 +670,8 @@
   "secretary_phone":"(011) 155-736-6836",
   "site_url":null,
   "twitter_account":"Juanchodroig",
-  "facebook_account":"472483529447140"
+  "facebook_account":"472483529447140",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Dominguez, Julian Andres",
@@ -657,7 +691,8 @@
   "secretary_phone":"(011) 153-205-3826",
   "site_url":"http://juliandominguez.com.ar/",
   "twitter_account":"dominguezjul",
-  "facebook_account":"281255631889476"
+  "facebook_account":"281255631889476",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Donkin, Carlos Guillermo",
@@ -677,7 +712,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Feletti, Roberto Jose",
@@ -697,7 +733,8 @@
   "secretary_phone":"(011) 154-935-6039",
   "site_url":"http://www.robertofeletti.com.ar/",
   "twitter_account":"RobertoFeletti/",
-  "facebook_account":"364754366894341"
+  "facebook_account":"364754366894341",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Fernandez Sagasti, Anabel",
@@ -717,7 +754,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"afernandezk",
-  "facebook_account":"122753827819341"
+  "facebook_account":"122753827819341",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Ferreyra, Araceli",
@@ -737,7 +775,8 @@
   "secretary_phone":"(011) 155-159-9846",
   "site_url":null,
   "twitter_account":"AraceliDiputada",
-  "facebook_account":"100000040542201"
+  "facebook_account":"100000040542201",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Elorriaga, Osvaldo Enrique",
@@ -757,7 +796,8 @@
   "secretary_phone":"(011) 155-492.8654",
   "site_url":"http://www.osvaldoelorriaga.com.ar/index.php/",
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Gagliardi, Josue",
@@ -777,7 +817,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"1278937416"
+  "facebook_account":"1278937416",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Gaillard, Ana Carolina",
@@ -797,7 +838,8 @@
   "secretary_phone":"(011) 155-466-9403",
   "site_url":null,
   "twitter_account":"CaroGaillard",
-  "facebook_account":"1295003961"
+  "facebook_account":"1295003961",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Gallardo, Miriam Graciela",
@@ -817,7 +859,8 @@
   "secretary_phone":"(011) 15 6336-3713",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"601303666555335"
+  "facebook_account":"601303666555335",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Garcia, Maria Teresa",
@@ -837,7 +880,8 @@
   "secretary_phone":null,
   "site_url":"www.teresagarcia.com.ar",
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Garcia, Andrea Fabiana",
@@ -857,7 +901,8 @@
   "secretary_phone":"(011) 153-150-1913",
   "site_url":"http://www.andreafgarcia.com.ar/andreagarcia/index.php",
   "twitter_account":"andreaameghino",
-  "facebook_account":"126328894185144"
+  "facebook_account":"126328894185144",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Gdansky, Carlos Enrique",
@@ -877,7 +922,8 @@
   "secretary_phone":null,
   "site_url":"http://www.carlosgdansky.com.ar/",
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Gervasoni, Lautaro",
@@ -897,7 +943,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"GervLautaro",
-  "facebook_account":"1551921605"
+  "facebook_account":"1551921605",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Giaccone, Claudia Alejandra",
@@ -917,7 +964,8 @@
   "secretary_phone":"(0346) 154-49243",
   "site_url":"www.claudiagiaccone.com.ar",
   "twitter_account":"ClaudiaGiaccone",
-  "facebook_account":"300728660100517"
+  "facebook_account":"300728660100517",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Giacomino, Daniel Oscar",
@@ -937,7 +985,8 @@
   "secretary_phone":"(0351) 155-070-820",
   "site_url":null,
   "twitter_account":"dgiacomino",
-  "facebook_account":"1189545073"
+  "facebook_account":"1189545073",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Giannettasio, Graciela Maria",
@@ -957,7 +1006,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Gill, Martin Rodrigo",
@@ -977,7 +1027,8 @@
   "secretary_phone":"(011) 155-634-2445",
   "site_url":null,
   "twitter_account":"MartinGillSPU",
-  "facebook_account":"566108113446466"
+  "facebook_account":"566108113446466",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Gomez Bull, Mauricio Ricardo",
@@ -997,7 +1048,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"maugbull",
-  "facebook_account":"100002897753255"
+  "facebook_account":"100002897753255",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Gonzalez, Josefina Victoria",
@@ -1017,7 +1069,8 @@
   "secretary_phone":null,
   "site_url":"http://www.tanagonzalez.com.ar/",
   "twitter_account":"http://www.teatrocolon.org.ar/es/ballet",
-  "facebook_account":"100001666715433"
+  "facebook_account":"100001666715433",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Gonzalez, Juan Dante",
@@ -1037,7 +1090,8 @@
   "secretary_phone":null,
   "site_url":"http://dantegonzalezdiputadonacional.com/",
   "twitter_account":"ElDanteDiputado",
-  "facebook_account":"100002002363009"
+  "facebook_account":"100002002363009",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Gonzalez, Veronica",
@@ -1057,7 +1111,8 @@
   "secretary_phone":"(02964) 154-79051",
   "site_url":null,
   "twitter_account":"VeroEGonzalez",
-  "facebook_account":"489754337797352"
+  "facebook_account":"489754337797352",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Granados, Dulce",
@@ -1077,7 +1132,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Grosso, Leonardo",
@@ -1097,7 +1153,8 @@
   "secretary_phone":null,
   "site_url":"http://www.grossoleonardo.com.ar/",
   "twitter_account":"Leonardo_Grosso",
-  "facebook_account":"305983009493637"
+  "facebook_account":"305983009493637",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Gutierrez, Monica Edith",
@@ -1117,7 +1174,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"1078444491"
+  "facebook_account":"1078444491",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Harispe, Gaston",
@@ -1137,7 +1195,8 @@
   "secretary_phone":"(011) 155-320-9692",
   "site_url":"www.octubres.org.ar",
   "twitter_account":"gastonharispe",
-  "facebook_account":"124241887705264"
+  "facebook_account":"124241887705264",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Herrera, Griselda Noemi",
@@ -1157,7 +1216,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"GriHerreraok",
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Ianni, Ana Maria",
@@ -1177,7 +1237,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"AnaMariaIanni",
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Insaurralde, Martin",
@@ -1197,7 +1258,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"minsaurralde",
-  "facebook_account":"174876119204869"
+  "facebook_account":"174876119204869",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Isa, Evita Nelida",
@@ -1217,7 +1279,8 @@
   "secretary_phone":"(0387) 539-8067",
   "site_url":null,
   "twitter_account":"EvitaIsa",
-  "facebook_account":"100001062872472"
+  "facebook_account":"100001062872472",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Kosiner, Pablo Francisco Juan",
@@ -1237,7 +1300,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"Pablokosiner",
-  "facebook_account":"100000159156101"
+  "facebook_account":"100000159156101",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Kunkel, Carlos Miguel",
@@ -1257,7 +1321,8 @@
   "secretary_phone":"(011) 156-381-1136",
   "site_url":"http://www.carloskunkel.com.ar/",
   "twitter_account":"CarlosKunkel_",
-  "facebook_account":"307205686111379"
+  "facebook_account":"307205686111379",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Landau, Jorge Alberto",
@@ -1277,7 +1342,8 @@
   "secretary_phone":null,
   "site_url":"http://www.jorgelandau.org/",
   "twitter_account":null,
-  "facebook_account":"1477191968"
+  "facebook_account":"1477191968",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Larroque, Andres",
@@ -1297,7 +1363,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"larroqueandres",
-  "facebook_account":"236795053027515"
+  "facebook_account":"236795053027515",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Lotto, Ines Beatriz",
@@ -1317,7 +1384,8 @@
   "secretary_phone":"(011) 156-477-1739",
   "site_url":null,
   "twitter_account":"BettyLotto",
-  "facebook_account":"100000515559162"
+  "facebook_account":"100000515559162",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Mendoza, Sandra Marceloa",
@@ -1337,7 +1405,8 @@
   "secretary_phone":"15-4889-6365",
   "site_url":null,
   "twitter_account":"MendozSandra",
-  "facebook_account":"100001877683758"
+  "facebook_account":"100001877683758",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Mendoza, Mayra Soledad",
@@ -1357,7 +1426,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"mayrasolmendoza",
-  "facebook_account":"1181834956"
+  "facebook_account":"1181834956",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Oporto, Mario Nestor",
@@ -1377,7 +1447,8 @@
   "secretary_phone":null,
   "site_url":"www.movimientodorrego.com",
   "twitter_account":"oportomario",
-  "facebook_account":"140659416080438"
+  "facebook_account":"140659416080438",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Pais, Juan Mario",
@@ -1397,7 +1468,8 @@
   "secretary_phone":"(011) 154-404-7229",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Perie, Julia Argentina",
@@ -1417,7 +1489,8 @@
   "secretary_phone":null,
   "site_url":"http://www.juliaperie.com.ar",
   "twitter_account":"juliaperie",
-  "facebook_account":"100000759897218"
+  "facebook_account":"100000759897218",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Perotti, Omar Angel",
@@ -1437,7 +1510,8 @@
   "secretary_phone":"(0342) 155-064-997",
   "site_url":"http://omarperotti.com/",
   "twitter_account":"omarperotti",
-  "facebook_account":"135682526468939"
+  "facebook_account":"135682526468939",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Perroni, Ana Maria",
@@ -1457,7 +1531,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"100003764776758"
+  "facebook_account":"100003764776758",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Pietragalla Corti, Horacio",
@@ -1477,7 +1552,8 @@
   "secretary_phone":"(011) 153-954-9389",
   "site_url":null,
   "twitter_account":"horacitopietra",
-  "facebook_account":"111585235670990"
+  "facebook_account":"111585235670990",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Puiggross, Adriana Victoria",
@@ -1497,7 +1573,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"apuiggros",
-  "facebook_account":"100001329691005"
+  "facebook_account":"100001329691005",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Santillan, Walter Marcelo",
@@ -1517,7 +1594,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Segarra, Adela Rosa",
@@ -1537,7 +1615,8 @@
   "secretary_phone":"(0221) 15-536-6705",
   "site_url":"http://www.adelasegarra.com.ar",
   "twitter_account":"AdelaSegarra",
-  "facebook_account":"100001588845626"
+  "facebook_account":"100001588845626",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Solanas, Julio Rodolfo",
@@ -1557,7 +1636,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"juliosolanas",
-  "facebook_account":"274452305969381"
+  "facebook_account":"274452305969381",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Soto, Gladys Beatriz",
@@ -1577,7 +1657,8 @@
   "secretary_phone":"(011) 155-620-0585",
   "site_url":"http://diputadagladyssoto.com/",
   "twitter_account":"dipgladyssoto",
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Tineo, Javier Hector",
@@ -1597,7 +1678,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"javiertineo",
-  "facebook_account":"1655508560"
+  "facebook_account":"1655508560",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Tomas, Hector Daniel",
@@ -1617,7 +1699,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"544799092224454"
+  "facebook_account":"544799092224454",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Uñac, Jose Ruben",
@@ -1637,7 +1720,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"816767721680783"
+  "facebook_account":"816767721680783",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Vilariño, Jose Antonio",
@@ -1657,7 +1741,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"VILARINODipNac",
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Villa, Jose Antonio",
@@ -1677,7 +1762,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Zamarreño, Maria Eugenia",
@@ -1697,7 +1783,8 @@
   "secretary_phone":"(011) 153-245-1993",
   "site_url":null,
   "twitter_account":"marujazama",
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Ziebart, Cristina Isabel",
@@ -1717,7 +1804,8 @@
   "secretary_phone":"(011) 153-091-8359",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Ruiz, Aida Delia",
@@ -1737,7 +1825,8 @@
   "secretary_phone":null,
   "site_url":"http://aidaruiz.com.ar/",
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Barreto, Jorge Ruben",
@@ -1757,7 +1846,8 @@
   "secretary_phone":"011 – 156-219-9079",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Bernabey, Ramon Ernesto",
@@ -1777,7 +1867,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"ebernabey",
-  "facebook_account":"1789970794"
+  "facebook_account":"1789970794",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Bidegain, Gloria Mercedes",
@@ -1797,7 +1888,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"100001195662366"
+  "facebook_account":"100001195662366",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Carrillo, Maria del Carmen",
@@ -1817,7 +1909,8 @@
   "secretary_phone":null,
   "site_url":"mcarrillo@hcdn.gob.ar",
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Carmona, Guillermo Ramon",
@@ -1837,7 +1930,8 @@
   "secretary_phone":null,
   "site_url":"guillermocarmona.com.ar",
   "twitter_account":"grcarmonac",
-  "facebook_account":"442055025816040"
+  "facebook_account":"442055025816040",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Francioni, Fabian Marcelo",
@@ -1857,7 +1951,8 @@
   "secretary_phone":null,
   "site_url":"http://www.ffrancioni.com.ar/",
   "twitter_account":"fabianfrancioni",
-  "facebook_account":"323014667765387"
+  "facebook_account":"323014667765387",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Magario, Veronica Maria",
@@ -1877,7 +1972,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"magariovero http://youtube.com/veromagario",
-  "facebook_account":"195517260610729"
+  "facebook_account":"195517260610729",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Madera, Teresita",
@@ -1897,7 +1993,8 @@
   "secretary_phone":"(0380) 154-610011",
   "site_url":"http://www.teremadera.com/",
   "twitter_account":"teresitamadera",
-  "facebook_account":"263136450457871"
+  "facebook_account":"263136450457871",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Marcopulos, Juan Fernando",
@@ -1917,7 +2014,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"696387993716664"
+  "facebook_account":"696387993716664",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Mazure, Liliana Amalia",
@@ -1937,7 +2035,8 @@
   "secretary_phone":"(011) 156-231-1807",
   "site_url":"http://www.lilianamazure.com.ar/",
   "twitter_account":"lilianamazure",
-  "facebook_account":"621331097885628"
+  "facebook_account":"621331097885628",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Martinez Campos, Gustavo Jose",
@@ -1957,7 +2056,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"100007189962675"
+  "facebook_account":"100007189962675",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Metaza, Mario Alfredo",
@@ -1977,7 +2077,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"582843451747049"
+  "facebook_account":"582843451747049",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Molina, Manuel Isauro",
@@ -1997,7 +2098,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"100000910098858"
+  "facebook_account":"100000910098858",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Mongelo, Jose Ricardo",
@@ -2017,7 +2119,8 @@
   "secretary_phone":"(011) 155-581-0363",
   "site_url":"www.josemongelo.org",
   "twitter_account":"jrmongelo",
-  "facebook_account":"101597293314559"
+  "facebook_account":"101597293314559",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Moreno, Carlos Julio",
@@ -2037,7 +2140,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Ortiz, Mariela",
@@ -2057,7 +2161,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Ortiz Correa, Marcia Sara Maria",
@@ -2077,7 +2182,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"1646923395"
+  "facebook_account":"1646923395",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Parrilli, Nanci Maria Agustina",
@@ -2097,7 +2203,8 @@
   "secretary_phone":null,
   "site_url":"http://www.nanciparrilli.com.ar/",
   "twitter_account":null,
-  "facebook_account":"720541637997155"
+  "facebook_account":"720541637997155",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Pedrini, Juan Manuel",
@@ -2117,7 +2224,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"jmpedrini",
-  "facebook_account":"412133338895707"
+  "facebook_account":"412133338895707",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Perez, Martin Alejandro",
@@ -2137,7 +2245,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Recalde, Hector Pedro",
@@ -2157,7 +2266,8 @@
   "secretary_phone":"(011) 155-639-3329",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"165674863469744"
+  "facebook_account":"165674863469744",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Rios, Liliana Maria",
@@ -2177,7 +2287,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Rivarola, Ruben Armando",
@@ -2197,7 +2308,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Rubin, Carlos Gustavo",
@@ -2217,7 +2329,8 @@
   "secretary_phone":null,
   "site_url":"http://www.carlosrubin.com.ar/",
   "twitter_account":"DipCarlosRubin",
-  "facebook_account":"347107578691552"
+  "facebook_account":"347107578691552",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Romero, Oscar Alberto",
@@ -2237,7 +2350,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"419960074775540"
+  "facebook_account":"419960074775540",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Rivas, Jorge",
@@ -2257,7 +2371,8 @@
   "secretary_phone":null,
   "site_url":"www.prensajorgerivas.blogspot.com /",
   "twitter_account":"JorgeRivasRS /",
-  "facebook_account":"234664365113"
+  "facebook_account":"234664365113",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Seminara, Eduardo Jorge",
@@ -2277,7 +2392,8 @@
   "secretary_phone":"(011) 153-272-0014",
   "site_url":"http://www.fpvsantafe.com.ar/eduardo-seminara",
   "twitter_account":"SeminaraEduardo",
-  "facebook_account":"338283252973757"
+  "facebook_account":"338283252973757",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Simoncini, Silvia Rosa",
@@ -2297,7 +2413,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"100008375611510"
+  "facebook_account":"100008375611510",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Tentor, Hector Olindo",
@@ -2317,7 +2434,8 @@
   "secretary_phone":"(011) 153-274-7131",
   "site_url":null,
   "twitter_account":"htentor",
-  "facebook_account":"1199264088"
+  "facebook_account":"1199264088",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Soria, Maria Emilia",
@@ -2337,7 +2455,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"592558020802278"
+  "facebook_account":"592558020802278",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Tomassi, Nestor Nicolas",
@@ -2357,7 +2476,8 @@
   "secretary_phone":"(011) 155-690-8233",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Asseff, Alberto Emilio",
@@ -2377,7 +2497,8 @@
   "secretary_phone":null,
   "site_url":"http://www.albertoasseff.com/",
   "twitter_account":"albertoasseff",
-  "facebook_account":"100003144233867"
+  "facebook_account":"100003144233867",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"De Narvaez, Francisco",
@@ -2397,7 +2518,8 @@
   "secretary_phone":null,
   "site_url":"http://franciscodenarvaez.com/",
   "twitter_account":"denarvaez",
-  "facebook_account":"39361081930"
+  "facebook_account":"39361081930",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Caserio, Carlos Alberto",
@@ -2417,7 +2539,8 @@
   "secretary_phone":null,
   "site_url":"http://www.carloscaserio.com.ar/ppal/home.php",
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Rossi, Blanca Araceli",
@@ -2437,7 +2560,8 @@
   "secretary_phone":"(0354) 115-612-593",
   "site_url":null,
   "twitter_account":"Blanquitaok",
-  "facebook_account":"309199259232833"
+  "facebook_account":"309199259232833",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Cremer de Busti, Maria Cristina",
@@ -2457,7 +2581,8 @@
   "secretary_phone":"(011) 155-054-1383",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"336110779853612"
+  "facebook_account":"336110779853612",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Biella Calvet, Bernardo Jose",
@@ -2477,7 +2602,8 @@
   "secretary_phone":"(011) 156-214-1403",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"352517391501481"
+  "facebook_account":"352517391501481",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Schiaretti, Juan",
@@ -2497,7 +2623,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"565339116837552"
+  "facebook_account":"565339116837552",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Boyadjian, Graciela Eunice",
@@ -2517,7 +2644,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Comelli, Alicia Marcela",
@@ -2537,7 +2665,8 @@
   "secretary_phone":null,
   "site_url":"http://aliciacomelli.com.ar/",
   "twitter_account":null,
-  "facebook_account":"378947255564888"
+  "facebook_account":"378947255564888",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"San Martin, Adrian",
@@ -2557,7 +2686,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":"ASanMantin",
-  "facebook_account":"100007910954121"
+  "facebook_account":"100007910954121",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Villar Molina, Maria Ines",
@@ -2577,7 +2707,8 @@
   "secretary_phone":"(011) 156-675-0079",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"100000768163927"
+  "facebook_account":"100000768163927",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Fernandez Mendia, Gustavo Rodolfo",
@@ -2597,7 +2728,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"335070816626649"
+  "facebook_account":"335070816626649",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Martinez, Oscar Anselmo",
@@ -2617,7 +2749,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Herrera, Jose Alberto",
@@ -2637,7 +2770,8 @@
   "secretary_phone":"(011) 153-674-4933",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Juarez, Manuel Humberto",
@@ -2657,7 +2791,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Abdala de Matarazzo, Norma Amanda",
@@ -2677,7 +2812,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Navarro, Graciela",
@@ -2697,7 +2833,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Oliva, Cristian Rodolfo",
@@ -2717,7 +2854,8 @@
   "secretary_phone":null,
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Pastoriza, Mirta Ameliana",
@@ -2737,7 +2875,8 @@
   "secretary_phone":"(011) 154-439-1565",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":null
+  "facebook_account":null,
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Juarez, Myrian del Valle",
@@ -2757,7 +2896,8 @@
   "secretary_phone":"(03444) 155-00614",
   "site_url":"http://www.myrianjuarez.com/",
   "twitter_account":"myrian_juarez",
-  "facebook_account":"599415403480584"
+  "facebook_account":"599415403480584",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Brizuela del Moral, Eduardo Segundo",
@@ -2777,7 +2917,8 @@
   "secretary_phone":"(011) 152-174-6578",
   "site_url":null,
   "twitter_account":null,
-  "facebook_account":"346931995409511"
+  "facebook_account":"346931995409511",
+  "region": "AR"
 }, {
   "type":"legislative",
   "full_name":"Pucheta, Ramona",
@@ -2797,5 +2938,6 @@
   "secretary_phone":null,
   "site_url":"ramonapucheta",
   "twitter_account":"ramonapuchetaOK",
-  "facebook_account":"1409733032639014"
-}]
+  "facebook_account":"1409733032639014",
+  "region": "AR"
+}]}

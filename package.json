@@ -11,7 +11,6 @@
     "url": "git://github.com/seykron/yolosparo.git"
   },
   "dependencies": {
-    "socket.io": "*",
     "express": "3.5",
     "express-handlebars": "*",
     "handlebars": "*",
@@ -21,6 +20,7 @@
     "extend": "*",
     "csv-parse": "*",
     "express-domain-middleware": "*",
+    "csv-parse": "*",
     "ogov-importer": "*",
     "winston": "*"
   },

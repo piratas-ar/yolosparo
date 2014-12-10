@@ -3,7 +3,7 @@ drop table if exists campaign_legislatives;
 drop table if exists activities;
 drop table if exists legislatives;
 drop table if exists users;
-drop table if exists campaign;
+drop table if exists campaigns;
 
 -- Campaign to scope legislatives and actions.
 create table if not exists campaigns(
@@ -33,6 +33,7 @@ create table if not exists legislatives (
   site_url varchar(2000) null,
   twitter_account varchar(255) null,
   facebook_account varchar(255) null,
+  region varchar(255) not null,
   unique(type, full_name)
 );
 
