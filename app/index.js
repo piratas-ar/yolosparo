@@ -1,35 +1,35 @@
-var VIEWS_DIR = __dirname + "/../views/";
 
 var fs = require("fs");
 var path = require("path");
+var MODULES_DIR = path.join(__dirname, "modules");
+
 var AppConfigurer = require("../lib/AppConfigurer");
 var mainConfig = new AppConfigurer(app, {
   name: "common",
-  viewsPath: VIEWS_DIR,
-  assetsPath: VIEWS_DIR + "/assets",
-  mountPath: "/"
-});
-
-app.set("domain", {
-  LegislativesRepository: require("../lib/LegislativesRepository"),
-  ActivitiesRepository: require("../lib/ActivitiesRepository"),
-  UsersRepository: require("../lib/UsersRepository"),
-  Mailer: require("../lib/Mailer")
+  viewsPath: path.join(__dirname, "views"),
+  assetsPath: path.join(__dirname, "assets"),
+  mountPath: "/",
+  domain: {
+    LegislativesRepository: require("./domain/LegislativesRepository"),
+    ActivitiesRepository: require("./domain/ActivitiesRepository"),
+    UsersRepository: require("./domain/UsersRepository"),
+    Mailer: require("./domain/Mailer")
+  }
 });
 
 mainConfig.configure();
 
-require("./changeSettings")({
-  UsersRepository: require("../lib/UsersRepository")
+require("./controllers/changeSettings")({
+  UsersRepository: require("./domain/UsersRepository")
 }, app);
 
 // Loads all campaigns.
-fs.readdir(__dirname, function (err, files) {
+fs.readdir(MODULES_DIR, function (err, files) {
   if (err) {
     throw new Error("Cannot load app: " + err);
   }
   files.forEach(function (file) {
-    var fullPath = path.join(__dirname, file);
+    var fullPath = path.join(MODULES_DIR, file);
 
     if (fs.statSync(fullPath).isDirectory()) {
       require(fullPath);

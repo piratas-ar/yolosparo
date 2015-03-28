@@ -1,4 +1,4 @@
-var CampaignLoader = require("../../lib/CampaignLoader");
+var CampaignLoader = require("../../../lib/CampaignLoader");
 var stopFracking = new CampaignLoader({
   name: "stop-fracking",
   path: __dirname,

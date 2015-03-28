@@ -1,17 +1,8 @@
 /** This middleware checks whether there exist a cookie named <code>uid</code>
  * and if it doesn't, it creates a new anonymous user for the current request.
  * It also checks whether the existing cookie is still a valid user or not.
- *
- * @param {Object} req Current request. Cannot be null.
- * @param {Object} res Current response. Cannot be null.
- * @param {Function} next Continuation function.
  */
-module.exports = function(app) {
-
-  /** Repository to manage users.
-   * @type {Function}
-   */
-  var UsersRepository = require("../lib/UsersRepository");
+module.exports = function(domain, app) {
 
   /** Name of the campaign related to this middleware.
    * @type {String}
@@ -36,7 +27,7 @@ module.exports = function(app) {
 
   /** List of available names to generate anonymous user names.
    */
-  var names = fs.readFileSync(path.join(__dirname, "..", "names.txt")).toString()
+  var names = fs.readFileSync(path.join(__dirname, "names.txt")).toString()
     .split("\n");
 
   /** Generates a random number between 0 and the number of names, using the
@@ -124,7 +115,7 @@ module.exports = function(app) {
     // Excludes the main app.
     if (req.db) {
       // Checks the user only in requests within a transaction.
-      repo = new UsersRepository(req.db);
+      repo = new domain.UsersRepository(req.db);
 
       if (uid && secret) {
         repo.findByNicknameAndSecret(currentCampaign, uid, secret,

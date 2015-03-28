@@ -8,7 +8,7 @@
  * @param {Function} next Callback to follow to the next middleware. Cannot be
  *    null.
  */
-module.exports = function(app) {
+module.exports = function(domain, app) {
 
   return function transactionMiddleware(req, res, next) {
 
