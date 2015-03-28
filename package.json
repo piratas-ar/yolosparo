@@ -11,16 +11,16 @@
     "url": "git://github.com/seykron/yolosparo.git"
   },
   "dependencies": {
+    "async": "*",
+    "csv-parse": "*",
+    "debug": "^2.1.3",
     "express": "3.5",
+    "express-domain-middleware": "*",
     "express-handlebars": "*",
+    "extend": "*",
     "handlebars": "*",
     "mysql": "*",
     "nodemailer": "*",
-    "async": "*",
-    "extend": "*",
-    "csv-parse": "*",
-    "express-domain-middleware": "*",
-    "csv-parse": "*",
     "ogov-importer": "*",
     "winston": "*"
   },
@@ -33,4 +33,3 @@
     "grunt-contrib-jshint": "~0.10.0"
   }
 }
-

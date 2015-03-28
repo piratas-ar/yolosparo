@@ -12,33 +12,7 @@ app = express();
 app.config = JSON.parse(fs.readFileSync(path
   .join(__dirname, "config.json")).toString());
 
-// General configuration.
-app.engine('html', exphbs({
-  defaultLayout: 'main.html',
-  helpers: require("./lib/viewHelpers.js")
-}));
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "handlebars");
-
-app.use("/", express.static(__dirname + '/views/assets'));
-app.use(express.methodOverride());
-app.use(express.bodyParser());
-app.use(express.cookieParser());
-app.use(app.router);
-
-// Loads all campaigns in the "app" directory.
-fs.readdir(path.join(__dirname, "app"), function (err, files) {
-  if (err) {
-    throw new Error("Cannot load app: " + err);
-  }
-  files.forEach(function (file) {
-    var fullPath = path.join(__dirname, "app", file);
-
-    if (fs.statSync(fullPath).isDirectory()) {
-      require(fullPath);
-    }
-  });
-});
+require("./app");
 
 if (app.get("env") !== "production") {
   dataSource = new DataSource(app.config.dataSource);

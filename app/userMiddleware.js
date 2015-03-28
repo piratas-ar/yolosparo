@@ -31,6 +31,9 @@ module.exports = function(app) {
    */
   var crypto = require("crypto");
 
+  /** Default logger. */
+  var debug = require("debug")("userMiddleware");
+
   /** List of available names to generate anonymous user names.
    */
   var names = fs.readFileSync(path.join(__dirname, "..", "names.txt")).toString()
@@ -73,7 +76,6 @@ module.exports = function(app) {
       if (user) {
         generateUniqueName(repo, callback);
       } else {
-        console.log("New user: " + nick);
         repo.save(campaign, {
           nick: nick,
           secret: generateSecret(nick)
@@ -81,6 +83,10 @@ module.exports = function(app) {
       }
     });
   };
+
+  (function __initialize() {
+    debug("registering userMiddleware for application: " + app.get("name"));
+  }());
 
   return function userMiddleware(req, res, next) {
     var repo;
@@ -108,12 +114,15 @@ module.exports = function(app) {
 
         setCookie("uid", user.nick);
         setCookie("ukey", user.secret);
+
+        debug("[%s]|%s|%s %s", user.nick, app.get("name"), req.method, req.url);
+
         next();
       });
     };
 
     // Excludes the main app.
-    if (req.originalUrl !== "/" && req.db) {
+    if (req.db) {
       // Checks the user only in requests within a transaction.
       repo = new UsersRepository(req.db);
 
@@ -130,6 +139,8 @@ module.exports = function(app) {
               req.user = user;
               res.locals.user = user;
               res.locals.campaign = campaign;
+
+              debug("%s|%s|%s %s", uid, app.get("name"), req.method, req.url);
 
               next();
             } else {

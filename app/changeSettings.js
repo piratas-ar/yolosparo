@@ -1,5 +1,8 @@
 module.exports = function (domain, app) {
 
+  /** Default logger. */
+  var debug = require("debug")("changeSettings");
+
   // Changes the user's nick and email.
   app.post('/changeSettings', function (req, res) {
     var repo = new domain.UsersRepository(req.db);
@@ -15,10 +18,12 @@ module.exports = function (domain, app) {
         if (err.code === "ER_DUP_ENTRY") {
           errorMessage = "El usuario " + nick + " ya existe.";
         } else {
-          console.log(err);
+          debug("cannot change nick from %s to %s: %s", req.user.nick, nick,
+            err);
         }
         res.send(500, { error: errorMessage });
       } else {
+        debug("nick changed from %s to %s", req.user.nick, nick);
         res.send(200, "OK");
       }
     });
