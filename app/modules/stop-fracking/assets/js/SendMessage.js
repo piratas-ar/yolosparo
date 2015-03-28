@@ -106,7 +106,6 @@ SendMessage = function (container, legislatives, options) {
    */
   var registerActivity = function (action) {
     jQuery.post("registerActivity", {
-      uid: options.uid,
       lid: currentLegislativeId,
       action: action
     }, function (activity) {

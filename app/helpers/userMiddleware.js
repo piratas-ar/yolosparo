@@ -106,7 +106,7 @@ module.exports = function(domain, app) {
         setCookie("uid", user.nick);
         setCookie("ukey", user.secret);
 
-        debug("[%s]|%s|%s %s", user.nick, app.get("name"), req.method, req.url);
+        debug("[%s]|%s|%s %s", user.nick, currentCampaign, req.method, req.url);
 
         next();
       });
@@ -131,7 +131,7 @@ module.exports = function(domain, app) {
               res.locals.user = user;
               res.locals.campaign = campaign;
 
-              debug("%s|%s|%s %s", uid, app.get("name"), req.method, req.url);
+              debug("%s|%s|%s %s", uid, currentCampaign, req.method, req.url);
 
               next();
             } else {

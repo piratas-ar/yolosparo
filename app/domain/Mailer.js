@@ -46,6 +46,9 @@ module.exports = function Mailer(templatePath) {
    */
   var path = require("path");
 
+  /** Default logger. */
+  var debug = require("debug")("Mailer");
+
   /** Handlebars template engine
    * @type {Object}
    * @private
@@ -87,13 +90,14 @@ module.exports = function Mailer(templatePath) {
       };
 
       if (app.config.debugMode) {
-        console.log(mailOptions);
+        debug("sending email: %s", JSON.stringify(mailOptions));
         setImmediate(callback);
       } else if (app.get("env") === "testing") {
         mailOptions.to = [app.config.mail.testRecipient];
-        console.log(mailOptions);
+        debug("sending email: %s", JSON.stringify(mailOptions));
         transport.sendMail(mailOptions, callback);
       } else {
+        debug("sending email: %s", JSON.stringify(mailOptions));
         transport.sendMail(mailOptions, callback);
       }
     }
