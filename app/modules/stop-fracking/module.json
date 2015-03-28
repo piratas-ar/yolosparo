@@ -1,0 +1,15 @@
+{
+  "name": "stop-fracking",
+  "mountPath": "/no-al-fracking",
+  "staticViews": ["billInfo.markdown", "contact.html"],
+  "menu": [{
+    "text": "Legisladores",
+    "url": "#legislatives"
+  }, {
+    "text": "Mentiras",
+    "url": "/billInfo"
+  }, {
+    "text": "Contacto",
+    "url": "/contact"
+  }]
+}

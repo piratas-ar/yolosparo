@@ -1,9 +1,21 @@
 
 var fs = require("fs");
 var path = require("path");
+var extend = require("extend");
 var MODULES_DIR = path.join(__dirname, "modules");
 
 var AppConfigurer = require("../lib/AppConfigurer");
+var CampaignLoader = require("../lib/CampaignLoader");
+
+var loadModule = function (modulePath, module) {
+  var campaign = new CampaignLoader(extend(module, {
+    path: modulePath
+  }));
+
+  campaign.registerMenu(module.menu);
+  campaign.load();
+};
+
 var mainConfig = new AppConfigurer(app, {
   name: "common",
   viewsPath: path.join(__dirname, "views"),
@@ -29,10 +41,11 @@ fs.readdir(MODULES_DIR, function (err, files) {
     throw new Error("Cannot load app: " + err);
   }
   files.forEach(function (file) {
-    var fullPath = path.join(MODULES_DIR, file);
+    var modulePath = path.join(MODULES_DIR, file);
+    var moduleFile = path.join(modulePath, "module.json");
 
-    if (fs.statSync(fullPath).isDirectory()) {
-      require(fullPath);
+    if (fs.existsSync(moduleFile)) {
+      loadModule(modulePath, JSON.parse(fs.readFileSync(moduleFile).toString()));
     }
   });
 });
