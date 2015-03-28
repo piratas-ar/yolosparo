@@ -3,6 +3,10 @@ body {
   padding-top: 50px;
 }
 
+p + ul {
+  margin-bottom: 10px;
+}
+
 /** Main layout container. */
 .main-container {
 }
@@ -61,7 +65,8 @@ body {
 }
 
 .message p,
-.message li {
+.message li,
+.message div {
   font-size: 16px;
 }
 

@@ -6,6 +6,7 @@ var stopFracking = new CampaignLoader({
   viewsPath: VIEWS_DIR,
   assetsPath: VIEWS_DIR + "/assets",
   mountPath: "/stop-fracking",
+  staticViews: ["billInfo.markdown", "contact.html"],
   domain: {
     LegislativesRepository: require("../../lib/LegislativesRepository"),
     ActivitiesRepository: require("../../lib/ActivitiesRepository"),

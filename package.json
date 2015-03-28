@@ -19,6 +19,7 @@
     "express-handlebars": "*",
     "extend": "*",
     "handlebars": "*",
+    "marked": "^0.3.3",
     "mysql": "*",
     "nodemailer": "*",
     "ogov-importer": "*",
