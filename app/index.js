@@ -10,6 +10,13 @@ var mainConfig = new AppConfigurer(app, {
   mountPath: "/"
 });
 
+app.set("domain", {
+  LegislativesRepository: require("../lib/LegislativesRepository"),
+  ActivitiesRepository: require("../lib/ActivitiesRepository"),
+  UsersRepository: require("../lib/UsersRepository"),
+  Mailer: require("../lib/Mailer")
+});
+
 mainConfig.configure();
 
 require("./changeSettings")({
