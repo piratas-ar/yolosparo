@@ -1,22 +1,12 @@
-var path = require("path");
-var fs = require("fs");
-var express = require('express');
-var exphbs = require('express-handlebars');
 var DataSource = require("./lib/DataSource");
-var CONNECTION_STRING = "mysql://yolosparo:yolosparo@localhost/yolosparo";
-var dataSource;
 
-// Global app.
-app = express();
+// Main app.
+var app = require("./app");
+var dataSource = new DataSource(app.config.get("dataSource"));
 
-app.config = JSON.parse(fs.readFileSync(path
-  .join(__dirname, "config.json")).toString());
+app.set("dataSource", dataSource);
 
-require("./app");
-
-if (app.get("env") !== "production") {
-  dataSource = new DataSource(app.config.dataSource);
-  app.set("dataSource", dataSource);
+if (app.config.dataSource.drop) {
   console.log("Initializing database.");
 
   dataSource.setupDatabase(function (err) {
@@ -25,12 +15,8 @@ if (app.get("env") !== "production") {
     }
     console.log("Database re-created.");
 
-    app.listen(app.config.port);
-    console.log("App available at http://localhost:" + app.config.port);
+    app.init();
   });
 } else {
-  dataSource = new DataSource(app.config.production.dataSource);
-  app.set("dataSource", dataSource);
-  app.listen(app.config.port);
-  console.log("App available at http://localhost:" + app.config.port);
+  app.init();
 }

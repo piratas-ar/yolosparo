@@ -1,0 +1,17 @@
+{
+  "debugMode": false,
+  "port": 3000,
+  "mail": {
+    "subject": "¿Por qué vas a votar a favor del fracking?",
+    "host": "",
+    "user": "",
+    "passwd": ""
+  },
+  "dataSource": {
+    "server": "localhost",
+    "user": "yolosparo",
+    "password": "yolosparo",
+    "database": "yolosparo_prod",
+    "drop": false
+  }
+}

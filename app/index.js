@@ -1,14 +1,19 @@
+var debug = require("debug")("bootstrap");
 
 var fs = require("fs");
 var path = require("path");
 var extend = require("extend");
 var MODULES_DIR = path.join(__dirname, "modules");
 
+var express = require("express");
+var app = express();
+var mainConfig;
+
 var AppConfigurer = require("../lib/AppConfigurer");
 var CampaignLoader = require("../lib/CampaignLoader");
 
 var loadModule = function (modulePath, module) {
-  var campaign = new CampaignLoader(extend(module, {
+  var campaign = new CampaignLoader(app, extend(module, {
     path: modulePath
   }));
 
@@ -16,7 +21,8 @@ var loadModule = function (modulePath, module) {
   campaign.load();
 };
 
-var mainConfig = new AppConfigurer(app, {
+app.config = require("config");
+mainConfig = new AppConfigurer(app, {
   name: "common",
   viewsPath: path.join(__dirname, "views"),
   assetsPath: path.join(__dirname, "assets"),
@@ -25,27 +31,38 @@ var mainConfig = new AppConfigurer(app, {
     LegislativesRepository: require("./domain/LegislativesRepository"),
     ActivitiesRepository: require("./domain/ActivitiesRepository"),
     UsersRepository: require("./domain/UsersRepository"),
-    Mailer: require("./domain/Mailer")
+    Mailer: require("./domain/Mailer")(app)
   }
 });
 
 mainConfig.configure();
 
-require("./controllers/changeSettings")({
-  UsersRepository: require("./domain/UsersRepository")
-}, app);
+module.exports = extend(app, {
+  init: function () {
 
-// Loads all campaigns.
-fs.readdir(MODULES_DIR, function (err, files) {
-  if (err) {
-    throw new Error("Cannot load app: " + err);
+    require("./controllers/changeSettings")({
+      UsersRepository: require("./domain/UsersRepository")
+    }, app);
+
+    // Loads all campaigns modules.
+    fs.readdir(MODULES_DIR, function (err, files) {
+      if (err) {
+        throw new Error("Cannot load app: " + err);
+      }
+      files.forEach(function (file) {
+        var modulePath = path.join(MODULES_DIR, file);
+        var moduleFile = path.join(modulePath, "module.json");
+
+        if (fs.existsSync(moduleFile)) {
+          loadModule(modulePath,
+            JSON.parse(fs.readFileSync(moduleFile).toString()));
+        }
+      });
+    });
+
+    process.nextTick(function () {
+      app.listen(app.config.get("port"));
+      debug("App available at http://localhost:%s", app.config.get("port"));
+    });
   }
-  files.forEach(function (file) {
-    var modulePath = path.join(MODULES_DIR, file);
-    var moduleFile = path.join(modulePath, "module.json");
-
-    if (fs.existsSync(moduleFile)) {
-      loadModule(modulePath, JSON.parse(fs.readFileSync(moduleFile).toString()));
-    }
-  });
 });

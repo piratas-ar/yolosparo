@@ -41,7 +41,12 @@ module.exports = function(grunt) {
       main: {
         files: [{
           expand: true,
-          src: ["app/**", "lib/**", "index.js", "config.json", "!**/data/**"],
+          src: ["app/**", "lib/**", "index.js", "!**/data/**"],
+          dest: "build/"
+        }, {
+          expand: true,
+          flatten: true,
+          src: ["config/*.json"],
           dest: "build/"
         }]
       }
@@ -53,6 +58,7 @@ module.exports = function(grunt) {
           mode: "tgz"
         },
         files: [{
+          expand: true,
           src: ["**"], // What should be included in the zip
           dest: ".",
           cwd: "build"

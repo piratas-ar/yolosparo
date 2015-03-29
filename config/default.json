@@ -16,14 +16,7 @@
     "server": "localhost",
     "user": "yolosparo",
     "password": "yolosparo",
-    "database": "yolosparo"
-  },
-  "production": {
-    "dataSource": {
-      "server": "localhost",
-      "user": "yolosparo",
-      "password": "yolosparo",
-      "database": "yolosparo_prod"
-    }
+    "database": "yolosparo_dev",
+    "drop": true
   }
 }
