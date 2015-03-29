@@ -1,3 +1,5 @@
+ppar = window.ppar || {};
+
 /** Manages the user form.
  * @param {Element} container Form element. Cannot be null.
  * @param {Element} userSettingsAction Element to display user settings form.
@@ -6,7 +8,7 @@
  *    empty.
  * @constructor
  */
-UserForm = function (container, userSettingsAction, options) {
+ppar.UserForm = function (container, userSettingsAction, options) {
 
   /** Indicates whether there're pending requests or not.
    * @type {Boolean}

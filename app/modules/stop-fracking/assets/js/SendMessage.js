@@ -1,8 +1,10 @@
+ppar = window.ppar || {};
+
 /** Sends an email message to legislatives.
  * @param {Element} container Legislatives list container. Cannot be null.
  * @param {Object[]} legislatives List of legislatives. Cannot be null.
  */
-SendMessage = function (container, legislatives, options) {
+ppar.SendMessage = function (container, legislatives, options) {
 
   /** Indicates whether there're pending requests or not.
    * @type {Boolean}
