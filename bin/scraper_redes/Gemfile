@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'active_support/inflector'
+gem 'activesupport-inflector'
 gem 'capybara'
 gem 'dsl'
 gem 'poltergeist'

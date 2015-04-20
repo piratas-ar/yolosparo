@@ -63,6 +63,18 @@ module Legi
     def es_facebook?(url)
       !(/facebook\.com/ =~ url).nil?
     end
+
+    def get_name(doc)
+      doc.css('div.name').text.strip
+    end
+
+    def get_email(doc)
+      doc.css('ul.data.email li.mail a').text.strip
+    end
+
+    def get_username(doc)
+      get_email(doc).split('@').first
+    end
   end
 
   class TwitterScraper
@@ -80,7 +92,7 @@ module Legi
         data = @client.user(twitter)
         data.website
       rescue
-        puts 'err' + twitter.to_s
+        puts '[err]  ' + twitter.to_s
       end
     end
   end
@@ -93,7 +105,9 @@ t = Legi::TwitterScraper.new
 
 senadores = s.get_senadores
 
+i = 0
 datos = senadores.collect do |senador|
+  i = i+1
   doc = s.get_leg_page(senador)
   twitter = s.get_twitter(doc)
   web = s.get_web(doc)
@@ -103,13 +117,16 @@ datos = senadores.collect do |senador|
     web = t.get_twitter_web(twitter)
     facebook = web if s.es_facebook? web
   end
+  name = s.get_name(doc)
+  email = s.get_email(doc)
+  username = s.get_username(doc)
 
   {
     type: 'senador',
-    fullName: nil,
-    userName: nil,
+    fullName: name,
+    userName: username,
     friendlyName: nil,
-    email: nil,
+    email: email,
     pictureUrl: nil,
     district: nil,
     startDate: nil,
