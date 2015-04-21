@@ -57,7 +57,14 @@ module Legi
     def get_web(doc)
       web_elem = doc.css('ul.data.telephone').select { |t| t.css('li.title i.fa-link').length > 0 }.first
       web = web_elem.css('.tel-number').text.strip unless web_elem.nil?
-      web
+      smart_add_url_protocol(web) unless web.nil?
+    end
+
+    def smart_add_url_protocol(url)
+      unless url[/\Ahttp:\/\//] || url[/\Ahttps:\/\//]
+        url = "http://#{url}"
+      end
+      url
     end
 
     def es_facebook?(url)
@@ -75,15 +82,43 @@ module Legi
     def get_username(doc)
       get_email(doc).split('@').first
     end
+
+    def get_phone(doc)
+      phone_elem = doc.css('ul.data.telephone').select { |t| t.css('li.title i.fa-phone').length > 0 }.first
+      phone = phone_elem.css('.tel-number').text.strip unless phone_elem.nil?
+      phone
+    end
+
+    def extract_fb_user(fb_url)
+      if !fb_url.nil?
+        fb_url.to_s.split('/').first(4).last
+      end
+    end
+
+    def get_secretary(doc)
+      sec = doc.css('ul.data.secretary li.name-secretary').text.strip
+      sec if sec != 'No responde'
+    end
+
+    def get_secretary_phone(doc)
+      sec_num = doc.css('ul.data.secretary li.sec-number').text.strip
+      sec_num if sec_num != 'No responde'
+    end
+
+    def get_personal_address(doc)
+      address_elem = doc.css('ul.data.secretary').select { |t| t.css('li.title').first.text.strip == 'EN SU DISTRITO' }.first
+      address = address_elem.css('li.advisory-number').text.strip unless address_elem.nil?
+      address unless address == 'No tiene'
+    end
   end
 
   class TwitterScraper
     def initialize
       @client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = "1PxsxGlTeM39UWi5xmLQ6dSLx"
-        config.consumer_secret     = "tpLuwBs3Ltve0Ma1GJwirWGiqWbFKcyw7sMn6TV2VSwdK7zCjX"
-        config.access_token        = "60947633-vKhuGXBrCBdPRnTTFwVTJpFAEQdFIGShTpaxiywd4"
-        config.access_token_secret = "LbH2kwZpGJqijNvzRVZbepYhq9mi6Khd1o5q9oqOcoQTr"
+        config.consumer_key        = ""
+        config.consumer_secret     = ""
+        config.access_token        = ""
+        config.access_token_secret = ""
       end
     end
 
@@ -91,8 +126,8 @@ module Legi
       begin
         data = @client.user(twitter)
         data.website
-      rescue
-        puts '[err]  ' + twitter.to_s
+      rescue => e
+        puts '[err]  ' + twitter.to_s, e
       end
     end
   end
@@ -117,33 +152,30 @@ datos = senadores.collect do |senador|
     web = t.get_twitter_web(twitter)
     facebook = web if s.es_facebook? web
   end
-  name = s.get_name(doc)
-  email = s.get_email(doc)
-  username = s.get_username(doc)
 
   {
     type: 'senador',
-    fullName: name,
-    userName: username,
+    fullName: s.get_name(doc),
+    userName: s.get_username(doc),
     friendlyName: nil,
-    email: email,
+    email: s.get_email(doc),
     pictureUrl: nil,
     district: nil,
     startDate: nil,
     endDate: nil,
     party: nil,
     block: nil,
-    phone: nil,
+    phone: s.get_phone(doc),
     address: nil,
     personalPhone: nil,
-    personalAddress: nil,
-    secretary: nil,
-    secretaryPhone: nil,
+    personalAddress: s.get_personal_address(doc),
+    secretary: s.get_secretary(doc),
+    secretaryPhone: s.get_secretary_phone(doc),
     siteUrl: web,
     twitterUrl: s.twitter_url(twitter),
     twitterName: twitter,
     facebookUrl: facebook,
-    facebookName: facebook,
+    facebookName: s.extract_fb_user(facebook),
     emailText: nil,
     tweetText: nil
   }
