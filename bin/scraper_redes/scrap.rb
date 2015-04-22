@@ -107,7 +107,13 @@ module Legi
 
     def get_personal_address(doc)
       address_elem = doc.css('ul.data.secretary').select { |t| t.css('li.title').first.text.strip == 'EN SU DISTRITO' }.first
-      address = address_elem.css('li.advisory-number').text.strip unless address_elem.nil?
+      address = address_elem.css('li.advisory-number').first.text.strip unless address_elem.nil?
+      address unless address == 'No tiene'
+    end
+
+    def get_personal_phone(doc)
+      address_elem = doc.css('ul.data.secretary').select { |t| t.css('li.title').first.text.strip == 'EN SU DISTRITO' }.first
+      address = address_elem.css('li.advisory-number').last.text.strip unless address_elem.nil? or address_elem.css('li.advisory-number').length < 2
       address unless address == 'No tiene'
     end
   end
@@ -167,7 +173,7 @@ datos = senadores.collect do |senador|
     block: nil,
     phone: s.get_phone(doc),
     address: nil,
-    personalPhone: nil,
+    personalPhone: s.get_personal_phone(doc),
     personalAddress: s.get_personal_address(doc),
     secretary: s.get_secretary(doc),
     secretaryPhone: s.get_secretary_phone(doc),
