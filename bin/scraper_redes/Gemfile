@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+gem 'activesupport-inflector'
+gem 'capybara'
+gem 'dsl'
+gem 'poltergeist'
+gem 'pry'
