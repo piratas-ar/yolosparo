@@ -1,5 +1,8 @@
 {
-  "name": "stop-fracking",
+  "name": "no-al-fracking",
+  "displayName": "NO al Fracking en Argentina",
+  "description": "Campaña para concientizar sobre los peligros del fracking y las consecuencias políticas y económicas de la nueva Ley de Hidrocarburos de Argentina",
+  "picture": "images/argentina_libre_de_fracking-opengraph.jpg",
   "mountPath": "/no-al-fracking",
   "staticViews": ["billInfo.markdown", "contact.html"],
   "menu": [{

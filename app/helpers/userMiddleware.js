@@ -2,7 +2,7 @@
  * and if it doesn't, it creates a new anonymous user for the current request.
  * It also checks whether the existing cookie is still a valid user or not.
  */
-module.exports = function(domain, app) {
+module.exports = function(domain, app, options) {
 
   /** Name of the campaign related to this middleware.
    * @type {String}
@@ -114,6 +114,7 @@ module.exports = function(domain, app) {
 
     // Excludes the main app.
     if (req.db) {
+
       // Checks the user only in requests within a transaction.
       repo = new domain.UsersRepository(req.db);
 

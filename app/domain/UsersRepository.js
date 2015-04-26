@@ -9,7 +9,7 @@ module.exports = function UsersRepository(conn) {
    * @constant
    * @private
    */
-  var FIND_BY_NICK_QUERY = "select * from users u " +
+  var FIND_BY_NICK_QUERY = "select u.* from users u " +
     "inner join campaigns c on c.id = u.campaign_id " +
     "where c.name = ? and u.nick_name = ?";
 
@@ -18,7 +18,7 @@ module.exports = function UsersRepository(conn) {
    * @constant
    * @private
    */
-  var FIND_BY_NICK_SECRET_QUERY = "select * from users u " +
+  var FIND_BY_NICK_SECRET_QUERY = "select u.* from users u " +
     "inner join campaigns c on c.id = u.campaign_id " +
     "where c.name = ? and u.nick_name = ? and u.secret = ?";
 

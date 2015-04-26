@@ -1,0 +1,16 @@
+{{#each modules}}
+  <div class="campaigns">
+    <div class="media">
+      <div class="media-left pull-left">
+        <a href="#">
+          <img class="media-object" src="{{mountPath}}/{{picture}}" alt="{{name}}">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="{{mountPath}}">{{displayName}}</a></h4>
+        {{description}}
+      </div>
+    </div>
+    <hr>
+  </div>
+{{/each}}
