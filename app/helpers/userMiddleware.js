@@ -2,7 +2,7 @@
  * and if it doesn't, it creates a new anonymous user for the current request.
  * It also checks whether the existing cookie is still a valid user or not.
  */
-module.exports = function(domain, app, options) {
+module.exports = function(domain, app) {
 
   /** Name of the campaign related to this middleware.
    * @type {String}

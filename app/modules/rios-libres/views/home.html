@@ -1,0 +1,224 @@
+<div class="row">
+  <div class="col-md-6">
+    <br />
+    <div style="height: 42px" class="hidden-sm"> &nbsp; </div>
+    <div id="mainslider">
+      <ul class="bjqs">
+        <li><img src="images/logo-800.jpg" alt="Las costas son libres" /></li>
+        <li><img src="images/free-river-01.gif" alt="Las costas son libres" /></li>
+        <li><img src="images/free-river-02.gif" alt="Las costas son libres" /></li>
+        <li><img src="images/free-river-03.jpg" alt="Las costas son libres" /></li>
+      </ul>
+      </a>
+    </div>
+  </div>
+  <div class="message col-md-6">
+    {{{content "content/home_message.md"}}}
+
+    <h3 class="text-center">
+      <a href="#legislatives"><span class="glyphicon glyphicon-earphone"></span> Contale a tu Diputado</a>
+    </h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+  <h3 class="text-center">
+    <span class="btn-link"><span class="glyphicon glyphicon-bullhorn"></span> Difundí</span>
+    <a href="https://twitter.com/intent/tweet?related=hoylosparo&url=http%3A%2F%2Fwww.yolosparo.org%2Frios-libres&text=Queremos%20recuperar%20el%20acceso%20a%20nuestros%20r%C3%ADos%2C%20pidamosle%20ayuda%20a%20los%20legisladores%20%23riosLibresPueblosLibres"
+      class="btn btn-social-icon btn-twitter" target="_blank">
+      <i class="fa fa-twitter"><!-- Twitter icon --></i>
+    </a>
+    <a href="https://www.facebook.com/dialog/feed?app_id={{config.facebookAppId}}&caption=Yo los paro!&link=http%3A%2F%2Fyolosparo.org%2Frios-libres&redirect_uri=http%3A%2F%2Fyolosparo.org"
+    class="btn btn-social-icon btn-facebook" target="_blank">
+      <i class="fa fa-facebook"><!-- Twitter icon --></i>
+    </a>
+    <a href="https://plus.google.com/share?url=http%3A%2F%2Fyolosparo.org%2Frios-libres"
+    class="btn btn-social-icon btn-google-plus" target="_blank">
+      <i class="fa fa-google-plus"><!-- Twitter icon --></i>
+    </a>
+    <a href="http://reddit.com/submit?url=http%3A%2F%2Fyolosparo.org%2Frios-libres"
+    class="btn btn-social-icon btn-reddit" target="_blank">
+      <i class="fa fa-reddit"><!-- Twitter icon --></i>
+    </a>
+  </h3>
+  </div>
+</div>
+
+<a name="legislatives" href="javascript:;"><!-- Marker--></a>
+
+<hr />
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="legislatives">
+      <h3>Pedile a tus legisladores que nos devuelvan el acceso a los ríos</h3>
+
+      {{#unless legislatives.length}}
+        {{#unless featured.length}}
+          No hay legisladores en este distrito.
+        {{/unless}}
+      {{/unless}}
+
+      {{#each legislatives}}
+        <div class="media">
+          {{#if facebookUrl}}
+            <a class="media-object pull-left" href="{{facebookUrl}}" target="_blank">
+              <img alt="{{fullName}}" class="unveil" data-src="{{pictureUrl}}" width="107" height="80">
+            </a>
+          {{else}}
+            <img class="pull-left media-object unveil" alt="{{fullName}}"
+              data-src="{{pictureUrl}}" width="107" height="80">
+          {{/if}}
+          <div class="media-body">
+            <div class="info pull-left">
+              <h4 class="media-heading">{{fullName}}</h4>
+
+              <div class="social-channel">
+                {{#if twitterUrl}}
+                  <a href="{{twitterUrl}}"
+                    class="btn btn-social-icon btn-xs btn-twitter" target="_blank">
+                    <i class="fa fa-twitter"><!-- Twitter icon --></i>
+                  </a>
+                {{/if}}
+                {{#if facebookUrl}}
+                  <a href="{{facebookUrl}}"
+                  class="btn btn-social-icon btn-xs btn-facebook" target="_blank">
+                    <i class="fa fa-facebook"><!-- Twitter icon --></i>
+                  </a>
+                {{/if}}
+              </div>
+
+              {{#if siteUrl}}
+                <strong>Sitio:</strong> <a href="{{siteUrl}}">{{siteUrl}}</a><br>
+              {{/if}}
+              {{#if address}}
+                <strong>Dirección en el Congreso</strong>: {{address}}<br>
+              {{/if}}
+              {{#if phone}}
+                <strong>Teléfono del Congreso</strong>: {{phone}}<br>
+              {{/if}}
+              <small><a class="js-show-info" href="javascript:;">Mostrar más información</a></small>
+              <p>
+                {{#if personalAddress}}
+                  <strong>Dirección en su distrito</strong>: {{personalAddress}}<br>
+                {{/if}}
+                {{#if personalPhone}}
+                  <strong>Teléfono de su distrito</strong>: {{personalPhone}}<br>
+                {{/if}}
+                {{#if secretary}}
+                  <strong>Secretari@</strong>: {{secretary}}<br>
+                {{/if}}
+                {{#if secretaryPhone}}
+                  <strong>Teléfono de la/el secretari@</strong>: {{secretaryPhone}}<br>
+                {{/if}}
+              </p>
+            </div>
+            <div class="social-channels pull-right">
+              <button class="js-send-message social-channel btn btn-block btn-default"
+                data-id="{{id}}">Enviar email</button>
+
+              {{#if facebookName}}
+                <a id="fb-{{id}}"
+                  class="js-fb-feed btn btn-block btn-social btn-facebook"
+                  data-to="{{facebookName}}"
+                  href="javascript:;">
+                  <i class="fa fa-facebook"><!-- Icon --></i>Escribirle en Facebook
+                </a>
+              {{else}}
+                <p>
+                No tiene Facebook
+                </p>
+              {{/if}}
+              {{#if twitterName}}
+                <a href="https://twitter.com/intent/tweet?text={{../../module.tweet_message}}%20%40{{twitterName}}%20%23yolosparo&related=hoylosparo"
+                  id="tweet-{{id}}"
+                  target="_blank"
+                  class="social-channel btn btn-block btn-social btn-twitter"
+                  data-size="large"
+                  data-dnt="true"
+                  data-lang="es"
+                  data-lid="{{id}}">
+                  <i class="fa fa-twitter"><!-- Icon --></i>Twittear a {{twitterName}}
+                </a>
+              {{else}}
+                <p>
+                No tiene Twitter
+                </p>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+        <hr />
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <h3>Actividad</h3>
+    <p>
+      <span class="fa fa-twitter"><!-- Icon --></span> {{stats.tweets}} tweets |
+      <span class="fa fa-facebook"><!-- Icon --></span> {{stats.facebookMessages}} mensajes |
+      <span class="glyphicon glyphicon-envelope"><!-- Icon --></span> {{stats.emails}} emails
+    </p>
+    <div class="js-activities activities">
+      {{#each activities}}
+        {{#if status}}
+          <p>
+            <span>{{user.nick}}</span> {{status}}
+            <span>{{legislative.fullName}}</span>
+          </p>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+<div class="js-send-message-dialog send-message-dialog modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Enviar mensaje</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          Para: <span class="js-message-to"><!-- --></span>
+        </p>
+        <p>
+          De: <input name="message-from" value="{{user.email}}">
+          <span id="error-message" class="alert-danger">{{config.emailErrorMessage}}</span>
+        </p>
+        <textarea name="message">{{config.emailMessage}}</textarea>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:;" class="js-cancel btn">Cancelar</a>
+        <a href="javascript:;" class="js-send btn btn-primary">Enviar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript"
+  src="https://platform.twitter.com/widgets.js"></script>
+<script type="text/javascript"
+  src="//connect.facebook.net/es_LA/all.js"></script>
+<script type="text/javascript" src="js/SendMessage.js"></script>
+
+<script type="text/javascript">
+  jQuery(function () {
+    var sendMessage = new ppar.SendMessage(jQuery(document.body),
+      {{{json legislatives}}}, {
+        uid: {{user.id}},
+        featured: {{{json featured}}},
+        emailMessage: {{{json module.emailMessage}}}
+      });
+    sendMessage.render();
+
+    FB.init({
+      appId: '{{config.facebookAppId}}',
+      xfbml: true,
+      version: 'v2.1'
+    });
+  });
+</script>

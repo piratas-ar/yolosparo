@@ -129,3 +129,7 @@ p + ul {
 .campaigns .media-object {
   width: 150px;
 }
+
+.campaigns .media-left {
+  margin: 2% 10px;
+}

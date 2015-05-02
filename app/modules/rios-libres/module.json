@@ -1,0 +1,21 @@
+{
+  "name": "rios-libres",
+  "displayName": "Acción por el acceso a los Ríos",
+  "description": "El nuevo código civil eliminó el acceso a la orilla de los ríos, ayudanos a revertir una de las privatizaciones más grandes de la historia.",
+  "picture": "images/logo.jpg",
+  "mountPath": "/rios-libres",
+  "staticViews": ["caminoDeSirga.html", "contact.html"],
+  "emailMessage": "TODO",
+  "emailErrorMessage": "El formato del mail es incorrecto",
+  "tweet_message": "Hola, quería pedirte que traten la ley para devolvernos el acceso a los ríos",
+  "menu": [{
+    "text": "Legisladores",
+    "url": "#legislatives"
+  }, {
+    "text": "Camino de Sirga",
+    "url": "/caminoDeSirga"
+  }, {
+    "text": "Contacto",
+    "url": "/contact"
+  }]
+}
