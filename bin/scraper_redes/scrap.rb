@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'rubygems'
 require 'active_support/inflector'
 require 'capybara'
@@ -11,7 +12,7 @@ Capybara.default_driver = :poltergeist
 Capybara.run_server = false
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, timeout: 180)
+  Capybara::Poltergeist::Driver.new(app, timeout: 180, js_errors: false)
 end
 
 module Legi
@@ -41,6 +42,19 @@ module Legi
 
     def get_leg_page(legigato)
       doc = get_page_data('http://alertas.directoriolegislativo.org/?legislador='+legigato)
+    end
+
+    def get_senado_list
+      doc = get_page_data('http://www.senado.gob.ar/senadores/listados/listaSenadoRes')
+    end
+
+    def get_senado_row(senado_doc, name)
+      fila = senado_doc.css('table tr').select do |row|
+        name.split.select do |piece|
+          piece.length > 2 && (row.text.include?(piece) || row.text.include?(ActiveSupport::Inflector.transliterate(piece)))
+        end.length >= 2
+      end
+      fila.first
     end
 
     def get_twitter(doc)
@@ -75,12 +89,16 @@ module Legi
       doc.css('div.name').text.strip
     end
 
-    def get_email(doc)
-      doc.css('ul.data.email li.mail a').text.strip
+    def get_email(senado_row)
+      senado_row.css('td').first(6).last.css('a').text
     end
 
-    def get_username(doc)
-      get_email(doc).split('@').first
+    def get_username(senado_row)
+      get_email(senado_row).split('@').first
+    end
+
+    def get_pic_url(senado_row)
+      senado_row.css('td').first.css('img').first['src']
     end
 
     def get_phone(doc)
@@ -121,10 +139,10 @@ module Legi
   class TwitterScraper
     def initialize
       @client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = ""
-        config.consumer_secret     = ""
-        config.access_token        = ""
-        config.access_token_secret = ""
+        config.consumer_key        = "a7z4BX5VHsG96IlDc2gDIlLDK"
+        config.consumer_secret     = "LDJG3PhWqcH7RCxpDqpvYfp0i7j1YARA5p9D6d2MWnA0BcdV2E"
+        config.access_token        = "60947633-xc7xgt1AOKpw6XacSHblJFIsBrjEUchPNxnd5Mq58"
+        config.access_token_secret = "B"
       end
     end
 
@@ -145,11 +163,15 @@ s = Legi::WebScraper.new
 t = Legi::TwitterScraper.new
 
 senadores = s.get_senadores
-
+senado_doc = s.get_senado_list
 i = 0
 datos = senadores.collect do |senador|
   i = i+1
   doc = s.get_leg_page(senador)
+  name = s.get_name(doc)
+  next if name.empty?
+  senado_row = s.get_senado_row(senado_doc, name)
+  next if senado_row.nil?
   twitter = s.get_twitter(doc)
   web = s.get_web(doc)
   if s.es_facebook? web
@@ -161,11 +183,11 @@ datos = senadores.collect do |senador|
 
   {
     type: 'senador',
-    full_name: s.get_name(doc),
-    user_name: s.get_username(doc),
+    full_name: name,
+    user_name: s.get_username(senado_row),
     friendly_name: nil,
-    email: s.get_email(doc),
-    picture_url: nil,
+    email: s.get_email(senado_row),
+    picture_url: s.get_pic_url(senado_row),
     district: nil,
     start_date: nil,
     end_date: nil,
