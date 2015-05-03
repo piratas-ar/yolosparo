@@ -10,7 +10,9 @@ module.exports = function LegislativesRepository(campaign, conn) {
    * @private
    */
   var ALL_QUERY = "select l.*, sum(if(a.action != '', 1, 0)) " +
-    "as num_of_actions from legislatives l " +
+    "as num_of_actions, if(l.twitter_account is null, 1, 0) " +
+    "as has_twitter_account, if(l.facebook_account is null, 1, 0) " +
+    "as has_fb_account from legislatives l " +
     "inner join campaign_legislatives cl on l.id = cl.legislative_id " +
     "inner join campaigns c on c.id = cl.campaign_id " +
     "left join activities a on a.legislative_id = l.id ";
@@ -60,7 +62,8 @@ module.exports = function LegislativesRepository(campaign, conn) {
       }
 
       query += where + " group by l.id " +
-        "order by num_of_actions, l.full_name";
+        "order by num_of_actions, has_twitter_account, has_fb_account, " +
+        "l.full_name";
 
       conn.query(query, params, function (err, rows) {
         if (err) {
