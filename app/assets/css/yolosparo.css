@@ -16,8 +16,8 @@ p + ul {
 	padding: 7px;
 }
 
-#mainslider { text-align: center; margin: 0 auto; }
-#video { text-align: center; margin: 0 auto; }
+.mainslider { text-align: center; margin: 60px auto 0 auto; }
+.mainslider .video { text-align: center; margin: 0 auto; }
 
 /** Social channel action (ie: fb, twitter, etc) */
 .social-channel {

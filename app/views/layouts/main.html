@@ -90,6 +90,11 @@
 
     <script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/UserForm.js"></script>
+
+    <script type="text/javascript"
+      src="https://platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript"
+      src="//connect.facebook.net/es_LA/all.js"></script>
     <script type="text/javascript">
       jQuery(function () {
         var userFormElement = jQuery("#userForm");
@@ -100,19 +105,6 @@
 
         userForm.render();
 
-        jQuery('#mainslider').bjqs({
-          'width' : 590,
-          'height' : 400,
-          'animtype' : 'fade',
-          'animduration' : 450,
-          'animspeed' : 3000,
-          'automatic' : true,
-          'responsive' : true,
-          'showcontrols' : false,
-          'showmarkers' : false,
-          'hoverpause' : false,
-          'randomstart' : false
-        });
         userSettingsAction.popover({
           content: userFormElement
         });
@@ -121,6 +113,12 @@
         });
 
         jQuery("img.unveil").unveil(200);
+
+        FB.init({
+          appId: '{{config.facebookAppId}}',
+          xfbml: true,
+          version: 'v2.1'
+        });
       });
     </script>
   </body>

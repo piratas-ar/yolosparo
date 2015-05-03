@@ -1,7 +1,4 @@
 {
-  "emailMessage": "Hola, quería decirte que estoy muy preocupada porque me contaron que vas a votar a favor de la ley de hidrocarburos. Me gustaría preguntarte con qué criterio vas a votar esta ley, sabiendo que la misma plantea condiciones muy desfavorables para la economía, la soberanía energética y los recursos naturales por las próximas tres generaciones.\n\nEl pueblo te pide que votes en contra de esta ley. Si cambiás de opinión y querés saber qué opina la gente sobre lo que estás haciendo, te invito a entrar a http://www.yolosparo.org\n\nConfío en que podés cambiar de opinión y velar por los intereses de toda la nación.\n\nSaludos.",
-  "emailErrorMessage": "El formato del mail es incorrecto",
-  "tweet": "Quería pedirte que votes en contra de la ley de hidrocarburos que entrega la soberanía energética por décadas, ",
   "debugMode": true,
   "facebookAppId": "602412299869906",
   "port": 3000,

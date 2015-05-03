@@ -1,0 +1,16 @@
+<h3>Actividad</h3>
+<p>
+  <span class="fa fa-twitter"><!-- Icon --></span> {{stats.tweets}} tweets |
+  <span class="fa fa-facebook"><!-- Icon --></span> {{stats.facebookMessages}} mensajes |
+  <span class="glyphicon glyphicon-envelope"><!-- Icon --></span> {{stats.emails}} emails
+</p>
+<div class="js-activities activities">
+  {{#each activities}}
+    {{#if status}}
+      <p>
+        <span>{{user.nick}}</span> {{status}}
+        <span>{{legislative.fullName}}</span>
+      </p>
+    {{/if}}
+  {{/each}}
+</div>

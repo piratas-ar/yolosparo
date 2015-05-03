@@ -5,6 +5,33 @@
   "picture": "images/argentina_libre_de_fracking-opengraph.jpg",
   "mountPath": "/no-al-fracking",
   "staticViews": ["billInfo.markdown", "contact.html"],
+  "widgets": {
+    "slider": {
+      "video": "//www.youtube.com/embed/i9MOISFiAP4?autoplay=1",
+      "images": [{
+        "url": "images/fracking_pozos.jpg",
+        "tooltip": "Para el fracking se realizan cientos de pozos."
+      }, {
+        "url": "images/fracking_agua.jpeg",
+        "tooltip": "El fracking contamina el agua."
+      }, {
+        "url": "images/argentina_libre_de_fracking.jpg",
+        "tooltip": "Argentina libre de fracking"
+      }]
+    },
+    "socialPlugins": {
+      "text": "Hoy todos juntos le decimos NO al fracking y se lo pedimos a nuestros diputados"
+    },
+    "legislatives": {
+      "title": "Diputados que van a votar a favor de la ley",
+      "tweet_message": "Quería pedirte que votes en contra de la ley de hidrocarburos que entrega la soberanía energética por décadas, ",
+      "filter": true
+    },
+    "sendMessage": {
+      "emailMessage": "Hola, quería decirte que estoy muy preocupada porque me contaron que vas a votar a favor de la ley de hidrocarburos. Me gustaría preguntarte con qué criterio vas a votar esta ley, sabiendo que la misma plantea condiciones muy desfavorables para la economía, la soberanía energética y los recursos naturales por las próximas tres generaciones.\n\nEl pueblo te pide que votes en contra de esta ley. Si cambiás de opinión y querés saber qué opina la gente sobre lo que estás haciendo, te invito a entrar a http://www.yolosparo.org\n\nConfío en que podés cambiar de opinión y velar por los intereses de toda la nación.\n\nSaludos.",
+      "emailErrorMessage": "El formato del mail es incorrecto"
+    }
+  },
   "menu": [{
     "text": "Legisladores",
     "url": "#legislatives"

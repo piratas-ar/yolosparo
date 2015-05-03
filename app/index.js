@@ -17,7 +17,7 @@ var loadModule = function (modulePath, moduleConfig) {
     dataSource: app.get("dataSource"),
     domain: extend({}, app.get("domain"), moduleConfig.domain),
     layoutsDir: app.get("layoutsDir"),
-    partialsDir: app.get("partialsDir")
+    partialsDir: [app.get("partialsDir")]
   }));
 
   module.load();

@@ -6,6 +6,10 @@ ppar = window.ppar || {};
  */
 ppar.SendMessage = function (container, legislatives, options) {
 
+  /** Default email message.
+   */
+  var EMAIL_MESSAGE = container.find("textarea[name=message]").text();
+
   /** Indicates whether there're pending requests or not.
    * @type {Boolean}
    * @private
@@ -75,7 +79,7 @@ ppar.SendMessage = function (container, legislatives, options) {
       if (legislative.featured) {
         container.find("textarea[name=message]").text(legislative.emailText);
       } else {
-        container.find("textarea[name=message]").text(options.emailMessage);
+        container.find("textarea[name=message]").text(EMAIL_MESSAGE);
       }
       dialog.modal("show");
     });
