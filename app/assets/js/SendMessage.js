@@ -153,19 +153,21 @@ ppar.SendMessage = function (container, legislatives, options) {
       }
     });
 
-    twttr.events.bind('click', function (event) {
-      var id;
-      if (event) {
-        id = jQuery(event.target).attr("id");
-        currentLegislativeId = parseInt(id.substr(id.indexOf("-") + 1), 10);
-      }
-    });
+    if (window.twttr) {
+      twttr.events.bind('click', function (event) {
+        var id;
+        if (event) {
+          id = jQuery(event.target).attr("id");
+          currentLegislativeId = parseInt(id.substr(id.indexOf("-") + 1), 10);
+        }
+      });
 
-    twttr.events.bind('tweet', function (event) {
-      if (event) {
-        registerActivity("tweet");
-      }
-    });
+      twttr.events.bind('tweet', function (event) {
+        if (event) {
+          registerActivity("tweet");
+        }
+      });
+    }
 
     container.find(".js-fb-feed").click(function (event) {
       var link = jQuery(event.target);
