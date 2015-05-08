@@ -97,4 +97,7 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask("default", ["jshint", "clean", "copy", "compress"]);
+  grunt.registerTask("deploy", ["jshint", "clean", "copy", "compress",
+    "sftp-deploy"]);
 };
+
