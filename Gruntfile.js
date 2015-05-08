@@ -41,13 +41,10 @@ module.exports = function(grunt) {
       main: {
         files: [{
           expand: true,
-          src: ["app/**", "lib/**", "index.js", "!**/data/**"],
-          dest: "build/"
-        }, {
-          expand: true,
-          flatten: true,
-          src: ["config/*.json"],
-          dest: "build/"
+          src: ["app/**", "lib/**", "index.js", "package.json", "!**/data/**",
+            "sql/db-setup.sql", "sql/db-setup.d/*.sql",
+            "sql/db-setup.d/*.json", "config/*.json", "Deployment.md"],
+          dest: "build/yolosparo"
         }]
       }
     },
