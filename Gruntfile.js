@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  var secret = grunt.file.readJSON("config/secret.json");
 
   // Project configuration.
   grunt.initConfig({
@@ -45,6 +46,10 @@ module.exports = function(grunt) {
             "sql/db-setup.sql", "sql/db-setup.d/*.sql",
             "sql/db-setup.d/*.json", "config/*.json", "Deployment.md"],
           dest: "build/yolosparo"
+        }, {
+          expand: false,
+          src: ["bin/deploy_dev.sh"],
+          dest: "dist/deploy_dev.sh"
         }]
       }
     },
@@ -76,14 +81,32 @@ module.exports = function(grunt) {
         }
       }
     },
-    "sftp-deploy": {
-      build: {
-        auth: {
-          host: "yolosparo.org",
-          authKey: "default"
+    secret: grunt.file.readJSON("config/secret.json"),
+    "sftp": {
+      deploy: {
+        files: {
+          "./": ["dist/*"]
         },
-        src: 'dist',
-        dest: '.'
+        options: {
+          host: "<%= secret.host %>",
+          path: "<%= secret.remotePath %>",
+          username: "<%= secret.username %>",
+          privateKey: grunt.file.read(secret.privateKey),
+          passphrase: "<%= secret.passphrase %>",
+          srcBasePath: "dist/",
+          showProgress: true
+        }
+      }
+    },
+    "sshexec": {
+      "remote-deploy-dev": {
+        command: "<%= secret.remotePath %>/deploy_dev.sh <%= pkg.version %>",
+        options: {
+          host: "<%= secret.host %>",
+          username: "<%= secret.username %>",
+          privateKey: grunt.file.read(secret.privateKey),
+          passphrase: "<%= secret.passphrase %>"
+        }
       }
     }
   });
@@ -93,11 +116,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks("grunt-release");
-  grunt.loadNpmTasks('grunt-sftp-deploy');
+  grunt.loadNpmTasks('grunt-ssh');
 
   // Default task.
   grunt.registerTask("default", ["jshint", "clean", "copy", "compress"]);
   grunt.registerTask("deploy", ["jshint", "clean", "copy", "compress",
-    "sftp-deploy"]);
+    "sftp", "sshexec"]);
 };
 
