@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
   var secret = grunt.file.readJSON("config/secret.json");
+  var targetEnv = grunt.option('env') || 'dev';
 
   // Project configuration.
   grunt.initConfig({
@@ -43,13 +44,14 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           src: ["app/**", "lib/**", "index.js", "package.json", "!**/data/**",
-            "sql/db-setup.sql", "sql/db-setup.d/*.sql",
-            "sql/db-setup.d/*.json", "config/*.json", "Deployment.md"],
+            "!**/vendor/lib/**", "sql/db-setup.sql", "sql/db-setup.d/*.sql",
+            "sql/db-setup.d/*.json", "config/*.json", "Deployment.md",
+            "Gruntfile.js"],
           dest: "build/yolosparo"
         }, {
           expand: false,
-          src: ["bin/deploy_dev.sh"],
-          dest: "dist/deploy_dev.sh"
+          src: ["bin/remote_deploy.sh"],
+          dest: "dist/remote_deploy.sh"
         }]
       }
     },
@@ -99,13 +101,29 @@ module.exports = function(grunt) {
       }
     },
     "sshexec": {
-      "remote-deploy-dev": {
-        command: "<%= secret.remotePath %>/deploy_dev.sh <%= pkg.version %>",
+      dev: {
+        command: "<%= secret.remotePath %>/remote_deploy.sh " +
+          "<%= pkg.version %> dev",
         options: {
           host: "<%= secret.host %>",
           username: "<%= secret.username %>",
           privateKey: grunt.file.read(secret.privateKey),
           passphrase: "<%= secret.passphrase %>"
+        }
+      }
+    },
+    npmcopy: {
+      options: {
+        destPrefix: "app/assets/vendor"
+      },
+      libs: {
+        files: {
+          "lib/jquery": "jquery/dist",
+          "lib/bootstrap": "bootstrap/dist",
+          "lib/bootstrap/bootstrap-social/assets": "bootstrap-social/assets",
+          "lib/bootstrap/bootstrap-social": "bootstrap-social",
+          "lib/es5-shim": "es5-shim",
+          "lib/font-awesome": "font-awesome"
         }
       }
     }
@@ -117,10 +135,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks("grunt-release");
   grunt.loadNpmTasks('grunt-ssh');
+  grunt.loadNpmTasks('grunt-npmcopy');
 
   // Default task.
   grunt.registerTask("default", ["jshint", "clean", "copy", "compress"]);
+
   grunt.registerTask("deploy", ["jshint", "clean", "copy", "compress",
-    "sftp", "sshexec"]);
+    "sftp", "sshexec:" + targetEnv]);
 };
 

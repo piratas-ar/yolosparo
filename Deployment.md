@@ -2,6 +2,47 @@
 
 *yolosparo* deployment instructions.
 
+## Requirements
+
+* Access to the remote host via public key authentication
+
+* All remote directories must exist
+
+* There must be an ```env_vars.sh``` file in the remote temporary directory to
+configure the deployment environment.
+
+**${remotePath}/env_vars.sh**
+
+```
+#!/bin/bash
+
+export BACKUP_DIR=/opt/backup/yolosparo
+export SERVER_DIR=/srv/node-dev
+export APP_USER=yolosparo
+export APP_GROUP=node
+```
+
+
+1. Create the connection configuration file at ```config/secret.json```
+
+```
+{
+  // Deployment host.
+  "host": "yolosparo.org",
+
+  // Temporary directory in the remote host to upload the files to deploy.
+  // WARNING: it must exist.
+  "remotePath": "/home/remoteuser",
+
+  // User name in the remote host.
+  "username": "remoteuser",
+
+  //
+  "privateKey": "/home/localuser/.ssh/id_rsa",
+  "passphrase": null
+}
+```
+
 ## Development
 
 1. Copy the compressed file to the node's root directory for development

@@ -3,5 +3,5 @@ data
 build
 dist
 .ftppass
-fontconfig
 config/secret.json
+app/assets/vendor/lib
