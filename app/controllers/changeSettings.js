@@ -1,11 +1,11 @@
-module.exports = function (domain, app) {
+module.exports = function (module, app) {
 
   /** Default logger. */
   var debug = require("debug")("changeSettings");
 
   // Changes the user's nick and email.
   app.post('/changeSettings', function (req, res) {
-    var repo = new domain.UsersRepository(req.db);
+    var repo = new module.domain.UsersRepository(req.db);
     var userId = req.user.id;
     var secret = req.user.secret;
     var nick = req.param("nick");

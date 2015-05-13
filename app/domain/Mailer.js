@@ -1,5 +1,5 @@
 
-module.exports = function (app) {
+module.exports = function (config) {
 
   /** Node File System API.
    * @type {Object}
@@ -40,14 +40,14 @@ module.exports = function (app) {
    * @fieldOf Mailer#
    */
   var transport = nodemailer.createTransport({
-    host: app.config.mail.host,
+    host: config.mail.host,
     secureConnection: true,
     ignoreTLS: false,
     xMailer: false,
     tls: {rejectUnauthorized: false},
     auth: {
-      user: app.config.mail.user,
-      pass: app.config.mail.passwd
+      user: config.mail.user,
+      pass: config.mail.passwd
     }
   });
 
@@ -57,7 +57,7 @@ module.exports = function (app) {
    * @param {String} templatePath Path where email templates are stored. Cannot
    *    be null or empty.
    */
-  return function Mailer(templatePath) {
+  return function Mailer(module, templatePath) {
 
     /** Reads and expands the email template in the specified format.
      * @param {String} format Template format, must be a file extension. Cannot
@@ -67,8 +67,15 @@ module.exports = function (app) {
      * @methodOf Mailer#
      */
     var readTemplate = function (format, data) {
-      var source = fs.readFileSync(templatePath + "." + format.toLowerCase());
-      var template = Handlebars.compile(source.toString());
+      var templateFile = templatePath + "." + format.toLowerCase();
+      var source;
+      var template;
+
+      debug("loading email template: %s", templateFile);
+
+      source = fs.readFileSync(templateFile).toString();
+      template = Handlebars.compile(source);
+
       return template(data);
     };
 
@@ -76,6 +83,7 @@ module.exports = function (app) {
 
       /** Sends an email using the configured template.
        *
+       * @param {String} subject Mail subject. Cannot be null or empty.
        * @param {String} from Email sender. Cannot be null.
        * @param {String|String[]} recipients Comma-separated or array of valid
        *    email addresses. Cannot be null.
@@ -83,22 +91,18 @@ module.exports = function (app) {
        * @param {Function} callback Callback invoked when the mail is successfully
        *    sent. It receives an error and the response status as parameters.
        */
-      send: function (from, recipients, data, callback) {
+      send: function (subject, from, recipients, data, callback) {
         var mailOptions = {
-          subject: app.config.mail.subject,
+          subject: subject,
           from: from,
           to: recipients,
           text: readTemplate("txt", data),
           html: readTemplate("html", data)
         };
 
-        if (app.config.debugMode) {
-          debug("sending email: %s", JSON.stringify(mailOptions));
+        if (module.isDebugMode()) {
+          debug("sending fake email: %s", JSON.stringify(mailOptions));
           setImmediate(callback);
-        } else if (app.get("env") === "testing") {
-          mailOptions.to = [app.config.mail.testRecipient];
-          debug("sending email: %s", JSON.stringify(mailOptions));
-          transport.sendMail(mailOptions, callback);
         } else {
           debug("sending email: %s", JSON.stringify(mailOptions));
           transport.sendMail(mailOptions, callback);

@@ -41,7 +41,7 @@ module.exports = extend(app, {
         LegislativesRepository: require("./domain/LegislativesRepository"),
         ActivitiesRepository: require("./domain/ActivitiesRepository"),
         UsersRepository: require("./domain/UsersRepository"),
-        Mailer: require("./domain/Mailer")(app)
+        Mailer: require("./domain/Mailer")(app.config)
       }
     });
 
