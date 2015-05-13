@@ -4,7 +4,7 @@
   "description": "El nuevo código civil eliminó el acceso a la orilla de los ríos, ayudanos a revertir una de las privatizaciones más grandes de la historia.",
   "picture": "images/logo.jpg",
   "mountPath": "/rios-libres",
-  "staticViews": ["caminoDeSirga.html", "contact.html"],
+  "staticViews": ["caminoDeSirga.html", "contact.html", "adherir.html"],
   "widgets": {
     "slider": {
       "images": [{
@@ -43,5 +43,8 @@
   }, {
     "text": "Contacto",
     "url": "/contact"
+  }, {
+    "text": "Adherir",
+    "url": "/adherir"
   }]
 }
