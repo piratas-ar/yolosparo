@@ -3,13 +3,14 @@ module.exports = function(grunt) {
   var fs = require("fs");
   var secret;
   var targetEnv = grunt.option('env') || 'dev';
+  var extend = require("extend");
 
   if (fs.existsSync(SECRET_FILE)) {
     secret = grunt.file.readJSON(SECRET_FILE);
   }
 
   // Project configuration.
-  grunt.initConfig({
+  grunt.initConfig(extend({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
       files: [
@@ -116,23 +117,8 @@ module.exports = function(grunt) {
           passphrase: "<%= secret.passphrase %>"
         }
       }
-    },
-    npmcopy: {
-      options: {
-        destPrefix: "app/assets/vendor"
-      },
-      libs: {
-        files: {
-          "lib/jquery": "jquery/dist",
-          "lib/bootstrap": "bootstrap/dist",
-          "lib/bootstrap/bootstrap-social/assets": "bootstrap-social/assets",
-          "lib/bootstrap/bootstrap-social": "bootstrap-social",
-          "lib/es5-shim": "es5-shim",
-          "lib/font-awesome": "font-awesome"
-        }
-      }
     }
-  });
+  }, grunt.file.readJSON("Gruntfile.client.json")));
 
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks('grunt-contrib-clean');

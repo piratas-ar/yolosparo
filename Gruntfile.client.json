@@ -1,0 +1,17 @@
+{
+  "npmcopy": {
+    "options": {
+      "destPrefix": "app/assets/vendor"
+    },
+    "libs": {
+      "files": {
+        "lib/jquery": "jquery/dist",
+        "lib/bootstrap": "bootstrap/dist",
+        "lib/bootstrap/bootstrap-social/assets": "bootstrap-social/assets",
+        "lib/bootstrap-social": "bootstrap-social",
+        "lib/es5-shim": "es5-shim",
+        "lib/font-awesome": "font-awesome"
+      }
+    }
+  }
+}
