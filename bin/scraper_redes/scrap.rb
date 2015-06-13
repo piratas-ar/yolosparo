@@ -142,7 +142,7 @@ module Legi
         config.consumer_key        = "a7z4BX5VHsG96IlDc2gDIlLDK"
         config.consumer_secret     = "LDJG3PhWqcH7RCxpDqpvYfp0i7j1YARA5p9D6d2MWnA0BcdV2E"
         config.access_token        = "60947633-xc7xgt1AOKpw6XacSHblJFIsBrjEUchPNxnd5Mq58"
-        config.access_token_secret = "B"
+        config.access_token_secret = "BrooY1KfPLwCGIkvzlcJHES"
       end
     end
 
@@ -153,6 +153,22 @@ module Legi
       rescue => e
         puts '[err]  ' + twitter.to_s, e
       end
+    end
+
+    def get_urls_from_profile(twitter)
+      require 'uri'
+      begin
+        data = @client.user(twitter)
+        urls = URI.extract(data.description)
+        if urls.nil?
+          []
+        else
+          urls
+        end
+      rescue => e
+        puts '[err]  ' + twitter.to_s, e
+        []
+      end     
     end
   end
 end
@@ -173,19 +189,24 @@ datos = senadores.collect do |senador|
   senado_row = s.get_senado_row(senado_doc, name)
   next if senado_row.nil?
   twitter = s.get_twitter(doc)
-  web = s.get_web(doc)
-  if s.es_facebook? web
-    facebook = web
-  elsif !twitter.nil?
-    web = t.get_twitter_web(twitter)
-    facebook = web if s.es_facebook? web
+  facebook = nil
+  web = nil
+  urls = []
+  urls.push s.get_web(doc)
+  urls.push t.get_twitter_web(twitter) unless twitter.nil?
+  urls |= t.get_urls_from_profile(twitter) unless twitter.nil?
+  urls.each do |u|
+    if s.es_facebook?(u) && facebook.nil?
+      facebook = u
+    elsif web.nil?
+      web = u
+    end
   end
 
   {
     type: 'senador',
     full_name: name,
     user_name: s.get_username(senado_row),
-    friendly_name: nil,
     email: s.get_email(senado_row),
     picture_url: s.get_pic_url(senado_row),
     district: nil,
@@ -197,15 +218,12 @@ datos = senadores.collect do |senador|
     address: nil,
     personal_phone: s.get_personal_phone(doc),
     personal_address: s.get_personal_address(doc),
-    secretary: s.get_secretary(doc),
+    secretary_name: s.get_secretary(doc),
     secretary_phone: s.get_secretary_phone(doc),
     site_url: web,
-    twitter_url: s.twitter_url(twitter),
-    twitter_name: twitter,
-    facebook_url: facebook,
-    facebook_name: s.extract_fb_user(facebook),
-    email_text: nil,
-    tweet_text: nil
+    twitter_account: twitter,
+    facebook_account: s.extract_fb_user(facebook),
+    region: 'AR'
   }
 end
 

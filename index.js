@@ -1,62 +1,18 @@
-var path = require("path");
-var fs = require("fs");
-var express = require('express');
-var exphbs = require('express-handlebars');
 var DataSource = require("./lib/DataSource");
-var CONNECTION_STRING = "mysql://yolosparo:yolosparo@localhost/yolosparo";
-var dataSource;
 
-// Global app.
-app = express();
+// Main app.
+var app = require("./app");
+var dataSource = new DataSource(app.config.get("dataSource"));
 
-app.config = JSON.parse(fs.readFileSync(path
-  .join(__dirname, "config.json")).toString());
+app.set("dataSource", dataSource);
 
-// General configuration.
-app.engine('html', exphbs({
-  defaultLayout: 'main.html',
-  helpers: require("./lib/viewHelpers.js")
-}));
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "handlebars");
-
-app.use("/", express.static(__dirname + '/views/assets'));
-app.use(express.methodOverride());
-app.use(express.bodyParser());
-app.use(express.cookieParser());
-app.use(app.router);
-
-// Loads all campaigns in the "app" directory.
-fs.readdir(path.join(__dirname, "app"), function (err, files) {
-  if (err) {
-    throw new Error("Cannot load app: " + err);
-  }
-  files.forEach(function (file) {
-    var fullPath = path.join(__dirname, "app", file);
-
-    if (fs.statSync(fullPath).isDirectory()) {
-      require(fullPath);
-    }
-  });
-});
-
-if (app.get("env") !== "production") {
-  dataSource = new DataSource(app.config.dataSource);
-  app.set("dataSource", dataSource);
-  console.log("Initializing database.");
-
+if (app.config.dataSource.drop) {
   dataSource.setupDatabase(function (err) {
     if (err) {
       throw err;
     }
-    console.log("Database re-created.");
-
-    app.listen(app.config.port);
-    console.log("App available at http://localhost:" + app.config.port);
+    app.init();
   });
 } else {
-  dataSource = new DataSource(app.config.production.dataSource);
-  app.set("dataSource", dataSource);
-  app.listen(app.config.port);
-  console.log("App available at http://localhost:" + app.config.port);
+  app.init();
 }

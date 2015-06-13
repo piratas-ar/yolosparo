@@ -1,3 +1,5 @@
+SET FOREIGN_KEY_CHECKS=0;
+
 drop table if exists featured_legislatives;
 drop table if exists campaign_legislatives;
 drop table if exists activities;
@@ -83,3 +85,19 @@ create table if not exists featured_legislatives (
   foreign key (legislative_id) references legislatives(id),
   unique(campaign_id, legislative_id)
 );
+
+-- Adhesiones
+create table if not exists support (
+  id bigint not null primary key auto_increment,
+  creation_time timestamp not null,
+  campaign_id bigint not null,
+  nombre varchar(255) null,
+  email varchar(255) null,
+  logo varchar(255) null,
+  sitio varchar(255) null,
+  adhesion varchar(255) null,
+  mensaje text null,
+  foreign key (campaign_id) references campaigns(id)
+);
+
+SET FOREIGN_KEY_CHECKS=1;

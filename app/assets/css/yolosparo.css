@@ -1,0 +1,135 @@
+/** Main CSS */
+body {
+  padding-top: 50px;
+}
+
+p + ul {
+  margin-bottom: 10px;
+}
+
+/** Main layout container. */
+.main-container {
+}
+
+
+.navbar-brand {
+	padding: 7px;
+}
+
+.mainslider { text-align: center; margin: 60px auto 0 auto; }
+.mainslider .video { text-align: center; margin: 0 auto; }
+
+/** Social channel action (ie: fb, twitter, etc) */
+.social-channel {
+  display: block;
+  margin: 5px 0;
+}
+
+/** Textarea inside the message dialog. */
+.send-message-dialog textarea {
+  height: 200px;
+  width: 98%;
+}
+
+/** Social buttons. */
+.btn-social {
+  background-image: none;
+  width: 196px;
+}
+
+.btn-social-icon {
+  background-image: none;
+}
+
+.info {
+  max-width: 530px;
+  word-break: break-word;
+}
+
+.social-channels {
+  text-align: center;
+}
+
+.info p {
+  display: none;
+}
+
+.activities span {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.brand img {
+  height: 24px;
+  width: 24px;
+}
+
+.message p,
+.message li,
+.message div {
+  font-size: 16px;
+}
+
+.message ul {
+  padding: 0;
+}
+
+.message li {
+  list-style: none;
+}
+
+#userSettings {
+  margin-top: 8px;
+}
+
+.user-form label span:first-child {
+  display: inline-block;
+  width: 40px;
+}
+
+.contact {
+  margin: 30px auto;
+  width: 1000px;
+}
+
+.featured {
+  border-radius: 8px;
+  height: 300px;
+  margin: 0 5px 5px 0;
+  padding: 5px;
+  width: 210px;
+}
+
+.featured img {
+  border-radius: 8px 8px 0 0;
+}
+
+.featured .media-heading {
+  text-align: center;
+}
+
+.legislatives {
+  clear: both;
+  padding-top: 20px;
+}
+
+.campaigns {
+  margin: 50px auto;
+  width: 500px;
+}
+
+.campaigns .media {
+  background: #eaeaea;
+}
+
+.campaigns .media-heading {
+  padding-top: 10px;
+}
+
+.campaigns .media-object {
+  width: 150px;
+}
+
+.campaigns .media-left {
+  margin: 2% 10px;
+}

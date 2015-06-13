@@ -1,0 +1,20 @@
+<h3 class="text-center">
+  <span class="btn-link"><span class="glyphicon glyphicon-bullhorn"></span> Difundí</span>
+
+  <a href="https://twitter.com/intent/tweet?related=hoylosparo&url={{{ encodeUri 'http://www.yolosparo.org' }}}/{{ campaign }}&text={{{ encodeUri module.widgets.socialPlugins.text }}}"
+    class="btn btn-social-icon btn-twitter" target="_blank">
+    <i class="fa fa-twitter"><!-- Twitter icon --></i>
+  </a>
+  <a href="https://www.facebook.com/dialog/feed?app_id={{config.facebookAppId}}&caption=Yo los paro!&link={{{ encodeUri 'http://www.yolosparo.org' }}}/{{ campaign }}&redirect_uri=http%3A%2F%2Fyolosparo.org"
+  class="btn btn-social-icon btn-facebook" target="_blank">
+    <i class="fa fa-facebook"><!-- Facebook icon --></i>
+  </a>
+  <a href="https://plus.google.com/share?url={{{ encodeUri 'http://www.yolosparo.org' }}}/{{ campaign }}"
+  class="btn btn-social-icon btn-google-plus" target="_blank">
+    <i class="fa fa-google-plus"><!-- Google+ icon --></i>
+  </a>
+  <a href="http://reddit.com/submit?url={{{ encodeUri 'http://www.yolosparo.org' }}}/{{ campaign }}"
+  class="btn btn-social-icon btn-reddit" target="_blank">
+    <i class="fa fa-reddit"><!-- Reddit icon --></i>
+  </a>
+</h3>

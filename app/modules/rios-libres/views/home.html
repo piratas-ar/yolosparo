@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-6">
+    {{> "slider" }}
+  </div>
+  <div class="message col-md-6">
+    {{{content "content/home_message.md"}}}
+
+    <h3 class="text-center">
+      <a href="#legislatives"><span class="glyphicon glyphicon-earphone"></span> Contale a tu Legislador/a</a>
+    </h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    {{> "socialPlugins" }}
+  </div>
+</div>
+
+<a name="legislatives" href="javascript:;"><!-- Marker--></a>
+
+<hr />
+
+<div class="row">
+  <div class="col-md-8">
+    {{> "legislatives" }}
+  </div>
+
+  <div class="col-md-4">
+    {{> "activities" }}
+  </div>
+</div>
+
+{{> "sendMessage" }}

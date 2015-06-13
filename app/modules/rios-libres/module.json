@@ -1,0 +1,50 @@
+{
+  "name": "rios-libres",
+  "displayName": "Acción por el acceso a los Ríos",
+  "description": "El nuevo código civil eliminó el acceso a la orilla de los ríos, ayudanos a revertir una de las privatizaciones más grandes de la historia.",
+  "picture": "images/logo.jpg",
+  "mountPath": "/rios-libres",
+  "staticViews": ["caminoDeSirga.html", "contact.html", "adherir.html"],
+  "widgets": {
+    "slider": {
+      "images": [{
+        "url": "images/logo-800.jpg",
+        "tooltip": "Rios Libres Pueblos Libres"
+      }, {
+        "url": "images/free-river-01.gif",
+        "tooltip": "Las costas son libres"
+      }, {
+        "url": "images/free-river-02.gif",
+        "tooltip": "Las costas son libres"
+      }, {
+        "url": "images/free-river-03.jpg",
+        "tooltip": "Las costas son libres"
+      }]
+    },
+    "socialPlugins": {
+      "text": "Queremos recuperar el acceso a nuestros ríos, pidamosle ayuda a los legisladores #RiosLibresPueblosLibres"
+    },
+    "legislatives": {
+      "title": "Legisladores de la nación",
+      "tweet_message": "Hola, quería pedirte que traten la ley para devolvernos el acceso a los ríos, ",
+      "filter": false
+    },
+    "sendMessage": {
+      "emailMessage": "TODO",
+      "emailErrorMessage": "El formato del mail es incorrecto"
+    }
+  },
+  "menu": [{
+    "text": "Legisladores",
+    "url": "#legislatives"
+  }, {
+    "text": "Camino de Sirga",
+    "url": "/caminoDeSirga"
+  }, {
+    "text": "Contacto",
+    "url": "/contact"
+  }, {
+    "text": "Adherir",
+    "url": "/adherir"
+  }]
+}

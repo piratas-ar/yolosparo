@@ -1,0 +1,43 @@
+<div class="js-slider mainslider">
+  <a href="javascript:void()" class="js-play">
+    <ul class="js-placeholders bjqs">
+      {{#each module.widgets.slider.images}}
+        <li><img src="{{ url }}" alt="{{ tooltip }}" /></li>
+      {{/each}}
+    </ul>
+  </a>
+  {{#if module.widgets.slider.video}}
+    <div style="display: none" class="js-video video">
+      <!-- Main video goes here -->
+    </div>
+  {{/if}}
+</div>
+
+<script type="text/javascript">
+  jQuery(function () {
+    var slider = jQuery(".js-slider");
+
+    slider.bjqs({
+      'width' : 590,
+      'height' : 400,
+      'animtype' : 'fade',
+      'animduration' : 450,
+      'animspeed' : 3000,
+      'automatic' : true,
+      'responsive' : true,
+      'showcontrols' : false,
+      'showmarkers' : false,
+      'hoverpause' : false,
+      'randomstart' : false
+    });
+
+    {{#if module.widgets.slider.video}}
+      slider.find('.js-play').click(function (event) {
+        slider.find(".js-placeholders").hide();
+        slider.find('.js-video').html(
+          '<iframe width="100%" height="400" src="{{ module.widgets.slider.video }}" frameborder="0" allowfullscreen></iframe>').show();
+        event.preventDefault();
+      });
+    {{/if}}
+  });
+</script>
