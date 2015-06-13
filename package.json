@@ -26,6 +26,7 @@
     "handlebars": "*",
     "jquery": "^1.11",
     "marked": "^0.3.3",
+    "mv": "*",
     "mysql": "*",
     "nodemailer": "*",
     "ogov-importer": "*",
