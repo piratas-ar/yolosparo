@@ -8,11 +8,11 @@ module.exports = function SupportRepository(campaign, conn) {
   /* Traer por id */
   var GET_BY_ID = "select s.* from support s " +
     "inner join campaigns c on s.campaign_id = c.id " +
-    "where c.name = ? and a.id = ?";
+    "where c.name = ? and s.id = ?";
 
   /* Crea adhesion */
   var SAVE_QUERY = "insert into support (creation_time, campaign_id, " +
-    "nombre, email. logo, sitio, adhesion, mensaje) values (now(), " +
+    "nombre, email, logo, sitio, adhesion, mensaje) values (now(), " +
     "(select id from campaigns where name = ?), ?, ?, ?, ?, ?, ?)";
 
   var createSupport = function (result) {
@@ -76,7 +76,7 @@ module.exports = function SupportRepository(campaign, conn) {
           return;
         }
         support.id = result.insertId;
-        callback(null, activity);
+        callback(null, support);
       });
     }
   }
