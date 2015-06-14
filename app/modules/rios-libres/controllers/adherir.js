@@ -53,7 +53,7 @@ module.exports = function (domain, app) {
           if (err) {
             res.send(500, { error: err });
           } else {
-            res.send(200, newSupport);
+            res.redirect('/' + campaign + '/gracias');
           }
         });
       }
