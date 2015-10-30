@@ -1,0 +1,64 @@
+{
+  "name": "fumigaciones-bsas",
+  "displayName": "Frenemos el proyecto regresivo de fumigaciones en Buenos Aires",
+  "description": "Un proyecto de ley busca reducir a nada la distancia mínima de fumigaciones con agrotóxicos en la provincia de Buenos Aires.",
+  "picture": "images/logo.jpg",
+  "mountPath": "/fumigaciones-bsas",
+  "staticViews": ["contact.html", "adherir.html", "gracias.html"],
+  "widgets": {
+    "slider": {
+      "images": [{
+        "url": "images/logo.jpg",
+        "tooltip": "Pongamosle un límite a las fumigaciones"
+      }, {
+        "url": "images/impacto-ambiental.png",
+        "tooltip": "Protejamos nuestra provincia y nuestras familias"
+      }, {
+        "url": "images/fumigacion-aerea.jpg",
+        "tooltip": "El proyecto reduce la distancia de fumigación aérea a 500 metros"
+      }, {
+        "url": "images/mosquito-fumigaciones.png",
+        "tooltip": "El proyecto libera la fumigación terrestre con sustancias de tipo III y IV."
+      }]
+    },
+    "socialPlugins": {
+      "text": "Detengamos el avance de las fumigaciones en la provincia de Buenos Aires #ParenDeFumigarnos"
+    },
+    "legislatives": {
+      "title": "Legisladores de la provincia",
+      "tweet_message": "Hola, quería pedirte que nos ayudes a frenar el avance de las fumigaciones en la provincia. #ParenDeFumigarnos",
+      "filter": false
+    },
+    "sendMessage": {
+      "emailMessage": "Por medio de la presente me dirijo a usted con el fin
+de exigir el no tratamiento del proyecto de ley “Regulando la utilización de
+productos biológicos o químicos en el sector agropecuario y derogando la ley
+10.669, sus modificatorias y decretos reglamentarios”, Expediente: E 166 2014 –
+2015.
+
+Exijo, además, que se lleve adelante un proceso de consulta pública con todos
+los sectores sociales interesados, cumpliendo los Artículos 2 inc. C de la Ley
+Integral del Medio Ambiente y los Recursos Naturales N° 11.723, de la Provincia
+de Buenos Aires, y la Ley General del Ambiente, N° 25.675. 
+
+Finalmente, demando que se debata públicamente el texto de este proyecto que
+atenta directamente contra los principios de no regresión, precaución y
+prevención establecidos por la legislación ambiental de nuestro país y
+desconoce la doctrina judicial de la Suprema Corte de Justicia de la Provincia
+de Buenos Aires.
+
+Agradezco su atención. ",
+      "emailErrorMessage": "El formato del mail es incorrecto"
+    }
+  },
+  "menu": [{
+    "text": "Legisladores",
+    "url": "#legislatives"
+  }, {
+    "text": "Contacto",
+    "url": "/contact"
+  }, {
+    "text": "Adherir",
+    "url": "/adherir"
+  }]
+}
