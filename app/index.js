@@ -2,6 +2,8 @@ var Module = require("../lib/Module");
 
 var fs = require("fs");
 var path = require("path");
+var http = require("http");
+var https = require("https");
 var extend = require("extend");
 var debug = require("debug")("bootstrap");
 var express = require("express");
@@ -28,6 +30,21 @@ var loadModule = function (modulePath, moduleConfig) {
   return module;
 };
 
+var initServer = function () {
+  var options = {
+    key: app.config.ssl.key && fs.readFileSync(app.config.ssl.key),
+    cert: app.config.ssl.cert && fs.readFileSync(app.config.ssl.cert)
+  };
+
+  if (options.key && options.cert) {
+    https.createServer(options, app).listen(app.config.ssl.port);
+    console.log("App available at https://localhost:" + app.config.ssl.port);
+  }
+
+  http.createServer(app).listen(app.config.port);
+  console.log("App available at http://localhost:" + app.config.port);
+};
+
 module.exports = extend(app, {
   config: require("config"),
   init: function () {
@@ -41,7 +58,7 @@ module.exports = extend(app, {
         LegislativesRepository: require("./domain/LegislativesRepository"),
         ActivitiesRepository: require("./domain/ActivitiesRepository"),
         UsersRepository: require("./domain/UsersRepository"),
-        Mailer: require("./domain/Mailer")(app)
+        Mailer: require("./domain/Mailer")(app.config)
       }
     });
 
@@ -62,9 +79,6 @@ module.exports = extend(app, {
       }
     });
 
-    process.nextTick(function () {
-      app.listen(app.config.get("port"));
-      debug("App available at http://localhost:%s", app.config.get("port"));
-    });
+    process.nextTick(initServer);
   }
 });

@@ -1,13 +1,13 @@
-var extend = require("extend");
-var async = require("async");
-
-module.exports = function (domain, app) {
+module.exports = function (module, app) {
+  var extend = require("extend");
+  var async = require("async");
   var campaign = app.get("name");
 
   // Renders the home page.
   app.get('/', function (req, res, next) {
-    var legislativesRepo = new domain.LegislativesRepository(campaign, req.db);
-    var activitiesRepo = new domain.ActivitiesRepository(campaign, req.db);
+    var legislativesRepo = new module.domain
+      .LegislativesRepository(campaign, req.db);
+    var activitiesRepo = new module.domain.ActivitiesRepository(campaign, req.db);
     var district = req.param("district");
 
     async.parallel([

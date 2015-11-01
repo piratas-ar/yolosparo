@@ -1,12 +1,11 @@
-module.exports = function (domain, app) {
-
+module.exports = function (module, app) {
   var path = require("path");
-  var mailer = new domain.Mailer(path.join(app.get("views"), "email"));
+  var mailer = new module.domain.Mailer(path.join(app.get("views"), "email"));
   var campaign = app.get("name");
 
   // Sends an email to a legislative.
   app.post("/sendMessage", function (req, res) {
-    var repo = new domain.LegislativesRepository(campaign, req.db);
+    var repo = new module.domain.LegislativesRepository(campaign, req.db);
     var legislativeId = req.param("id");
     var sender = req.param("from");
     var message = req.param("message");

@@ -1,10 +1,11 @@
-module.exports = function (domain, app) {
+module.exports = function (module, app) {
   var campaign = app.get("name");
 
   // Registers a new user activity.
   app.post('/registerActivity', function (req, res) {
-    var activitiesRepo = new domain.ActivitiesRepository(campaign, req.db);
-    var usersRepo = new domain.UsersRepository(req.db);
+    var activitiesRepo = new module.domain
+      .ActivitiesRepository(campaign, req.db);
+    var usersRepo = new module.domain.UsersRepository(req.db);
     var nick = req.cookies.uid;
     var secret = req.cookies.ukey;
     var activity = {

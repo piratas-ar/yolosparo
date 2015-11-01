@@ -30,6 +30,7 @@
       "filter": false
     },
     "sendMessage": {
+      "subject": "Te pedimos ayuda para recuperar el acceso a los ríos",
       "emailMessage": "TODO",
       "emailErrorMessage": "El formato del mail es incorrecto"
     }

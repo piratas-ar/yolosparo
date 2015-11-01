@@ -2,8 +2,12 @@
   "debugMode": true,
   "facebookAppId": "602412299869906",
   "port": 3000,
+  "ssl": {
+    "port": 3300,
+    "key": "config/server.key",
+    "cert": "config/server.crt"
+  },
   "mail": {
-    "subject": "¿Por qué vas a votar a favor del fracking?",
     "host": "",
     "user": "",
     "passwd": "",

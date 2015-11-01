@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="/vendor/lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/vendor/lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/vendor/lib/bootstrap/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="/vendor/lib/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="/css/yolosparo.css">
     <link rel="stylesheet" href="/vendor/bjqs/bjqs.css">
 
@@ -47,7 +47,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             {{#each menuItems}}
-              <li><a href="{{../mountpath}}{{url}}">{{text}}</a></li>
+              <li><a href="{{../module.mountPath}}{{url}}">{{text}}</a></li>
             {{/each}}
           </ul>
           <div class="pull-right">

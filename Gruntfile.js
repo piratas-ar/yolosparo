@@ -1,9 +1,16 @@
 module.exports = function(grunt) {
-  var secret = grunt.file.readJSON("config/secret.json");
+  var SECRET_FILE = "config/secret.json";
+  var fs = require("fs");
+  var secret;
   var targetEnv = grunt.option('env') || 'dev';
+  var extend = require("extend");
+
+  if (fs.existsSync(SECRET_FILE)) {
+    secret = grunt.file.readJSON(SECRET_FILE);
+  }
 
   // Project configuration.
-  grunt.initConfig({
+  grunt.initConfig(extend({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
       files: [
@@ -45,8 +52,7 @@ module.exports = function(grunt) {
           expand: true,
           src: ["app/**", "lib/**", "index.js", "package.json", "!**/data/**",
             "!**/vendor/lib/**", "sql/db-setup.sql", "sql/db-setup.d/*.sql",
-            "sql/db-setup.d/*.json", "config/*.json", "Deployment.md",
-            "Gruntfile.js"],
+            "sql/db-setup.d/*.json", "Deployment.md", "Gruntfile.js"],
           dest: "build/yolosparo"
         }, {
           expand: false,
@@ -83,7 +89,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    secret: grunt.file.readJSON("config/secret.json"),
+    secret: secret,
     "sftp": {
       deploy: {
         files: {
@@ -93,7 +99,7 @@ module.exports = function(grunt) {
           host: "<%= secret.host %>",
           path: "<%= secret.remotePath %>",
           username: "<%= secret.username %>",
-          privateKey: grunt.file.read(secret.privateKey),
+          privateKey: secret && grunt.file.read(secret.privateKey),
           passphrase: "<%= secret.passphrase %>",
           srcBasePath: "dist/",
           showProgress: true
@@ -107,27 +113,12 @@ module.exports = function(grunt) {
         options: {
           host: "<%= secret.host %>",
           username: "<%= secret.username %>",
-          privateKey: grunt.file.read(secret.privateKey),
+          privateKey: secret && grunt.file.read(secret.privateKey),
           passphrase: "<%= secret.passphrase %>"
         }
       }
-    },
-    npmcopy: {
-      options: {
-        destPrefix: "app/assets/vendor"
-      },
-      libs: {
-        files: {
-          "lib/jquery": "jquery/dist",
-          "lib/bootstrap": "bootstrap/dist",
-          "lib/bootstrap/bootstrap-social/assets": "bootstrap-social/assets",
-          "lib/bootstrap/bootstrap-social": "bootstrap-social",
-          "lib/es5-shim": "es5-shim",
-          "lib/font-awesome": "font-awesome"
-        }
-      }
     }
-  });
+  }, grunt.file.readJSON("Gruntfile.client.json")));
 
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -143,4 +134,3 @@ module.exports = function(grunt) {
   grunt.registerTask("deploy", ["jshint", "clean", "copy", "compress",
     "sftp", "sshexec:" + targetEnv]);
 };
-

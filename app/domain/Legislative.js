@@ -39,6 +39,7 @@ module.exports = function Legislative (legislative) {
     facebookUrl: facebookUrl,
     facebookName: legislative.facebook_account,
     emailText: legislative.email_text,
-    tweetText: legislative.tweet_text
+    tweetText: legislative.tweet_text,
+    jurisdiction: legislative.region
   };
 };
