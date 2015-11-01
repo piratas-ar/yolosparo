@@ -36,6 +36,8 @@ PROTECCIÓN.
 
 [Continuar leyendo en Naturaleza de Derechos](http://www.naturalezadederechos.org/agrobsas1.htm)
 
+**Necesitamos limites racionales a las fumigaciones** y cambiar el paradigma productivo del campo.
+
 Fuentes:
 
 * [http://www.naturalezadederechos.org/agrobsas1.htm](http://www.naturalezadederechos.org/agrobsas1.htm)
