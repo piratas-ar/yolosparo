@@ -36,7 +36,8 @@ PROTECCIÓN.
 
 [Continuar leyendo en Naturaleza de Derechos](http://www.naturalezadederechos.org/agrobsas1.htm)
 
-**Necesitamos limites racionales a las fumigaciones** y cambiar el paradigma productivo del campo.
+**Necesitamos limites racionales a las fumigaciones** pensados para proteger la
+salud de las personas y no a capricho del agronegocio.
 
 Fuentes:
 
