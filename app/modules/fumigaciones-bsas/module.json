@@ -30,24 +30,7 @@
       "filter": false
     },
     "sendMessage": {
-      "emailMessage": "Por medio de la presente me dirijo a usted con el fin
-de exigir el no tratamiento del proyecto de ley “Regulando la utilización de
-productos biológicos o químicos en el sector agropecuario y derogando la ley
-10.669, sus modificatorias y decretos reglamentarios”, Expediente: E 166 2014 –
-2015.
-
-Exijo, además, que se lleve adelante un proceso de consulta pública con todos
-los sectores sociales interesados, cumpliendo los Artículos 2 inc. C de la Ley
-Integral del Medio Ambiente y los Recursos Naturales N° 11.723, de la Provincia
-de Buenos Aires, y la Ley General del Ambiente, N° 25.675. 
-
-Finalmente, demando que se debata públicamente el texto de este proyecto que
-atenta directamente contra los principios de no regresión, precaución y
-prevención establecidos por la legislación ambiental de nuestro país y
-desconoce la doctrina judicial de la Suprema Corte de Justicia de la Provincia
-de Buenos Aires.
-
-Agradezco su atención. ",
+      "emailMessage": "Por medio de la presente me dirijo a usted con el fin de exigir el no tratamiento del proyecto de ley “Regulando la utilización de productos biológicos o químicos en el sector agropecuario y derogando la ley 10.669, sus modificatorias y decretos reglamentarios”, Expediente: E 166 2014 – 2015.\n\nExijo, además, que se lleve adelante un proceso de consulta pública con todos los sectores sociales interesados, cumpliendo los Artículos 2 inc. C de la Ley Integral del Medio Ambiente y los Recursos Naturales N° 11.723, de la Provincia de Buenos Aires, y la Ley General del Ambiente, N° 25.675.\n\nFinalmente, demando que se debata públicamente el texto de este proyecto que atenta directamente contra los principios de no regresión, precaución y prevención establecidos por la legislación ambiental de nuestro país y desconoce la doctrina judicial de la Suprema Corte de Justicia de la Provincia de Buenos Aires.\n\nAgradezco su atención. ",
       "emailErrorMessage": "El formato del mail es incorrecto"
     }
   },
