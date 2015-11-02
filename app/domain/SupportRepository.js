@@ -79,6 +79,5 @@ module.exports = function SupportRepository(campaign, conn) {
         callback(null, support);
       });
     }
-  }
-
+  };
 };

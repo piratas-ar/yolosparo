@@ -88,10 +88,11 @@ var insertOrUpdate = function (conn, items) {
     debug("updating database");
 
     conn.query(query, err => {
-      if (err)
+      if (err) {
         reject(err);
-      else
+      } else {
         resolve();
+      }
     });
   });
 };
@@ -102,10 +103,11 @@ var run = function () {
   transformer.load()
     .then(() => new Promise((resolve, reject) => {
       dataSource.getConnection((err, conn) => {
-        if (err)
+        if (err) {
           reject(err);
-        else
+        } else {
           resolve(conn);
+        }
       });
     }))
     .then(conn => runner.run("people")

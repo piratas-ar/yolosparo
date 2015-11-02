@@ -5,9 +5,11 @@ var fs = require("fs");
 var mv = require("mv");
 
 function nombre_a_path(where, nombre, extension) {
-  nombre = nombre.replace(/[^a-z0-9]/gi, '_')
-  nombre = nombre.replace(/[_]+/gi, '_').toLowerCase();
-  return path.resolve(where + nombre + extension);
+  var resolvedName = nombre;
+
+  resolvedName = resolvedName.replace(/[^a-z0-9]/gi, '_');
+  resolvedName = resolvedName.replace(/[_]+/gi, '_').toLowerCase();
+  return path.resolve(where + resolvedName + extension);
 }
 
 module.exports = function (domain, app) {
@@ -23,14 +25,18 @@ module.exports = function (domain, app) {
         ext = path.extname(req.files.logo.name).toLowerCase(),
         targetPath = nombre_a_path('./uploads/', req.param('nombre'), ext);
 
-    if ( ['.png','.jpg'].indexOf(ext) != -1 ) {
+    if ( ['.png','.jpg'].indexOf(ext) !== -1 ) {
         mv(tempPath, targetPath, function(err) {
-            if (err) throw err;
+            if (err) {
+              throw err;
+            }
             console.log("Upload completed!");
         });
     } else {
-        fs.unlink(tempPath, function () {
-            if (err) throw err;
+        fs.unlink(tempPath, function (err) {
+            if (err) {
+              throw err;
+            }
             console.error("Only .png files are allowed!");
         });
     }
@@ -42,7 +48,7 @@ module.exports = function (domain, app) {
       sitio: req.param('sitio'),
       adhesion: req.param('adhesion'),
       mensaje: req.param('mensaje')
-    }
+    };
 
     supportRepo.save(support, function (err, result) {
       if (err) {
