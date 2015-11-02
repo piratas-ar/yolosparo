@@ -57,7 +57,7 @@ module.exports = function(domain, app) {
    */
   var generateUniqueName = function (repo, callback) {
     var number = String(Date.now());
-    var nick = names[randomIndex()] + number.substr(-4, 4);
+    var nick = names[randomIndex()] + number.substr(-4, 3);
 
     repo.findByNickname(campaign, nick, function (err, user) {
       if (err) {
