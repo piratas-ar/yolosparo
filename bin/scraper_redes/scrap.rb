@@ -26,18 +26,18 @@ module Legi
 
     def get_listado(camara, distrito)
       visit('http://alertas.directoriolegislativo.org/?post_type=legislador&distrito='+distrito)
-      select('Senado', from: 'camara')
+      select(camara, from: 'camara')
       find(:css, 'a span#buscartxt').click
       doc = Nokogiri::HTML(page.html)
       doc.css('div.role a').collect { |r| ActiveSupport::Inflector.transliterate(r['href'][20..-3]) }
     end
 
     def get_senadores
-      get_listado('Senado', 'a06G000000EgcuaIAB')
+      get_listado('Senado', 'a06G000000EgchLIAR')
     end
 
     def get_diputados
-      get_listado('Diputados', 'a06G000000EgcuaIAB')
+      get_listado('Diputados', 'a06G000000EgchLIAR')
     end
 
     def get_leg_page(legigato)
@@ -93,12 +93,24 @@ module Legi
       senado_row.css('td').first(6).last.css('a').text
     end
 
+    def get_email2(doc)
+      doc.css('.data.email li.mail a').first.text
+    end
+
     def get_username(senado_row)
       get_email(senado_row).split('@').first
     end
 
+    def get_username2(doc)
+      get_email2(doc).split('@').first
+    end
+
     def get_pic_url(senado_row)
       senado_row.css('td').first.css('img').first['src']
+    end
+
+    def get_pic_url2(doc)
+      doc.css('.personal-info .photo').first.attr('style').scan( /url\('(.*)'\)/ ).last.first
     end
 
     def get_phone(doc)
@@ -142,7 +154,7 @@ module Legi
         config.consumer_key        = "a7z4BX5VHsG96IlDc2gDIlLDK"
         config.consumer_secret     = "LDJG3PhWqcH7RCxpDqpvYfp0i7j1YARA5p9D6d2MWnA0BcdV2E"
         config.access_token        = "60947633-xc7xgt1AOKpw6XacSHblJFIsBrjEUchPNxnd5Mq58"
-        config.access_token_secret = "BrooY1KfPLwCGIkvzlcJHES"
+        config.access_token_secret = "BrooY1KfPLwCGIkvzlcJ7pBis"
       end
     end
 
@@ -186,8 +198,10 @@ datos = senadores.collect do |senador|
   doc = s.get_leg_page(senador)
   name = s.get_name(doc)
   next if name.empty?
-  senado_row = s.get_senado_row(senado_doc, name)
-  next if senado_row.nil?
+
+  # chequear que tb este en la pagina del senado FTW? lo comento
+  # senado_row = s.get_senado_row(senado_doc, name)
+  # next if senado_row.nil?
   twitter = s.get_twitter(doc)
   facebook = nil
   web = nil
@@ -206,9 +220,9 @@ datos = senadores.collect do |senador|
   {
     type: 'senador',
     full_name: name,
-    user_name: s.get_username(senado_row),
-    email: s.get_email(senado_row),
-    picture_url: s.get_pic_url(senado_row),
+    user_name: s.get_username2(doc),
+    email: s.get_email2(doc),
+    picture_url: s.get_pic_url2(doc),
     district: nil,
     start_date: nil,
     end_date: nil,
