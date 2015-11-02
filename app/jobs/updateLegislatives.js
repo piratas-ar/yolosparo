@@ -1,4 +1,4 @@
-process.env.DEBUG="update_legislatives,runner,people_importer," +
+process.env.DEBUG=(process.env.DEBUG || "") + ",update_legislatives,runner,people_importer," +
 "mysql_data_provider,json_data_provider";
 
 var debug = require("debug")("update_legislatives");
@@ -6,8 +6,8 @@ var ogi = require("ogov-importer");
 var fs = require("fs");
 var config = require("config");
 
-var DataSource = require("../lib/DataSource");
-var dataSource = new DataSource(Object.assign(config.get("dataSource")));
+var DataSource = require("../../lib/DataSource");
+var dataSource = new DataSource(config.get("dataSource"));
 
 var dataProviders = [new ogi.MySqlDataProvider({
   query: "select * from legislatives",
@@ -18,7 +18,7 @@ var dataProviders = [new ogi.MySqlDataProvider({
     database: "yolosparo_dev"
   }
 }), new ogi.JsonFileDataProvider({
-  "file": "sql/legisladores-AR.json"
+  files: ["sql/legisladores-AR.json", "sql/legisladores-AR-B.json"]
 })];
 
 var transformer = new ogi.Transformer(dataProviders, "email", legislative => ({
@@ -47,7 +47,7 @@ var transformer = new ogi.Transformer(dataProviders, "email", legislative => ({
 }));
 var storer = new ogi.InMemoryStorer(true, transformer);
 var runner = new ogi.Runner({
-  cacheDir: __dirname + "/../data/cache",
+  cacheDir: __dirname + "/../../data/cache",
   importers: {
     people: {
       encoding: "utf8"
@@ -56,16 +56,17 @@ var runner = new ogi.Runner({
   createStorers() {
     return [storer];
   }
-}, {
-  historyEnabled: false,
-  cacheEnabled: false
-});
+}, Object.assign(ogi.arguments(process.argv), {
+  cacheEnabled: true
+}));
 
 var insertOrUpdate = function (conn, items) {
   return new Promise((resolve, reject) => {
     var query = dataSource.query.insertOrUpdate("legislatives", items.map(item => ({
       id: item.id,
       user_name: item.user,
+      full_name: item.name,
+      email: item.email,
       picture_url: item.pictureUrl,
       district: item.district,
       start_date: item.start,
@@ -80,7 +81,8 @@ var insertOrUpdate = function (conn, items) {
       site_url: item.siteUrl,
       twitter_account: item.twitterName,
       facebook_account: item.facebookName,
-      region: item.jurisdiction
+      region: item.jurisdiction,
+      type: item.role
     })));
 
     debug("updating database");
@@ -94,31 +96,41 @@ var insertOrUpdate = function (conn, items) {
   });
 };
 
-debug("starting import process at %s", new Date());
+var run = function () {
+  debug("starting import process at %s", new Date());
 
-
-transformer.load()
-  .then(() => new Promise((resolve, reject) => {
-    dataSource.getConnection((err, conn) => {
-      if (err)
-        reject(err);
-      else
-        resolve(conn);
-    });
-  }))
-  .then(conn => runner.run("people")
-    .then(() => {
-      debug("%s items imported", storer.getNumberOfItems());
-      return insertOrUpdate(conn, storer.getItems());
-    })
-    .then(() => {
-      debug("importer finished without errors at %s", new Date());
+  transformer.load()
+    .then(() => new Promise((resolve, reject) => {
+      dataSource.getConnection((err, conn) => {
+        if (err)
+          reject(err);
+        else
+          resolve(conn);
+      });
+    }))
+    .then(conn => runner.run("people")
+      .then(() => {
+        debug("%s items imported", storer.getNumberOfItems());
+        return insertOrUpdate(conn, storer.getItems());
+      })
+      .then(() => {
+        return dataSource.execFile(conn, "300-campaigns-legislatives.sql");
+      })
+      .then(() => {
+        debug("importer finished without errors at %s", new Date());
+        transformer.close();
+        dataSource.close();
+      })
+    )
+    .catch(err => {
+      debug("importer finished with errors: %s", err.stack || JSON.stringify(err));
       transformer.close();
       dataSource.close();
-    })
-  )
-  .catch(err => {
-    debug("importer finished with errors: %s", err.stack || JSON.stringify(err));
-    transformer.close();
-    dataSource.close();
-  });
+    });
+};
+
+// Runs everyday at 3am AR time.
+module.exports = {
+  cronTime: "00 00 03 * * *",
+  onTick: run
+};

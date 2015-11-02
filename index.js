@@ -15,6 +15,7 @@ if (app.config.dataSource.drop) {
     if (err) {
       throw err;
     }
+    require("./jobs");
     app.init();
   });
 } else {

@@ -36,7 +36,7 @@ create table if not exists legislatives (
   twitter_account varchar(255) null,
   facebook_account varchar(255) null,
   region varchar(255) not null,
-  unique(type, full_name)
+  unique(type, email)
 );
 
 -- Active legislatives in a campaign.
