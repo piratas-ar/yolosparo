@@ -16,6 +16,8 @@ p + ul {
 	padding: 7px;
 }
 
+.navbar-brand img { display: inline }
+
 .mainslider { text-align: center; margin: 60px auto 0 auto; }
 .mainslider .video { text-align: center; margin: 0 auto; }
 
