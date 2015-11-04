@@ -121,6 +121,12 @@ module.exports = function(grunt) {
           passphrase: "<%= secret.passphrase %>"
         }
       }
+    },
+    githooks: {
+      all: {
+        // Will run the jshint and test:unit tasks at every commit
+        'pre-commit': 'jshint',
+      }
     }
   }, grunt.file.readJSON("Gruntfile.client.json")));
 
@@ -131,6 +137,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-release");
   grunt.loadNpmTasks('grunt-ssh');
   grunt.loadNpmTasks('grunt-npmcopy');
+  grunt.loadNpmTasks("grunt-githooks");
 
   // Default task.
   grunt.registerTask("default", ["jshint", "clean", "copy", "compress"]);
