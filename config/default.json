@@ -14,10 +14,14 @@
     "testRecipient": "test@yolosparo.org"
   },
   "dataSource": {
-    "server": "localhost",
-    "user": "yolosparo",
-    "password": "yolosparo",
-    "database": "yolosparo_dev",
-    "drop": true
+    "drop": true,
+    "upgrade": false,
+    "poolSize": 5,
+    "connection": {
+      "server": "localhost",
+      "user": "yolosparo",
+      "password": "yolosparo",
+      "database": "yolosparo_dev"
+    }
   }
 }

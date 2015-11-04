@@ -45,40 +45,37 @@ var initServer = function () {
   console.log("App available at http://localhost:" + app.config.port);
 };
 
+var initApp = function () {
+  var modules = [];
+  // The main module contains resources and services shared by all modules.
+  var mainModule = new Module(app, {
+    name: "common",
+    path: __dirname,
+    mountPath: "/",
+    domain: require("./domain")(app)
+  });
+
+  mainModule.load();
+
+  app.set("modules", modules);
+
+  // Loads all modules.
+  fs.readdirSync(MODULES_DIR).forEach(function (file) {
+    var modulePath = path.join(MODULES_DIR, file);
+    var moduleFile = path.join(modulePath, "module.json");
+    var module;
+
+    if (fs.existsSync(moduleFile)) {
+      module = loadModule(modulePath, JSON.parse(fs.readFileSync(moduleFile)
+        .toString()));
+      modules.push(module);
+    }
+  });
+
+  process.nextTick(initServer);
+};
+
 module.exports = extend(app, {
   config: require("config"),
-  init: function () {
-    var modules = [];
-    // The main module contains resources and services shared by all modules.
-    var mainModule = new Module(app, {
-      name: "common",
-      path: __dirname,
-      mountPath: "/",
-      domain: {
-        LegislativesRepository: require("./domain/LegislativesRepository"),
-        ActivitiesRepository: require("./domain/ActivitiesRepository"),
-        UsersRepository: require("./domain/UsersRepository"),
-        Mailer: require("./domain/Mailer")(app.config)
-      }
-    });
-
-    mainModule.load();
-
-    app.set("modules", modules);
-
-    // Loads all modules.
-    fs.readdirSync(MODULES_DIR).forEach(function (file) {
-      var modulePath = path.join(MODULES_DIR, file);
-      var moduleFile = path.join(modulePath, "module.json");
-      var module;
-
-      if (fs.existsSync(moduleFile)) {
-        module = loadModule(modulePath, JSON.parse(fs.readFileSync(moduleFile)
-          .toString()));
-        modules.push(module);
-      }
-    });
-
-    process.nextTick(initServer);
-  }
+  init: initApp
 });

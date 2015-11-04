@@ -10,14 +10,9 @@ if (process.env.NODE_USER) {
 
 app.set("dataSource", dataSource);
 
-if (app.config.dataSource.drop) {
-  dataSource.setupDatabase(function (err) {
-    if (err) {
-      throw err;
-    }
+dataSource.init()
+  .then(() => {
     require("./jobs");
     app.init();
-  });
-} else {
-  app.init();
-}
+  })
+  .catch(err => { throw err });

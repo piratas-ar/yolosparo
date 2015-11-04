@@ -10,7 +10,8 @@ drop table if exists campaigns;
 -- Campaign to scope legislatives and actions.
 create table if not exists campaigns(
   id bigint not null primary key auto_increment,
-  name varchar(255) not null unique
+  name varchar(255) not null unique,
+  enabled bit not null default true
 );
 
 -- People
@@ -40,7 +41,7 @@ create table if not exists legislatives (
 );
 
 -- Active legislatives in a campaign.
-create table campaign_legislatives(
+create table if not exists campaign_legislatives(
   campaign_id bigint not null,
   legislative_id bigint not null,
   foreign key (campaign_id) references campaigns(id),

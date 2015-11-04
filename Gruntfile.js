@@ -53,7 +53,8 @@ module.exports = function(grunt) {
           expand: true,
           src: ["app/**", "lib/**", "index.js", "package.json", "!**/data/**",
             "!**/vendor/lib/**", "sql/db-setup.sql", "sql/db-setup.d/*.sql",
-            "sql/db-setup.d/*.json", "Deployment.md", "Gruntfile.js"],
+            "sql/db-setup.d/*.json", "Deployment.md", "Gruntfile.js", "jobs.js",
+            "sql/datasets/*.json", "Gruntfile.client.json"],
           dest: "build/yolosparo"
         }, {
           expand: false,
@@ -99,6 +100,7 @@ module.exports = function(grunt) {
         options: {
           host: "<%= secret.host %>",
           path: "<%= secret.remotePath %>",
+          port: "<%= secret.port %>",
           username: "<%= secret.username %>",
           privateKey: secret && grunt.file.read(secret.privateKey),
           passphrase: "<%= secret.passphrase %>",
@@ -114,6 +116,7 @@ module.exports = function(grunt) {
         options: {
           host: "<%= secret.host %>",
           username: "<%= secret.username %>",
+          port: "<%= secret.port %>",
           privateKey: secret && grunt.file.read(secret.privateKey),
           passphrase: "<%= secret.passphrase %>"
         }
