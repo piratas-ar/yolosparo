@@ -54,7 +54,7 @@ module.exports = function(grunt) {
           src: ["app/**", "lib/**", "index.js", "package.json", "!**/data/**",
             "!**/vendor/lib/**", "sql/db-setup.sql", "sql/db-setup.d/*.sql",
             "sql/db-setup.d/*.json", "Deployment.md", "Gruntfile.js", "jobs.js",
-            "sql/datasets/*.json", "Gruntfile.client.json"],
+            "sql/datasets/*.json", "Gruntfile.client.json", "sql/upgrade.sql"],
           dest: "build/yolosparo"
         }, {
           expand: false,

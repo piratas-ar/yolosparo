@@ -37,42 +37,48 @@ var initServer = function () {
   };
 
   if (options.key && options.cert) {
+    debug("creating secure server");
     https.createServer(options, app).listen(app.config.ssl.port);
-    console.log("App available at https://localhost:" + app.config.ssl.port);
+    debug("app available at https://localhost:%s", app.config.ssl.port);
   }
 
+  debug("creating server");
   http.createServer(app).listen(app.config.port);
-  console.log("App available at http://localhost:" + app.config.port);
+  debug("app available at http://localhost:%s", app.config.port);
 };
 
 var initApp = function () {
-  var modules = [];
-  // The main module contains resources and services shared by all modules.
-  var mainModule = new Module(app, {
-    name: "common",
-    path: __dirname,
-    mountPath: "/",
-    domain: require("./domain")(app)
+  return new Promise((resolve, reject) => {
+    var modules = [];
+    // The main module contains resources and services shared by all modules.
+    var mainModule = new Module(app, {
+      name: "common",
+      path: __dirname,
+      mountPath: "/",
+      domain: require("./domain")(app)
+    });
+
+    mainModule.load();
+
+    app.set("modules", modules);
+
+    // Loads all modules.
+    fs.readdirSync(MODULES_DIR).forEach(function (file) {
+      var modulePath = path.join(MODULES_DIR, file);
+      var moduleFile = path.join(modulePath, "module.json");
+      var module;
+
+      if (fs.existsSync(moduleFile)) {
+        debug("loading module from file %s", moduleFile);
+        module = loadModule(modulePath, JSON.parse(fs.readFileSync(moduleFile)
+          .toString()));
+        modules.push(module);
+      }
+    });
+
+    initServer();
+    resolve();
   });
-
-  mainModule.load();
-
-  app.set("modules", modules);
-
-  // Loads all modules.
-  fs.readdirSync(MODULES_DIR).forEach(function (file) {
-    var modulePath = path.join(MODULES_DIR, file);
-    var moduleFile = path.join(modulePath, "module.json");
-    var module;
-
-    if (fs.existsSync(moduleFile)) {
-      module = loadModule(modulePath, JSON.parse(fs.readFileSync(moduleFile)
-        .toString()));
-      modules.push(module);
-    }
-  });
-
-  process.nextTick(initServer);
 };
 
 module.exports = extend(app, {
