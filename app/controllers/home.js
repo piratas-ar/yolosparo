@@ -13,7 +13,7 @@ module.exports = function (module, app) {
             return module.getConfiguration().name === campaign.name;
           });
           return resolvedModule && resolvedModule.getConfiguration();
-        }).filter(campaign => campaign != undefined)
+        }).filter(campaign => campaign !== undefined)
       });
     })
     .catch(err => next(err));
