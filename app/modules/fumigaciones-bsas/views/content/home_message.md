@@ -41,7 +41,7 @@ PROTECCIÓN.
 
 #### Más Información:
 
-* [http://www.naturalezadederechos.org/agrobsas1.htm](Naturaleza de Derechos: Avanza Peligroso y Rregresivo Proyecto de  Ley de Agrotóxicos en la Provincia de Buenos Aires)
-* [http://www.naturalezadederechos.org/senado3.htm](Naturaleza de Derechos: No al Proyecto de Ley del Senador Coll Areco)
-* [http://www.laolla.tv/2015/11/la-camara-de-senadores-de-la-provincia-de-buenos-aires-intenta-aprobar-un-proyecto-de-ley-que-amplia-las-areas-de-fumigacion/](La Olla TV: La Cámara de Senadores intenta aprobar un Proyecto de ley que amplía las áreas de fumigación)
-* [http://www.lavaca.org/notas/agrotoxicos-vs-salud-capitulo-1](La Vaca: Agrotóxicos vs. Salud, Capítulo 1)
+* [Naturaleza de Derechos: Avanza Peligroso y Rregresivo Proyecto de  Ley de Agrotóxicos en la Provincia de Buenos Aires](http://www.naturalezadederechos.org/agrobsas1.htm)
+* [Naturaleza de Derechos: No al Proyecto de Ley del Senador Coll Areco](http://www.naturalezadederechos.org/senado3.htm)
+* [La Olla TV: La Cámara de Senadores intenta aprobar un Proyecto de ley que amplía las áreas de fumigación](http://www.laolla.tv/2015/11/la-camara-de-senadores-de-la-provincia-de-buenos-aires-intenta-aprobar-un-proyecto-de-ley-que-amplia-las-areas-de-fumigacion/)
+* [La Vaca: Agrotóxicos vs. Salud, Capítulo 1](http://www.lavaca.org/notas/agrotoxicos-vs-salud-capitulo-1)
