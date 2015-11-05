@@ -1,6 +1,7 @@
 module.exports = function (module, app) {
   var path = require("path");
-  var mailer = new module.domain.Mailer(path.join(app.get("views"), "email"));
+  var config = module.getConfiguration().widgets.sendMessage;
+  var mailer = new module.domain.Mailer(module, path.join(app.get("views"), "email"));
   var campaign = app.get("name");
 
   // Sends an email to a legislative.
@@ -17,7 +18,7 @@ module.exports = function (module, app) {
         return;
       }
       // Sends the email.
-      mailer.send(sender, [legislative.email], {
+      mailer.send(config.subject, sender, [legislative.email], {
         message: message
       }, function (err) {
         if (err) {

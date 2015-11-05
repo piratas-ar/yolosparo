@@ -110,11 +110,6 @@ p + ul {
   text-align: center;
 }
 
-.legislatives {
-  clear: both;
-  padding-top: 20px;
-}
-
 .campaigns {
   margin: 50px auto;
   width: 500px;
