@@ -30,6 +30,18 @@ module.exports = function (app) {
       return encodeURIComponent(object);
     },
 
+    /** Replace Legi and Applies URI encode to a String
+     * @param {String} text String to encode. Cannot be null. 
+     * @param {String} legi gato.
+     * @return {String} the encoded string, never null.
+     */
+    encodeTweet: function (text, legi) {
+      if ( typeof legi !== 'undefined' ) {
+        text = text.replace('{legi}','@'+legi);
+      }
+      return encodeURIComponent(text);
+    },
+
     /** Includes a content file, it could be either a text or markdown file.
      * @param {String} file File to include, relative to the views directory.
      *    Cannot be null.

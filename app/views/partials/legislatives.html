@@ -60,7 +60,7 @@
             </p>
           {{/if}}
           {{#if twitterName}}
-            <a href="https://twitter.com/intent/tweet?text={{{encodeUri tweetText}}}&related=hoylosparo"
+            <a href="https://twitter.com/intent/tweet?text={{encodeTweet ../../module.widgets.legislatives.tweet_message twitterName }}&related=hoylosparo&url={{{ encodeUri 'http://www.yolosparo.org' }}}/{{ ../../module.name }}"
               id="tweet-{{id}}"
               target="_blank"
               class="social-channel btn btn-block btn-social btn-twitter"
@@ -161,7 +161,7 @@
             </p>
           {{/if}}
           {{#if twitterName}}
-            <a href="https://twitter.com/intent/tweet?text={{../../module.widgets.legislatives.tweet_message}}%40{{twitterName}}%20%23yolosparo&related=hoylosparo"
+            <a href="https://twitter.com/intent/tweet?text={{encodeTweet ../../module.widgets.legislatives.tweet_message twitterName }}&related=hoylosparo&url={{{ encodeUri 'http://www.yolosparo.org' }}}/{{ ../../module.name }}"
               id="tweet-{{id}}"
               target="_blank"
               class="social-channel btn btn-block btn-social btn-twitter"

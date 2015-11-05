@@ -22,11 +22,11 @@
       }]
     },
     "socialPlugins": {
-      "text": "Detengamos el avance de las fumigaciones en la provincia de Buenos Aires #ParenDeFumigarnos"
+      "text": "Detengamos el avance de las fumigaciones en la provincia de Buenos Aires #ParenDeFumigar"
     },
     "legislatives": {
       "title": "Legisladores de la provincia",
-      "tweet_message": "Hola, quería pedirte que nos ayudes a frenar el avance de las fumigaciones en la provincia. #ParenDeFumigarnos",
+      "tweet_message": "Hola {legi}, ayudanos a frenar el avance de las fumigaciones en la provincia. #ParenDeFumigar",
       "filter": false
     },
     "sendMessage": {
