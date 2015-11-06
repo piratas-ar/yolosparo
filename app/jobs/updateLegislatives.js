@@ -18,7 +18,7 @@ var dataProviders = [new ogi.MySqlDataProvider({
     database: "yolosparo_dev"
   }
 }), new ogi.JsonFileDataProvider({
-  files: ["sql/datasets/legisladores-AR.json", "sql/datasets/legisladores-AR-B.json"]
+  files: ["sql/datasets/legisladores-AR.json", "sql/datasets/legisladores-AR-B.json", "sql/datasets/legisladores-manual.json"]
 })];
 
 var transformer = new ogi.Transformer(dataProviders, "email", legislative => ({
