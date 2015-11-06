@@ -1,5 +1,6 @@
 alter table legislatives drop index type;
 alter table legislatives add constraint type unique (type, email);
+alter table legislatives add column region varchar(255) not null default 'AR';
 
 -- Campaign to scope legislatives and actions.
 create table if not exists campaigns(
@@ -10,6 +11,7 @@ create table if not exists campaigns(
 insert into campaigns (name) values ('common');
 insert into campaigns (name) values ('no-al-fracking');
 insert into campaigns (name) values ('fumigaciones-bsas');
+insert into campaigns (name, enabled) values ('rios-libres', false);
 
 -- Active legislatives in a campaign.
 create table if not exists campaign_legislatives(
@@ -28,6 +30,8 @@ insert into campaign_legislatives (campaign_id, legislative_id)
 
 alter table activities drop index user_id;
 alter table activities add column campaign_id bigint not null;
+update activities set campaign_id = (
+  select id from campaigns where name = 'no-al-fracking');
 alter table activities add foreign key (campaign_id) references campaigns(id);
 alter table activities add constraint activity_id unique
   (campaign_id, user_id, legislative_id, action);

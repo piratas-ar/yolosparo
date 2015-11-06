@@ -120,6 +120,17 @@ module.exports = function(grunt) {
           privateKey: secret && grunt.file.read(secret.privateKey),
           passphrase: "<%= secret.passphrase %>"
         }
+      },
+      prod: {
+        command: "<%= secret.remotePath %>/remote_deploy.sh " +
+          "<%= pkg.version %> prod",
+        options: {
+          host: "<%= secret.host %>",
+          username: "<%= secret.username %>",
+          port: "<%= secret.port %>",
+          privateKey: secret && grunt.file.read(secret.privateKey),
+          passphrase: "<%= secret.passphrase %>"
+        }
       }
     },
     githooks: {
