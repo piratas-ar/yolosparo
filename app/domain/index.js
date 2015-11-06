@@ -4,6 +4,7 @@ module.exports = function initDomain(app) {
     ActivitiesRepository: require("./ActivitiesRepository"),
     UsersRepository: require("./UsersRepository"),
     CampaignRepository: require("./CampaignRepository"),
+    SupportsRepository: require("./SupportsRepository"),
     Mailer: require("./Mailer")(app.config)
   };
 };

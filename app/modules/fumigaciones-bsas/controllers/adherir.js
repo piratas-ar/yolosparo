@@ -12,13 +12,12 @@ function nombre_a_path(where, nombre, extension) {
   return path.resolve(where + resolvedName + extension);
 }
 
-module.exports = function (domain, app) {
+module.exports = function (module, app) {
   var campaign = app.get("name");
 
   // Renders the home page.
   app.post('/adherir', function (req, res, next) {
-    var supportRepo = new domain
-      .SupportRepository(campaign, req.db);
+    var supportRepo = new module.domain.SupportsRepository(campaign, req.db);
 
     // Guardar logo req.params('logo')
     var tempPath = req.files.logo.path,

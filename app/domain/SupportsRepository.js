@@ -1,4 +1,4 @@
-module.exports = function SupportRepository(campaign, conn) {
+module.exports = function SupportsRepository(campaign, conn) {
   /* Listar adhesiones */
   var LIST_ALL = "select s.* from support s " +
     "inner join campaigns c on s.campaign_id = c.id " +
