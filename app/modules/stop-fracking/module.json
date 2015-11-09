@@ -5,6 +5,13 @@
   "picture": "images/argentina_libre_de_fracking-opengraph.jpg",
   "mountPath": "/no-al-fracking",
   "staticViews": ["billInfo.markdown", "contact.html"],
+  "openGraph": {
+    "facebookAppId": 602412299869906,
+    "title": "Yo los paro!",
+    "url": "http://www.yolosparo.org/no-al-fracking",
+    "description": "Le pedimos a nuestros legisladores que cambien su posición y voten NO al fracking, NO a la nueva ley de hidrocarburos",
+    "image": "http://www.yolosparo.org/no-al-fracking/images/argentina_libre_de_fracking-opengraph.jpg"
+  },
   "widgets": {
     "slider": {
       "video": "//www.youtube.com/embed/i9MOISFiAP4?autoplay=1",

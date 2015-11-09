@@ -6,13 +6,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <!-- Open graph object information, used to share in facebook -->
-    <meta property="fb:app_id" content="602412299869906" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Yo los paro!" />
-    <meta property="og:url" content="http://yolosparo.org" />
-    <meta property="og:description"
-      content="Le pedimos a nuestros legisladores que cambien su posición y voten NO al fracking, NO a la nueva ley de hidrocarburos." />
-    <meta property="og:image" content="http://yolosparo.org/images/argentina_libre_de_fracking-opengraph.jpg" />
+    <meta property="fb:app_id" content="{{module.openGraph.facebookAppId}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{module.openGraph.title}}" />
+    <meta property="og:url" content="{{module.openGraph.url}}" />
+    <meta property="og:description" content="{{module.openGraph.description}}" />
+    <meta property="og:image" content="{{module.openGraph.image}}" />
 
     <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon">
@@ -100,7 +99,7 @@
         var userFormElement = jQuery("#userForm");
         var userSettingsAction = jQuery("#userSettings");
         var userForm = new ppar.UserForm(userFormElement, userSettingsAction, {
-          campaign: "{{campaign}}"
+          campaign: "{{module.name}}"
         });
 
         userForm.render();

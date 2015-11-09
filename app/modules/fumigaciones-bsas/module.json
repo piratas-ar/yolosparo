@@ -5,6 +5,13 @@
   "picture": "images/logo.jpg",
   "mountPath": "/fumigaciones-bsas",
   "staticViews": ["contact.html", "adherir.html", "gracias.html"],
+  "openGraph": {
+    "facebookAppId": 602412299869906,
+    "title": "Yo los paro!",
+    "url": "http://www.yolosparo.org/fumigaciones-bsas",
+    "description": "Necesitamos limites racionales a las fumigaciones pensados para proteger la salud de las personas y no a capricho del agronegocio",
+    "image": "http://www.yolosparo.org/fumigaciones-bsas/images/logo.jpg"
+  },
   "widgets": {
     "slider": {
       "images": [{
