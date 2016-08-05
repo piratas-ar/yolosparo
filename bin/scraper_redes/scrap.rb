@@ -24,6 +24,8 @@ module Legi
       doc = Nokogiri::HTML(page.html)
     end
 
+    # DIR LEGI
+
     def get_listado(camara, distrito)
       visit('http://alertas.directoriolegislativo.org/?post_type=legislador&distrito='+distrito)
       select(camara, from: 'camara')
@@ -42,19 +44,6 @@ module Legi
 
     def get_leg_page(legigato)
       doc = get_page_data('http://alertas.directoriolegislativo.org/?legislador='+legigato)
-    end
-
-    def get_senado_list
-      doc = get_page_data('http://www.senado.gob.ar/senadores/listados/listaSenadoRes')
-    end
-
-    def get_senado_row(senado_doc, name)
-      fila = senado_doc.css('table tr').select do |row|
-        name.split.select do |piece|
-          piece.length > 2 && (row.text.include?(piece) || row.text.include?(ActiveSupport::Inflector.transliterate(piece)))
-        end.length >= 2
-      end
-      fila.first
     end
 
     def get_twitter(doc)
@@ -89,24 +78,12 @@ module Legi
       doc.css('div.name').text.strip
     end
 
-    def get_email(senado_row)
-      senado_row.css('td').first(6).last.css('a').text
-    end
-
     def get_email2(doc)
       doc.css('.data.email li.mail a').first.text
     end
 
-    def get_username(senado_row)
-      get_email(senado_row).split('@').first
-    end
-
     def get_username2(doc)
       get_email2(doc).split('@').first
-    end
-
-    def get_pic_url(senado_row)
-      senado_row.css('td').first.css('img').first['src']
     end
 
     def get_pic_url2(doc)
@@ -145,6 +122,33 @@ module Legi
       address_elem = doc.css('ul.data.secretary').select { |t| t.css('li.title').first.text.strip == 'EN SU DISTRITO' }.first
       address = address_elem.css('li.advisory-number').last.text.strip unless address_elem.nil? or address_elem.css('li.advisory-number').length < 2
       address unless address == 'No tiene'
+    end
+
+
+    # SENADO
+    def get_senado_list
+      doc = get_page_data('http://www.senado.gob.ar/senadores/listados/listaSenadoRes')
+    end
+
+    def get_senado_row(senado_doc, name)
+      fila = senado_doc.css('table tr').select do |row|
+        name.split.select do |piece|
+          piece.length > 2 && (row.text.include?(piece) || row.text.include?(ActiveSupport::Inflector.transliterate(piece)))
+        end.length >= 2
+      end
+      fila.first
+    end
+
+    def get_email(senado_row)
+      senado_row.css('td').first(6).last.css('a').text
+    end
+
+    def get_username(senado_row)
+      get_email(senado_row).split('@').first
+    end
+
+    def get_pic_url(senado_row)
+      senado_row.css('td').first.css('img').first['src']
     end
   end
 
@@ -191,7 +195,6 @@ s = Legi::WebScraper.new
 t = Legi::TwitterScraper.new
 
 senadores = s.get_senadores
-senado_doc = s.get_senado_list
 i = 0
 datos = senadores.collect do |senador|
   i = i+1
