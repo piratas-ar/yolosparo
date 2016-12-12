@@ -6,10 +6,14 @@ require 'fuzzy_match'
 require 'active_support/inflector'
 
 
-a_base = 'senadores_c_redes.json'
-#a_base = 'senadores.json'
-a_agregar = '../../sql/datasets/legisladores-AR.json'
-#a_agregar = 'senadores_redes.json'
+#a_base = 'senado.json'
+#a_base = 'senado_y_redes.json'
+a_base = 'senado_y_historico.json'
+
+#a_agregar = 'senado_redes.json'
+#a_agregar = '../../sql/datasets/legisladores-AR.json'
+a_agregar = 'senado.json'
+
 field = 'full_name'
 
 bases = JSON.parse(open(a_base).read).uniq{|s| s[field]}
